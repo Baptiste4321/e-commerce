@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StoreHack</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="assets/img.ico"/>
+    <link rel="icon" type="image/x-icon" href="assets/img.png"/>
     <!-- Inclure la bibliothèque Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-pj/NH6Mk8ni8wTXp7o5+WCQ5ZLO5DvMdRJ+fPXpDgV9bsJvW2z/Z4Z9aOmUaP9J4fYldXkvpN7zcKmx+XPErCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-</head>
+    <script src="javascript/script.js"></script>
 <body>
 <header>
     <nav>
         <ul>
-            <li><a href="#"><img src="/assets/img.ico" id="logo"></a></li>
-            <li><a href="#">Catégories</a></li>
+            <li><a href="#"><img src="/assets/img.png" id="logo"></a></li>
+            <li class="dropdown">
+                <a>Catégories</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Femme</a></li>
+                    <li><a href="#">Homme</a></li>
+                    <li><a href="#">Enfant</a></li>
+                </ul>
+            </li>
             <li><a href="#">Accueil</a></li>
             <li><a href="#">Produits</a></li>
             <li><a href="#">Contact</a></li>

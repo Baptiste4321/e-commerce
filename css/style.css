@@ -96,8 +96,8 @@ button:hover {
 }
 
 #logo{
-    height: 7vh;
-    width: 10vh;
+    height: 5vh;
+    width: 5vh;
 
 
 }
@@ -127,4 +127,20 @@ button:hover {
 
 .btn-social {
     padding: 8px; /* Ajuster le padding pour l'icône */
+}
+/* Styles pour le menu déroulant */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+/* Styles pour le lien Catégories */
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
