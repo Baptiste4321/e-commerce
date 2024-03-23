@@ -39,7 +39,7 @@ footer {
     color: white;
     padding: 20px;
     text-align: center;
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -400,3 +400,13 @@ a {
 
 
   }
+
+.contentrub{
+    margin-left: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
