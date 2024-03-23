@@ -182,7 +182,6 @@ button:hover {
     text-align: center; 
     left: 65vw;
 
-    background-color: aquamarine;
     
 
 
@@ -296,6 +295,14 @@ a {
     to {opacity: 1}
   }
 
+  #Slogantel{
+    font-size: 0px;
+
+
+  }
+    #lientel{
+    display: none;
+    }
 
  
 
