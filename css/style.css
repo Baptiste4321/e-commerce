@@ -1,5 +1,18 @@
 
 
+ /*Police de caractère*/
+ @font-face {
+    font-family: 'Tauri';
+    src: url('/Tauri-Regular.ttf') format('ttf');
+       
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+
 
 
 /* Réinitialisation des styles */
@@ -196,6 +209,14 @@ button:hover {
     top: 25%;
 
     font-size: 2.5rem;
+    @font-face {
+        font-family: 'Tauri';
+        src: url('/Tauri-Regular.ttf') format('ttf');
+           
+        font-weight: normal;
+        font-style: normal;
+    }
+
 
 
 }
@@ -243,6 +264,8 @@ button:hover {
     text-decoration: none;
     
     width: 35vw;
+    font-family: 'Tauri';
+
     
 }
 
@@ -250,6 +273,7 @@ button:hover {
     text-decoration: none;
     color: black;
     margin: 10px;
+    font-size: 1.25rem;        
 }
 
 .desliens:hover{
@@ -301,10 +325,7 @@ a {
 
 
     #block-image{
-        width: 1%;
-    
-        background-color: transparent;
-        
+        display: none;
     
     
     }
@@ -316,9 +337,11 @@ a {
     }
 
     #lien{
-        
-        font-size: 0px;
+        display: none;
     }
+
+    
+
     
 
 
@@ -329,18 +352,19 @@ a {
          top: 40%;
          left: 50%;
         transform: translate(-50%, -50%);
-        width: 70vw;
+        width: 80vw;
         height: auto;
         font-size: 25px;
         text-align: center;
-       
-        background-color: #007bff;
+        font-family: 'Tauri';
+        background-color: #ffffff;
     }
 
     #lientel{
         position: absolute;
         top: 60%;
        display: flex;
+
         
     }
 
@@ -354,8 +378,10 @@ a {
         color: white;
         
         border: 1px solid black;
-        border-radius: 0.75rem;
+        border-radius: 0.3rem;
         margin: 10px;
+        font-family: 'Tauri';
+
         
     }
    
