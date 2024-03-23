@@ -1,3 +1,7 @@
+
+
+
+
 /* Réinitialisation des styles */
 * {
     margin: 0;
@@ -152,17 +156,20 @@ button:hover {
     background-color: rgb(255, 255, 255);
     width: 100%;
     height: 90vh;
+    background-image: none;
 }
 
 #block-image{
     height: 90vh;
-    width: 60vh;
+    width: 29vw;
     
     position: absolute;
     overflow: hidden;
     right: 0;
     text-align: center; 
-    left: 125vh;
+    left: 65vw;
+
+    background-color: aquamarine;
     
 
 
@@ -172,23 +179,23 @@ button:hover {
     position: absolute;
     margin: auto;
     display: block;
-    max-width: auto;
+    
     height: 90vh;
 }
 
 #Slogan{
     position: absolute;
     
-    width: 70vh;
+    width: 40vw;
     height: auto;
-    background-color: rgb(255, 255, 255);
+   
     color: rgb(0, 0, 0);
     text-align: center;
     padding: 20px;
     left: 10%;
     top: 25%;
 
-    font-size: 3.175rem;
+    font-size: 2.5rem;
 
 
 }
@@ -232,10 +239,10 @@ button:hover {
     top: 50%;
     left: 12%;
 
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-decoration: none;
-    margin-right: 1px; 
-    width: 30%;
+    
+    width: 35vw;
     
 }
 
@@ -263,4 +270,107 @@ a {
 @keyframes fade{
     from {opacity: 0.2} 
     to {opacity: 1}
+  }
+
+
+ 
+
+
+
+  @media screen and (max-width: 1000px) {
+
+
+
+    #versionmobile{
+        width: 100%;
+       height: 50vh;
+       background-color: rgb(255, 255, 255);
+       position: relative;
+    }
+
+
+    #banderole{
+        position: relative;
+        background-image: url(/image/Photoacceuil4.jpg);
+        width: 100%;
+        height: 90vh;
+        background-size: cover;
+    
+    
+    }
+
+
+    #block-image{
+        width: 1%;
+    
+        background-color: transparent;
+        
+    
+    
+    }
+
+    #Slogan{
+        font-size: 0px;
+    
+    
+    }
+
+    #lien{
+        
+        font-size: 0px;
+    }
+    
+
+
+
+
+    #Slogantel{
+        position: absolute;
+         top: 40%;
+         left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70vw;
+        height: auto;
+        font-size: 25px;
+        text-align: center;
+       
+        background-color: #007bff;
+    }
+
+    #lientel{
+        position: absolute;
+        top: 60%;
+       display: flex;
+        
+    }
+
+    .deslienstel{
+        position: relative;
+        font-size: auto;
+        width: 19vw;
+        font-size: 0.85rem;
+        text-align: center;
+        background-color: black;
+        color: white;
+        
+        border: 1px solid black;
+        border-radius: 0.75rem;
+        margin: 10px;
+        
+    }
+   
+    
+    .slideimage{
+        display: none;
+    }
+
+    
+
+    .boutonfleche{
+        height: 3vh;
+        width: 3vh;
+    }
+
+
+
   }
