@@ -9,7 +9,7 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 header{
-    height: 10vh;
+    height: 150px;
     width: 100vw;
     background-image: url(../assets/karim_linux2.png);
     background-size: cover;
