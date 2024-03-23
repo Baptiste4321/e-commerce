@@ -377,7 +377,7 @@ a {
 
     .deslienstel{
         position: relative;
-        font-size: auto;
+        font-size: 100%;
         width: 19vw;
         font-size: 0.85rem;
         text-align: center;
