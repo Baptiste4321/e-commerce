@@ -18,12 +18,14 @@ header{
     position: fixed;
     /*margin: 50px;*/
     padding: 3vh 10vw;
-    display: flex;
+    display: flex block;
+    background-color: bisque;
     justify-content: space-between;
     align-items: center;
     width: 100vw;
     box-sizing: border-box;
     z-index: 999;
+    transition: padding 0.3s; /* Transition pour une animation fluide */
 }
 .navbar a {
     color: white;
@@ -54,9 +56,12 @@ header{
 }
 @media screen and (max-width: 900px){
     .navbar{
-        padding: 0;
+        padding: 6vh 10vw;
         margin: 0;
         z-index: 999;
+        display: flex block;
+        background-color: bisque;
+        transition: padding 0.3s; /* Transition pour une animation fluide */
 
     }
     .navbar .logo{
@@ -96,6 +101,70 @@ header{
     }
 
 }
+.navbar.shrink {
+    position: fixed;
+    /*margin: 50px;*/
+    padding: 1vh 3vw;
+    display: flex block;
+    background-color: bisque;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    box-sizing: border-box;
+    z-index: 999;
+}
+/* Style du menu déroulant */
+.sous-menu {
+    display: none;
+    position: absolute;
+    background-color: #333; /* Couleur de fond du menu déroulant */
+    padding: 10px;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.sous-menu li {
+    margin: 0;
+}
+
+.sous-menu li a {
+    color: #fff; /* Couleur du texte des sous-menu */
+    text-decoration: none;
+}
+
+/* Affichage du menu déroulant lors du survol */
+.deroulant:hover .sous-menu {
+    display: block;
+}
+.nav-li{
+    display: flex; /* Utilisation de flexbox */
+    align-items: center; /* Centrer verticalement les éléments */
+
+}
+.barre-recherche {
+    display: inline-flex; /* Afficher les éléments en ligne */
+    align-items: center; /* Aligner les éléments verticalement */
+    width: 300px; /* Largeur de la barre de recherche */
+    background-color: #fff; /* Couleur de fond de la barre de recherche */
+    border: 1px solid #ccc; /* Bordure de la barre de recherche */
+    border-radius: 5px; /* Bordure arrondie */
+    padding: 5px 10px; /* Espacement à l'intérieur de la barre de recherche */
+
+}
+/* Style de l'icône de recherche */
+.barre-recherche .icone-recherche {
+    margin-right: 5px; /* Espacement à droite de l'icône */
+
+
+}
+
+/* Style de la zone de saisie de texte */
+.barre-recherche input[type="text"] {
+    border: none; /* Suppression de la bordure par défaut */
+    outline: none; /* Suppression de l'effet de focus */
+    flex: 1; /* Permet à la zone de saisie de texte de s'étendre pour remplir l'espace disponible */
+}
 
 footer {
     background-color: #333;
@@ -107,18 +176,7 @@ footer {
     bottom: 0;
     width: auto;
 }
-ul.sous-menu{
-    display: none;
-    position: fixed;
-    background-color: rgba(255, 255, 255, 0.20);
-    backdrop-filter: blur(8px);
-    width: 100%;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    padding: 10px;
-    border-radius: 5px;
-}
+
 #logo{
     height: 100px;
     width: auto;

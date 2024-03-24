@@ -18,3 +18,11 @@ function carousel() {
     x[slideIndex-1].style.display = "block";
     setTimeout(carousel, 2000);
 }
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 100) { // Changer 100 selon vos besoins
+        navbar.classList.add('shrink');
+    } else {
+        navbar.classList.remove('shrink');
+    }
+});
