@@ -417,3 +417,7 @@ a {
     margin-top: 1%;
     margin-bottom: 1%;
 }
+
+#LePlusAcheté, #PourVous, #Promotion{
+    margin-left: 1%;
+}
