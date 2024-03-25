@@ -296,7 +296,7 @@ a {
   }
 
   #Slogantel{
-    font-size: 0px;
+    font-size: 0;
 
 
   }
@@ -338,7 +338,7 @@ a {
     }
 
     #Slogan{
-        font-size: 0px;
+        font-size: 0;
     
     
     }
@@ -377,7 +377,6 @@ a {
 
     .deslienstel{
         position: relative;
-        font-size: 100%;
         width: 19vw;
         font-size: 0.85rem;
         text-align: center;
