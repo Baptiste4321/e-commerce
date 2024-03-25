@@ -296,7 +296,7 @@ a {
   }
 
   #Slogantel{
-    font-size: 0px;
+    font-size: 0;
 
 
   }
@@ -338,7 +338,7 @@ a {
     }
 
     #Slogan{
-        font-size: 0px;
+        font-size: 0;
     
     
     }
@@ -377,7 +377,6 @@ a {
 
     .deslienstel{
         position: relative;
-        font-size: 100%;
         width: 19vw;
         font-size: 0.85rem;
         text-align: center;
@@ -416,4 +415,8 @@ a {
     align-items: center;
     margin-top: 1%;
     margin-bottom: 1%;
+}
+
+#LePlusAcheté, #PourVous, #Promotion{
+    margin-left: 1%;
 }

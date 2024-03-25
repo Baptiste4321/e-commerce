@@ -400,7 +400,6 @@ a {
 
     .deslienstel{
         position: relative;
-        font-size: 100%;
         width: 19vw;
         font-size: 0.85rem;
         text-align: center;
@@ -431,6 +430,9 @@ a {
 
 }
 
+
+
+/* PL css */
 .contentrub{
     margin-left: 1%;
     display: flex;
@@ -441,5 +443,7 @@ a {
     margin-bottom: 1%;
 }
 
-/* PL css */
+#LePlusAcheté, #PourVous, #Promotion{
+    margin-left: 1%;
+}
 /* Louis css */
