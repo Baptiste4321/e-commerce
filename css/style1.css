@@ -38,7 +38,7 @@ header{
     display: flex;
 
 }
-.navbar .nav-links ul li{
+.navbar .nav-links ul .marge-li{
     margin: 0 25px;
 
 }
@@ -118,14 +118,14 @@ header{
     display: none;
     position: absolute;
     background-color: #333; /* Couleur de fond du menu déroulant */
-    padding: 10px;
-    top: 100%;
-    left: 0;
-    z-index: 1;
+    padding: 20px;
+    top: 80%;
+    /*left: 0;
+    z-index: 1;*/
 }
 
 .sous-menu li {
-    margin: 0;
+    /*margin: 0;*/
 }
 
 .sous-menu li a {
@@ -141,6 +141,9 @@ header{
     display: flex; /* Utilisation de flexbox */
     align-items: center; /* Centrer verticalement les éléments */
 
+}
+.li-marge-none{
+    margin: 0 0px;
 }
 .barre-recherche {
     display: inline-flex; /* Afficher les éléments en ligne */
