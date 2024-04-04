@@ -202,18 +202,26 @@ footer {
     padding: 50px;
 }
 
-#liste {
-    background-color: white;
-    height: 50vh;
-    width: 60vw;
-    margin-right: 20px; /* Add some space between the two divs */
-}
+    #liste {
+        background-color: white;
+        height: 50vh;
+        width: 60vw;
+        margin-right: 20px; /* Add some space between the two divs */
+    }
+        #textpanier{
+            width: 100%;
+         
+            padding: 20px;
+            
+            
+            
+        }
 
-#payement {
-    background-color: white;
-    height: 10vh;
-    width: 350px;
-}
+    #payement {
+        background-color: white;
+        height: 50vh;
+        width: 20%;
+    }
 
 
 
@@ -223,3 +231,5 @@ footer {
 
 
 }
+
+
