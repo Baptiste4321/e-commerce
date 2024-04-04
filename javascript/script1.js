@@ -16,7 +16,7 @@ function carousel() {
     slideIndex++;
     if (slideIndex > x.length) {slideIndex = 1}
     x[slideIndex-1].style.display = "block";
-    setTimeout(carousel, 2000);
+    setTimeout(carousel, 5000);
 }
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
