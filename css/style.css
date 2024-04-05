@@ -420,3 +420,15 @@ a {
 #LePlusAcheté, #PourVous, #Promotion{
     margin-left: 1%;
 }
+/*style de la page de recherche*/
+ #image-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+     grid-gap: 10px;
+ }
+
+ #image-grid img {
+     height: 20vh;
+     width: 30vh;
+
+ }
