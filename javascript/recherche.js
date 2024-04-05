@@ -17,3 +17,23 @@ document.addEventListener("DOMContentLoaded", function() {
         imageGrid.appendChild(imageContainer);
     }
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById('searchInput');
+    const loupeIcon = document.getElementById('loupe');
+
+    function redirectToSearchPage() {
+        if (searchInput.value.trim() !== '') {
+            window.location.href = 'recherche.html';
+        }
+    }
+
+    // Redirection vers la page de recherche lors du clic sur l'icône de la loupe
+    loupeIcon.addEventListener('click', redirectToSearchPage);
+
+    // Redirection vers la page de recherche lors de l'appui sur la touche Entrée dans l'input
+    searchInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            redirectToSearchPage();
+        }
+    });
+});
