@@ -7,6 +7,8 @@
     <title>Navbar</title>
     <link rel="stylesheet" href="/css/panier.css">
     <script src="javascript/panier.js"></script>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+
 </head>
 <body>
 
@@ -38,70 +40,199 @@
 
     </header>
     <main>
-    <section id="contenu">
-        <div id="liste">
-            <div id="textpanier">
-                <p style="font-size: 2.3rem;">Panier</p>
-                <br>
-                <label for="checkbox1">
+        <section id="contenu">
+            <div id="liste">
+                <div id="textpanier">
+                    <p style="font-size: 2.3rem;">Panier</p>
+                    <br>
+                    <label for="checkbox1">
 
-                    <input type="checkbox" id="checkbox1" name="checkbox1">
-                    Sélectionner Tous Les articles
-                </label>
-                  
+                        <input type="checkbox" id="checkbox1" name="checkbox1">
+                        Sélectionner Tous Les articles
+                    </label>
+                    
+                </div>
+                <hr>
+                <p id="Séléction"></p>
             </div>
-            <hr>
-            <p id="Séléction"></p>
-        </div>
-        <div id="payement">
-            <div id="textpanier">
-                <p style="font-size: 1rem;">prix sans livraison : </p>
-                <br>
-                <p style="font-size: 1rem;">livraison : </p>
-                <br>
-            <p style="font-size: 1.8rem;">Total :</p>
+            <div id="payement">
+                <div id="textpanier">
+                    <p style="font-size: 1rem;">prix sans livraison : </p>
+                    <br>
+                    <p style="font-size: 1rem;">livraison : </p>
+                    <br>
+                <p style="font-size: 1.8rem;">Total :</p>
+
+                </div>
 
             </div>
 
-        </div>
 
 
-
-    </section>
+        </section>
         <section id="pub">
-            <div class='cards-wrapper'>
-        <div class='cards'>
-            <button class='card card1' tabindex="-1">
-            <h2>1</h2>
-            </button>
-            <button class='card card2' tabindex="-1">
-            <h2>2</h2>   
-            </button>
-            <button class='card card4' tabindex="-1">
-            <h2>3</h2> 
-            </button> 
-            <button class='card card5' tabindex="-1">
-            <h2>4</h2>  
-            </button>
-            <button class='card card5' tabindex="-1">
-                <h2>4</h2>  
-            </button>
-            <button class='card card5' tabindex="-1">
-                <h2>4</h2>  
-                </button>
-        </div>
-        <button class="arrow-btn arrow-btn-prev" tabindex="0">
-            <svg viewBox="0 0 256 512">
-            <path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z" />
-            </svg>
-        </button>
-        <button class="arrow-btn arrow-btn-next" tabindex="0">
-            <svg viewBox="0 0 256 512">
-            <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" />
-            </svg>
-        </button>
-        </div>
-    </section>
+
+
+
+
+            <main class="main bd-grid owl-carousel">  
+                <article class="card">  
+                  <div class="card__img">  
+                    <img src="assets/img/img1.png" alt="">  
+                  </div>  
+                  <div class="card__name">  
+                    <p>AIR ZOOM PEGASUS</p>  
+                  </div>  
+                  <div class="card__precis">  
+                    <a href="" class="card__icon" ><ion-icon name="heart-outline"></ion-icon></a>  
+                    <div>  
+                      <span class="card__preci card__preci--before">$990.00</span>  
+                      <span class="card__preci card__preci--now">$749.00</span>  
+                    </div>  
+                    <a href="" class="card__icon"><ion-icon name="cart-outline"></ion-icon></a>  
+                  </div>  
+                </article>  
+                <article class="card">  
+                  <div class="card__img">  
+                    <img src="assets/img/img2.png" alt="">  
+                  </div>  
+                  <div class="card__name">  
+                    <p>AIR ZOOM PEGASUS</p>  
+                  </div>  
+                  <div class="card__precis">  
+                    <a href="" class="card__icon" ><ion-icon name="heart-outline"></ion-icon></a>  
+                    <div>  
+                      <span class="card__preci card__preci--before">$990.00</span>  
+                      <span class="card__preci card__preci--now">$749.00</span>  
+                    </div>  
+                    <a href="" class="card__icon"><ion-icon name="cart-outline"></ion-icon></a>  
+                  </div>  
+                </article>  
+                <article class="card">  
+                  <div class="card__img">  
+                    <img src="assets/img/img3.png" alt="">  
+                  </div>  
+                  <div class="card__name">  
+                    <p>AIR ZOOM PEGASUS</p>  
+                  </div>  
+                  <div class="card__precis">  
+                    <a href="" class="card__icon" ><ion-icon name="heart-outline"></ion-icon></a>  
+                    <div>  
+                      <span class="card__preci card__preci--before">$990.00</span>  
+                      <span class="card__preci card__preci--now">$749.00</span>  
+                    </div>  
+                    <a href="" class="card__icon"><ion-icon name="cart-outline"></ion-icon></a>  
+                  </div>  
+                </article>  
+                <article class="card">  
+                  <div class="card__img">  
+                    <img src="assets/img/img4.png" alt="">  
+                  </div>  
+                  <div class="card__name">  
+                    <p>AIR ZOOM PEGASUS</p>  
+                  </div>  
+                  <div class="card__precis">  
+                    <a href="" class="card__icon" ><ion-icon name="heart-outline"></ion-icon></a>  
+                    <div>  
+                      <span class="card__preci card__preci--before">$990.00</span>  
+                      <span class="card__preci card__preci--now">$749.00</span>  
+                    </div>  
+                    <a href="" class="card__icon"><ion-icon name="cart-outline"></ion-icon></a>  
+                  </div>  
+                </article>  
+                <article class="card">  
+                  <div class="card__img">  
+                    <img src="assets/img/img3.png" alt="">  
+                  </div>  
+                  <div class="card__name">  
+                    <p>AIR ZOOM PEGASUS</p>  
+                  </div>  
+                  <div class="card__precis">  
+                    <a href="" class="card__icon" ><ion-icon name="heart-outline"></ion-icon></a>  
+                    <div>  
+                      <span class="card__preci card__preci--before">$990.00</span>  
+                      <span class="card__preci card__preci--now">$749.00</span>  
+                    </div>  
+                    <a href="" class="card__icon"><ion-icon name="cart-outline"></ion-icon></a>  
+                  </div>  
+                </article>  
+                <article class="card">  
+                  <div class="card__img">  
+                    <img src="assets/img/img4.png" alt="">  
+                  </div>  
+                  <div class="card__name">  
+                    <p>AIR ZOOM PEGASUS</p>  
+                  </div>  
+                  <div class="card__precis">  
+                    <a href="" class="card__icon" ><ion-icon name="heart-outline"></ion-icon></a>  
+                    <div>  
+                      <span class="card__preci card__preci--before">$990.00</span>  
+                      <span class="card__preci card__preci--now">$749.00</span>  
+                    </div>  
+                    <a href="" class="card__icon"><ion-icon name="cart-outline"></ion-icon></a>  
+                  </div>  
+                </article>  
+              </main>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Ma Boutique en Ligne. Tous droits réservés.</p>
