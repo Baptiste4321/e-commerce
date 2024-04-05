@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar</title>
     <link rel="stylesheet" href="/css/panier.css">
+    <script src="javascript/panier.js"></script>
 </head>
 <body>
 
@@ -52,14 +53,54 @@
             <hr>
             <p id="Séléction"></p>
         </div>
-        <div id="payement"></div>
+        <div id="payement">
+            <div id="textpanier">
+                <p style="font-size: 1rem;">prix sans livraison : </p>
+                <br>
+                <p style="font-size: 1rem;">livraison : </p>
+                <br>
+            <p style="font-size: 1.8rem;">Total :</p>
+
+            </div>
+
+        </div>
 
 
 
     </section>
-    <section id="pub">
-
-
+        <section id="pub">
+            <div class='cards-wrapper'>
+        <div class='cards'>
+            <button class='card card1' tabindex="-1">
+            <h2>1</h2>
+            </button>
+            <button class='card card2' tabindex="-1">
+            <h2>2</h2>   
+            </button>
+            <button class='card card4' tabindex="-1">
+            <h2>3</h2> 
+            </button> 
+            <button class='card card5' tabindex="-1">
+            <h2>4</h2>  
+            </button>
+            <button class='card card5' tabindex="-1">
+                <h2>4</h2>  
+            </button>
+            <button class='card card5' tabindex="-1">
+                <h2>4</h2>  
+                </button>
+        </div>
+        <button class="arrow-btn arrow-btn-prev" tabindex="0">
+            <svg viewBox="0 0 256 512">
+            <path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z" />
+            </svg>
+        </button>
+        <button class="arrow-btn arrow-btn-next" tabindex="0">
+            <svg viewBox="0 0 256 512">
+            <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" />
+            </svg>
+        </button>
+        </div>
     </section>
     </main>
     <footer>
@@ -67,5 +108,5 @@
         <a href="https://github.com/baptiste321?tab=overview&from=2023-12-01&to=2023-12-31"><i class="fab fa-fw fa-github"></i></a>
     </footer>
 </body>
-<script src="javascript/script1.js"></script>
+
 </html>
