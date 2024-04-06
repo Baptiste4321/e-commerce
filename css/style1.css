@@ -11,181 +11,10 @@ body{
 header{
     height: 150px;
     width: 100vw;
-    background-image: url(../assets/karim_linux2.png);
+    background-color: white;
     background-size: cover;
 }
-.navbar{
-    position: fixed;
-    /*margin: 50px;*/
-    padding: 3vh 10vw;
-    display: flex block;
-    background-color: bisque;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    box-sizing: border-box;
-    z-index: 999;
-    transition: padding 0.3s; /* Transition pour une animation fluide */
-}
-.navbar a {
-    color: white;
-}
-.navbar .logo{
-    font-size: 2em;
-    font-weight: bold;
-}
-.navbar .nav-links .standard-ul {
-    display: flex;
-
-}
-.navbar .nav-links ul .marge-li{
-    margin: 0 25px;
-
-}
-.navbar .nav-links ul li.active a{
-    color: red;
-    font-weight: 600;
-}
-.navbar .menu-barre{
-    display: none;
-    position: fixed;
-    top: 4.9vh;
-    right: 2vw;
-    width: 35px;
-
-}
-@media screen and (max-width: 900px){
-    .navbar{
-        padding: 6vh 10vw;
-        margin: 0;
-        z-index: 999;
-        display: flex block;
-        background-color: bisque;
-        transition: padding 0.3s; /* Transition pour une animation fluide */
-
-    }
-    .navbar .logo{
-        position: fixed;
-        top: 2.5vh;
-        left: 8vw;
-    }
-    .navbar .menu-barre{
-        display: block;
-    }
-    .nav-links{
-        top: 0;
-        left: 0;
-        position: fixed;
-        background-color: rgba(255, 255, 255, 0.20);
-        backdrop-filter: blur(8px);
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: -100%;
-        transition: all 0.5s;
-    }
-    .nav-links.mobile-menu{
-        margin-left: 0;
-    }
-    .nav-links ul{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .navbar .nav-links ul li{
-        margin: 25px 0;
-        font-size: 1.2em;
-
-    }
-
-}
-.navbar.shrink {
-    position: fixed;
-    /*margin: 50px;*/
-    padding: 1vh 3vw;
-    display: flex block;
-    background-color: bisque;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    box-sizing: border-box;
-    z-index: 999;
-}
-/* Style du menu déroulant */
-.sous-menu {
-    display: none;
-    position: absolute;
-    background-color: #333; /* Couleur de fond du menu déroulant */
-    padding: 20px;
-    top: 80%;
-    /*left: 0;
-    z-index: 1;*/
-}
-
-.sous-menu li {
-    /*margin: 0;*/
-}
-
-.sous-menu li a {
-    color: #fff; /* Couleur du texte des sous-menu */
-    text-decoration: none;
-}
-
-/* Affichage du menu déroulant lors du survol */
-.deroulant:hover .sous-menu {
-    display: block;
-}
-.nav-li{
-    display: flex; /* Utilisation de flexbox */
-    align-items: center; /* Centrer verticalement les éléments */
-
-}
-.li-marge-none{
-    margin: 0 0px;
-}
-.barre-recherche {
-    display: inline-flex; /* Afficher les éléments en ligne */
-    align-items: center; /* Aligner les éléments verticalement */
-    width: 300px; /* Largeur de la barre de recherche */
-    background-color: #fff; /* Couleur de fond de la barre de recherche */
-    border: 1px solid #ccc; /* Bordure de la barre de recherche */
-    border-radius: 5px; /* Bordure arrondie */
-    padding: 5px 10px; /* Espacement à l'intérieur de la barre de recherche */
-
-}
-/* Style de l'icône de recherche */
-.barre-recherche .icone-recherche {
-    margin-right: 5px; /* Espacement à droite de l'icône */
-
-
-}
-
-/* Style de la zone de saisie de texte */
-.barre-recherche input[type="text"] {
-    border: none; /* Suppression de la bordure par défaut */
-    outline: none; /* Suppression de l'effet de focus */
-    flex: 1; /* Permet à la zone de saisie de texte de s'étendre pour remplir l'espace disponible */
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: auto;
-}
-
-#logo{
-    height: 100px;
-    width: auto;
-}
 /* Orphée css */
-
 
 #banderole{
     position: relative;
@@ -198,32 +27,24 @@ footer {
 #block-image{
     height: 90vh;
     width: 29vw;
-
     position: absolute;
     overflow: hidden;
     right: 0;
     text-align: center;
     left: 65vw;
-
-
-
-
 }
 
 .slideimage{
     position: absolute;
     margin: auto;
     display: block;
-
     height: 90vh;
 }
 
 #Slogan{
     position: absolute;
-
     width: 40vw;
     height: auto;
-
     color: rgb(0, 0, 0);
     text-align: center;
     padding: 20px;
@@ -243,7 +64,6 @@ footer {
 
 }
 
-
 .boutonfleche{
     background-color: #212529;
     height: 5vh;
@@ -255,25 +75,15 @@ footer {
 
 .boutonfleche:hover{
     background-color: #212529;
-
     opacity: 0.7;
 }
 
-
-
 #leftbouton{
     left: 117vh;
-
-
-
-
 }
 
 #rightbouton{
-
     left: 187vh;
-
-
 }
 
 #lien{
@@ -281,14 +91,10 @@ footer {
     text-align: center;
     top: 50%;
     left: 12%;
-
     font-size: 1rem;
     text-decoration: none;
-
     width: 35vw;
     font-family: 'Tauri';
-
-
 }
 
 .desliens{
@@ -304,13 +110,11 @@ footer {
 
 a {
     text-decoration: none;
-
 }
 
 .fade{
     animation: fade;
     animation-duration: 1.5s;
-
 }
 
 @keyframes fade{
@@ -320,21 +124,12 @@ a {
 
 #Slogantel{
     font-size: 0px;
-
-
 }
 #lientel{
     display: none;
 }
 
-
-
-
-
 @media screen and (max-width: 1000px) {
-
-
-
     #versionmobile{
         width: 100%;
         height: 50vh;
@@ -342,40 +137,25 @@ a {
         position: relative;
     }
 
-
     #banderole{
         position: relative;
         background-image: url(/image/Photoacceuil4.jpg);
         width: 100%;
         height: 90vh;
         background-size: cover;
-
-
     }
-
 
     #block-image{
         display: none;
-
-
     }
 
     #Slogan{
         font-size: 0px;
-
-
     }
 
     #lien{
         display: none;
     }
-
-
-
-
-
-
-
 
     #Slogantel{
         position: absolute;
@@ -394,8 +174,6 @@ a {
         position: absolute;
         top: 60%;
         display: flex;
-
-
     }
 
     .deslienstel{
@@ -405,32 +183,21 @@ a {
         text-align: center;
         background-color: black;
         color: white;
-
         border: 1px solid black;
         border-radius: 0.3rem;
         margin: 10px;
         font-family: 'Tauri';
-
-
     }
-
 
     .slideimage{
         display: none;
     }
 
-
-
     .boutonfleche{
         height: 3vh;
         width: 3vh;
     }
-
-
-
 }
-
-
 
 /* PL css */
 .contentrub{
