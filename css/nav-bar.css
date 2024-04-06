@@ -1,3 +1,20 @@
+/* Baptiste css */
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+header{
+    height: 150px;
+    width: 100vw;
+    background-color: white;
+    background-size: cover;
+}
 .navbar{
     position: fixed;
     /*margin: 50px;*/
