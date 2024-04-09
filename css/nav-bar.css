@@ -10,7 +10,7 @@ body{
 }
 
 header{
-    height: 150px;
+    height: 120px;
     width: 100vw;
     background-color: white;
     background-size: cover;
@@ -18,7 +18,7 @@ header{
 .navbar{
     position: fixed;
     /*margin: 50px;*/
-    padding: 3vh 10vw;
+    padding: 1vh 10vw;
     display: flex block;
     background-color: bisque;
     justify-content: space-between;
@@ -105,7 +105,7 @@ header{
 .navbar.shrink {
     position: fixed;
     /*margin: 50px;*/
-    padding: 1vh 3vw;
+    padding: 0vh 3vw;
     display: flex block;
     background-color: bisque;
     justify-content: space-between;
@@ -182,6 +182,7 @@ footer {
 }
 
 #logo{
-    height: 100px;
+    margin-top: 2vh;
+    height: 40px;
     width: auto;
 }
