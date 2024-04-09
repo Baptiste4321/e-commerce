@@ -6,7 +6,7 @@
 
 #contenu {
     background-color: rgb(136, 105, 105);
-    height: 86vh;
+    height: 90vh;
     display: flex; /* Use flexbox */
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
