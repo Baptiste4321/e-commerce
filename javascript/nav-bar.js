@@ -12,3 +12,18 @@ window.addEventListener('scroll', function() {
         navbar.classList.remove('shrink');
     }
 });
+document.getElementById("resetButton").addEventListener("click", function() {
+    document.getElementById("textInput").value = ""; // Efface le contenu de l'input
+});
+// Fonction pour rediriger vers la page.html
+function redirectToPage() {
+    window.location.href = "recherche.html";
+}
+
+// Ecouteur d'événement pour le clic sur le bouton ou l'appui sur la touche Entrée
+document.getElementById("submitButton").addEventListener("click", redirectToPage);
+document.getElementById("textInput").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        redirectToPage();
+    }
+});
