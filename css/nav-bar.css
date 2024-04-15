@@ -27,6 +27,7 @@ header{
     box-sizing: border-box;
     z-index: 999;
     transition: padding 0.3s; /* Transition pour une animation fluide */
+    
 }
 .navbar a {
     color: black;
@@ -115,37 +116,68 @@ header{
     z-index: 999;
 }
 /* Style du menu déroulant */
-.sous-menu {
+
+.nav-links{
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+    position: relative;
+
+
+
+
+}
+
+.menu-deroulant {
     display: none;
-    position: absolute;
-    background-color: #333; /* Couleur de fond du menu déroulant */
-    padding: 20px;
-    top: 80%;
-    /*left: 0;
-    z-index: 1;*/
-}
-
-.sous-menu li {
-    /*margin: 0;*/
-}
-
-.sous-menu li a {
-    color: black; /* Couleur du texte des sous-menu */
-    text-decoration: none;
-}
-
-/* Affichage du menu déroulant lors du survol */
-.deroulant:hover .sous-menu {
+  }
+  
+  .nav-links ul li:hover .menu-deroulant  {
     display: block;
-}
-.nav-li{
-    display: flex; /* Utilisation de flexbox */
-    align-items: center; /* Centrer verticalement les éléments */
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: beige;
+    width: 25%;
+  }
 
-}
-.li-marge-none{
-    margin: 0 0px;
-}
+  .nav-links ul li:hover .menu-deroulant ul{
+    display: block;
+     margin: 10px;
+
+  }
+
+  .nav-links ul li:hover .menu-deroulant ul li{
+    width: 150px;
+    padding: 10px;
+  }
+
+  .menu-deroulant-1{
+    display: none;
+
+
+
+  }
+
+  .menu-deroulant ul li:hover .menu-deroulant-1{
+    display: block;
+     position: absolute;
+    left: 150px;
+    top: 0;
+    background-color: beige;
+
+
+  }
+
+
+
+
+
+
+
+
+
 .barre-recherche {
     display: inline-flex; /* Afficher les éléments en ligne */
     align-items: center; /* Aligner les éléments verticalement */
@@ -364,3 +396,12 @@ input:not(:placeholder-shown) ~ .reset {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+
+
+
+
+
+
+
+
