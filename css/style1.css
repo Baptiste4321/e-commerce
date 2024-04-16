@@ -97,6 +97,7 @@
 
 .desliens:hover{
     color: #006dda;
+    transition: 0.3s;
 }
 
 a {
@@ -202,6 +203,7 @@ a {
         font-family: 'Tauri', sans-serif;
 
     }
+    
 
     .slideimage{
         display: none;

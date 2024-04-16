@@ -1,26 +1,34 @@
 
+@font-face {
+    font-family: 'Tauri';
+    src: url('/Tauri-Regular.ttf') format('truetype');
+  }
+
 
 /* Orphée css */
 
 
 
 #contenu {
-    background-color: rgb(136, 105, 105);
-    height: 90vh;
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
     display: flex; /* Use flexbox */
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
-    overflow: auto;
-    resize: both;
-    box-sizing: border-box;
+    
     padding: 50px;
+    
 }
 
     #liste {
-        background-color: white;
+        background-color: rgb(255, 255, 255);
         height: 50vh;
         width: 60vw;
         margin-right: 20px; /* Add some space between the two divs */
+        border: 2px solid black;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* horizontal offset, vertical offset, blur radius, color */
+        font-family: 'Tauri', sans-serif;
+    
     }
         #textpanier{
             width: 100%;
@@ -30,11 +38,15 @@
             
             
         }
-
+    
     #payement {
         background-color: white;
         height: 50vh;
         width: 20%;
+        border: 2px solid black;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* horizontal offset, vertical offset, blur radius, color */
+        font-family: 'Tauri', sans-serif;
+
         
     }
         #textpanier{
@@ -212,3 +224,11 @@ article:nth-child(4){
 
 
 
+.test{
+    background-color: aqua;
+    height: 200vh;
+    width: 60%;
+
+    
+
+}
