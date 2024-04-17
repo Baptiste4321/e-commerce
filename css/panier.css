@@ -12,22 +12,25 @@
 #contenu {
     background-color: rgb(255, 255, 255);
     min-height: 100vh;
-    display: flex; /* Use flexbox */
+    display: flex; 
     justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-    
+    align-items: flex-start; /* Align items to the start (top) of the container */
     padding: 50px;
+    
     
 }
 
     #liste {
         background-color: rgb(255, 255, 255);
-        height: 50vh;
+        
+        min-height: 60vh;
         width: 60vw;
         margin-right: 20px; /* Add some space between the two divs */
         border: 2px solid black;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* horizontal offset, vertical offset, blur radius, color */
         font-family: 'Tauri', sans-serif;
+        display: inline-block;
+
     
     }
         #textpanier{
@@ -40,12 +43,16 @@
         }
     
     #payement {
+        position: sticky;
+        
         background-color: white;
-        min-height: 50vh;
+        min-height: 60vh;
         width: 20%;
         border: 2px solid black;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* horizontal offset, vertical offset, blur radius, color */
         font-family: 'Tauri', sans-serif;
+        box-sizing: border-box;
+
 
         
     }
@@ -225,7 +232,8 @@ article:nth-child(4){
 
 
 .test{
-    
+    background-color: aqua;
+    height: 100vh;
 
     
 
