@@ -1,4 +1,7 @@
 
+
+
+
 @font-face {
     font-family: 'Tauri';
     src: url('/Tauri-Regular.ttf') format('truetype');
@@ -46,7 +49,7 @@
         position: sticky;
         
         background-color: white;
-        min-height: 60vh;
+        min-height: 10vh;
         width: 20%;
         border: 2px solid black;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* horizontal offset, vertical offset, blur radius, color */
@@ -236,5 +239,42 @@ article:nth-child(4){
     height: 100vh;
 
     
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.button-32 {
+  background-color: #f3e525;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-bottom: 10px;
+  
+}
+
+.button-32:not(:disabled):hover{
+    background-color: #e4d506;
 
 }

@@ -1,0 +1,30 @@
+#infoclient{
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+
+}
+
+.information{
+    display: grid;
+    place-items: center;
+
+}
+
+.adress{
+    height: 50vh;
+    border: 3px solid black;
+    margin: 20px;
+    width: 50vh;
+
+}
+
+.payement{
+
+    height: 50vh;
+    border: 3px solid black;
+
+    width: 80%;
+    margin: 20px;
+
+}
