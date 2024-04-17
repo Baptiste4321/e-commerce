@@ -11,7 +11,7 @@
 
 #contenu {
     background-color: rgb(255, 255, 255);
-    height: 100vh;
+    min-height: 100vh;
     display: flex; /* Use flexbox */
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
@@ -41,7 +41,7 @@
     
     #payement {
         background-color: white;
-        height: 50vh;
+        min-height: 50vh;
         width: 20%;
         border: 2px solid black;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* horizontal offset, vertical offset, blur radius, color */
@@ -225,9 +225,7 @@ article:nth-child(4){
 
 
 .test{
-    background-color: aqua;
-    height: 200vh;
-    width: 60%;
+    
 
     
 
