@@ -56,7 +56,7 @@ header{
     width: 35px;
 
 }
-@media screen and (max-width: 900px){
+@media screen and (max-width: 100px){
     .navbar{
         padding: 6vh 10vw;
         margin: 0;
