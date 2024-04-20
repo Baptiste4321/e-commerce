@@ -141,7 +141,7 @@ header{
     position: absolute;
     left: 0;
     top: 100%;
-    background-color: beige;
+    background-color: bisque;
     width: 25%;
   }
 
@@ -158,9 +158,6 @@ header{
 
   .menu-deroulant-1{
     display: none;
-
-
-
   }
 
   .menu-deroulant ul li:hover .menu-deroulant-1{
@@ -168,9 +165,7 @@ header{
      position: absolute;
     left: 150px;
     top: 0;
-    background-color: beige;
-
-
+    background-color: bisque;
   }
 
 
