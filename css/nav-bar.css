@@ -135,7 +135,7 @@ header{
 .menu-deroulant {
     display: none;
   }
-  
+
   .nav-links ul li:hover .menu-deroulant  {
     display: block;
     position: absolute;
@@ -147,8 +147,7 @@ header{
 
   .nav-links ul li:hover .menu-deroulant ul{
     display: block;
-     margin: 10px;
-
+    margin: 10px;
   }
 
   .nav-links ul li:hover .menu-deroulant ul li{
@@ -162,7 +161,7 @@ header{
 
   .menu-deroulant ul li:hover .menu-deroulant-1{
     display: block;
-     position: absolute;
+    position: relative;
     left: 150px;
     top: 0;
     background-color: bisque;
