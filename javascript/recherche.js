@@ -10,9 +10,14 @@ document.addEventListener("DOMContentLoaded", function() {
         image.alt = `Image ${i}`;
         imageContainer.appendChild(image);
 
-        const text = document.createElement('div');
-        text.textContent = `Texte sous l'image ${i}`;
-        imageContainer.appendChild(text);
+        const price = document.createElement('div');
+        price.textContent = `Prix : $XX.XX`;
+        imageContainer.appendChild(price);
+
+        const link = document.createElement('a');
+        link.href = '#'; // Mettez votre lien cible ici
+        link.textContent = `Lien sous l'image ${i}`;
+        imageContainer.appendChild(link);
 
         imageGrid.appendChild(imageContainer);
     }
