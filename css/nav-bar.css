@@ -135,9 +135,41 @@ header{
 }
 
 /* Affichage du menu déroulant lors du survol */
-.deroulant:hover .sous-menu {
-    display: block;
+.menu-deroulant {
+    display: none;
 }
+
+.nav-links ul li:hover .menu-deroulant  {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: bisque;
+    width: 25%;
+}
+
+.nav-links ul li:hover .menu-deroulant ul{
+    display: block;
+    margin: 10px;
+}
+
+.nav-links ul li:hover .menu-deroulant ul li{
+    width: 150px;
+    padding: 10px;
+}
+
+.menu-deroulant-1{
+    display: none;
+}
+
+.menu-deroulant ul li:hover .menu-deroulant-1{
+    display: block;
+    position: relative;
+    left: 150px;
+    top: 0;
+    background-color: bisque;
+}
+
 .nav-li{
     display: flex; /* Utilisation de flexbox */
     align-items: center; /* Centrer verticalement les éléments */
