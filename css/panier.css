@@ -27,12 +27,12 @@
         background-color: rgb(255, 255, 255);
         
         min-height: 60vh;
-        width: 60vw;
+        width: 40vw;
         margin-right: 20px; /* Add some space between the two divs */
-        border: 2px solid black;
+        border: 2px solid rgb(0, 0, 0);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* horizontal offset, vertical offset, blur radius, color */
         font-family: 'Tauri', sans-serif;
-        display: inline-block;
+        
 
     
     }
@@ -55,7 +55,6 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* horizontal offset, vertical offset, blur radius, color */
         font-family: 'Tauri', sans-serif;
         box-sizing: border-box;
-
 
         
     }
@@ -216,19 +215,34 @@
     
  
 
-
-
-
-
-
-
-.test{
-    background-color: rgb(17, 19, 19);
-    height: 100vh;
-
-    
+.liste_article{
+    display: grid;
+    width: 100%;
+    place-items: left;
 
 }
+
+
+.article{
+    margin: 20px;
+    
+    height: 25vh;
+
+    border: solid black 1px;
+    display: flex;
+}
+
+
+
+.image{
+    background-color: #000;
+    width: 12rem;
+    margin: 10px;
+
+}
+
+
+
 
 
 
