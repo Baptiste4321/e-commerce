@@ -26,13 +26,13 @@
 
 .adress{
     position: relative;
-    height: 70vh;
+    
     border: 1px solid black;
    
-    width: 28vw;
-    margin-right: 50px;
-    
-    
+    width: 45ch;
+    margin-right: 3rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
 
 }
 
