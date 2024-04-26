@@ -238,13 +238,16 @@
     margin: 1rem;
     height: 20vh;
 
+} 
+
+
+
+
+
+.class{
+    width: 10%;
+
 }
-
-
-
-
-
-
 
 
 
@@ -257,10 +260,14 @@
 
 
 
-
-
-
-
 .td_descritpion{
-    
+    margin-bottom: 10px;
+}
+
+
+
+.table{
+
+    height: 100%;
+    width: 20vw;
 }
