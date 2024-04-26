@@ -32,6 +32,8 @@
     width: 45ch;
     margin-right: 3rem;
     margin-bottom: 3rem;
+    display: grid;
+    place-items: center;
     padding: 1.5rem;
 
 }
@@ -46,23 +48,10 @@
 
 }
 
-input{
-
-    height: 5vh;
-    
-}
-
-input:focus{
-   
-    border: 2px solid rgb(255, 0, 0);
-
-}
 
 
-.uninput{
-    width: 190%;
 
-}
+
 
 .choisi{
     height: 5vh;
@@ -122,3 +111,42 @@ input:focus{
       
       }
       
+
+
+
+      input{
+
+        height: 5vh;
+        
+    }
+    
+    input:focus{
+       
+        border: 2px solid rgb(255, 0, 0);
+    
+    }
+      .deuxinput{
+        margin-top: 0.7rem; 
+        
+        margin-left: 0.7rem;
+
+      }
+
+      .uninput{
+        width: 180%;
+
+        font-size: 0.7rem; margin-top: 0.7rem; 
+        
+        
+        margin-left: 0.7rem;
+
+      }
+      .deroule{
+        font-size: 1rem; 
+        margin-top: 0.7rem; 
+        margin-left: 0.7rem;
+        width: 185%;
+        height: 4vh;
+
+
+      }
