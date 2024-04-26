@@ -1,49 +1,50 @@
 @font-face {
-    font-family: 'Tauri';
-    src: url('/Tauri-Regular.ttf') format('truetype');
-  }
+  font-family: 'Tauri';
+  src: url('/Tauri-Regular.ttf') format('truetype');
+}
 
 
 
 #infoclient{
-    height: 100vh;
-    background-color: rgb(255, 255, 255);
-    padding: 30px;
-    
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  padding: 30px;
+  
 
 }
 
 .information{
-    background-color: rgb(255, 255, 255);
-    min-height: 100vh;
-    display: flex; 
-    justify-content: center;
-    align-items: flex-start; 
-    padding: 50px;
-    
+  background-color: rgb(255, 255, 255);
+  min-height: 100vh;
+  display: flex; 
+  justify-content: center;
+  align-items: flex-start; 
+  padding: 50px;
+  
 
 }
 
 .adress{
-    position: relative;
-    
-    border: 1px solid black;
-   
-    width: 45ch;
-    margin-right: 3rem;
-    margin-bottom: 3rem;
-    
-    padding: 1.5rem;
+  position: relative;
+  
+  border: 1px solid black;
+ 
+  width: 100ch;
+  margin-right: 3rem;
+  margin-bottom: 3rem;
+  
+  padding: 1.5rem;
 
 }
 
 .payement{
 
-    height: 50vh;
-    border: 3px solid black;
+  height: 50vh;
+  border: 3px solid rgb(0, 0, 0);
 
-    width: 80%;
-    margin: 20px;
+  width: 50ch;
+  margin: 20px;
+  
 
 }
 
@@ -53,106 +54,173 @@
 
 
 .choisi{
-    height: 5vh;
-    width: 88%;
-    border-radius: 0%;
-    border: 1px solid black;
-    color: rgb(66, 66, 66);
+  height: 5vh;
+  width: 88%;
+  border-radius: 0%;
+  border: 1px solid black;
+  color: rgb(66, 66, 66);
+  
 
 
 }
 
 #paye {
-    position: sticky;
-    
-    background-color: white;
-    min-height: 10vh;
-    width: 12%;
-    border: 2px solid black;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* horizontal offset, vertical offset, blur radius, color */
-    font-family: 'Tauri', sans-serif;
-    box-sizing: border-box;
+  position: sticky;
+  
+  background-color: white;
+  min-height: 10vh;
+  width: 30ch;
+  border: 2px solid black;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* horizontal offset, vertical offset, blur radius, color */
+  font-family: 'Tauri', sans-serif;
+  box-sizing: border-box;
 
-    
+  
 
 
 
-    
+  
 }
-    #textpanier{
-        padding: 20px;
+  #textpanier{
+      padding: 20px;
+
+  }
+
+
+  
+
+
+
+    input{
+
+      height: 5vh;
+      
+  }
+  
+  input:focus{
+     
+      border: 2px solid rgb(3, 3, 3);
+  
+  }
+    .deuxinput{
+      margin-top: 0.7rem; 
+      width: 100%;
+
+      margin-left: 0.7rem;
+      
 
     }
 
+    input{
 
-    .button-32 {
-        background-color: #f3e525;
-        border-radius: 12px;
-        color: #000;
-        cursor: pointer;
-        
-        padding: 10px 15px;
-        text-align: center;
-        transition: 200ms;
-        
-        box-sizing: border-box;
-        border: 0;
-        font-size: 1vw;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        margin-bottom: 10px;
-        
-      }
-      
-      .button-32:not(:disabled):hover{
-          background-color: #e4d506;
-      
-      }
-      
+      border-radius: 0.6rem;
+      border: 2px solid rgb(155, 153, 153);
 
-
-
-      input{
-
-        height: 5vh;
-        
     }
     
-    input:focus{
-       
-        border: 2px solid rgb(255, 0, 0);
-    
+
+    .uninput{
+
+      margin-top: 0.7rem; 
+      margin-left: 0.7rem;
+      width: 100%;
     }
-      .deuxinput{
-        margin-top: 0.7rem; 
-        width: 100%;
-
-        margin-left: 0.7rem;
-        
-
-      }
-
-      .uninput{
-
-        font-size: 0.7rem; margin-top: 0.7rem; 
-        width: 200%;
-        margin-left: 0.7rem;
-
-      }
-      .deroule{
-        font-size: 1rem; 
-        margin-top: 0.7rem; 
-        margin-left: 0.7rem;
-        width: 200%;
-        height: 4vh;
+    .deroule{
+      font-size: 1rem; 
+      margin-top: 0.7rem; 
+      margin-left: 0.7rem;
+      height: 4vh;
+      width: 100%;
 
 
-      }
+    }
 
-      td{
+    td{
 
-        
-        padding-right:1.2rem;
+      padding-right:1.2rem;
 
-      }
+    }
+
+    .un{
+
+      
+      
+
+
+    }
+
+    
+
+    
+
+      
+
+
+
+
+
+
+
+
+
+
+    
+
+/* CSS */
+.button-28 {
+appearance: none;
+background-color: transparent;
+border: 2px solid #1A1A1A;
+border-radius: 15px;
+box-sizing: border-box;
+color: #3B3B3B;
+cursor: pointer;
+display: inline-block;
+font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+font-size: 0.9rem;
+font-weight: 600;
+line-height: normal;
+margin: 0;
+min-height: 50px;
+min-width: 0;
+outline: none;
+padding: 0.6rem 1rem;
+text-align: center;
+text-decoration: none;
+transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+width: 100%;
+will-change: transform;
+}
+
+.button-28:disabled {
+pointer-events: none;
+}
+
+.button-28:hover {
+color: #fff;
+background-color: #1A1A1A;
+box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+transform: translateY(-2px);
+}
+
+.button-28:active {
+box-shadow: none;
+transform: translateY(0);
+}
+
+
+
+
+
+
+
+.test{
+  width: 100%;
+
+  
+  
+
+}
