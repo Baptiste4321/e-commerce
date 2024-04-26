@@ -32,8 +32,7 @@
     width: 45ch;
     margin-right: 3rem;
     margin-bottom: 3rem;
-    display: grid;
-    place-items: center;
+    
     padding: 1.5rem;
 
 }
@@ -127,17 +126,17 @@
     }
       .deuxinput{
         margin-top: 0.7rem; 
-        
+        width: 100%;
+
         margin-left: 0.7rem;
+        
 
       }
 
       .uninput{
-        width: 180%;
 
         font-size: 0.7rem; margin-top: 0.7rem; 
-        
-        
+        width: 200%;
         margin-left: 0.7rem;
 
       }
@@ -145,8 +144,15 @@
         font-size: 1rem; 
         margin-top: 0.7rem; 
         margin-left: 0.7rem;
-        width: 185%;
+        width: 200%;
         height: 4vh;
 
+
+      }
+
+      td{
+
+        
+        padding-right:1.2rem;
 
       }
