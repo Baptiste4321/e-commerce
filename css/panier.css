@@ -254,6 +254,7 @@
 .info_article{
 
     margin: 1rem;
+   width: 100%;
 
 }
 
@@ -269,5 +270,7 @@
 .table{
 
     height: 100%;
-    width: 20vw;
+    width: 100%;
+    
 }
+
