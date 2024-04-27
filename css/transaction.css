@@ -1,3 +1,13 @@
+:root{
+
+    --text_payement: 0.8rem; 
+    --espace_entre_texte:15px;
+
+
+
+}
+
+
 @font-face {
   font-family: 'Tauri';
   src: url('/Tauri-Regular.ttf') format('truetype');
@@ -138,14 +148,11 @@
 
     }
 
-    .un{
+  .texte{
+    font-size: var(--text_payement);
+    margin-bottom: var(--espace_entre_texte)
 
-      
-      
-
-
-    }
-
+  }
     
 
     

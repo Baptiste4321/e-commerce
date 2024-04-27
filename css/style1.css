@@ -34,6 +34,7 @@
     display: block;
     height: 100vh;
     width: 100%;
+    aspect-ratio: 3/2;
 }
 
 #Slogan{
@@ -43,7 +44,6 @@
     color: rgb(0, 0, 0);
     text-align: center;
     padding: 20px;
-    left: -1%;
     top: 10%;
     font-size: 2.5rem;
     font-family: 'Tauri', sans-serif;
