@@ -1,7 +1,5 @@
 /*Catégorie*/
 #LePlusAcheté #PourVous #Promotion{
-    margin-left: 20px;
-    margin-right: 20px;
     padding: 0;
     box-sizing: border-box;
     display: flex;
@@ -15,8 +13,8 @@
 
 .carroussel{
     position: relative;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 /*Boutons*/
