@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="css/panier.css">
+    <link rel="stylesheet" href="css/nav-bar.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    
+
+    
+
+</head>
+<body>
+
+
+    <header>
+        <nav class="navbar">
+            <!--<a href="#" class="logo"><img src="/assets/aigle.png" id="logo"></a>-->
+            <a href="index1.html" class="logo"><img src="/assets/aigle2.png" id="logo"></a>
+            <div class="nav-links">
+                <ul class="standard-ul">
+                   <li class="deroulant nav-li marge-li"><a href="#">Categorie <i class="fas fa-caret-down"></i></a>
+                        <div class="menu-deroulant">
+                            <ul>
+                                <li>
+                                    <a href="#">Homme</a>
+                                    <div class="menu-deroulant-1">
+                                        <ul>
+                                            <li><a href="#">pantalon</a></li>
+                                            <li><a href="#">t-shirt</a></li>
+                                            <li><a href="#">autre truc</a></li>
+
+                                        </ul>
+
+                                    </div>
+                                
+                                
+                                </li>
+
+                                <li><a href="#">Femme</a></li>
+                                <li><a href="#">Enfant</a></li>
+
+                            </ul>
+
+
+                        </div>
+
+                    </li>
+                    
+                    
+
+
+
+
+
+
+                    <li class="form">
+                        <button id="submitButton">
+                            <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
+                                <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                        <input class="input" id="textInput" placeholder="Type your text" required="" type="text">
+                        <button class="reset" id="resetButton" type="reset">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="nav-li marge-li "><a href="panier.html"><img src="assets/icon/panier.png" id="panier"></a></li>
+                    <li class="nav-li marge-li "><a href="favoris.html"><img src="assets/icon/coeur.png" id="coeur"></a></li>
+                    <li class="nav-li marge-li "><a href="#"><img src="assets/icon/user.png" id="user"></a></li>
+                </ul>
+            </div>
+            <img src="assets/menu-btn.png" alt="menu barre" class="menu-barre">
+        </nav>
+
+    </header>
+
+    
+    <main>
+    <section id="contenu">
+        <div id="liste">
+            <div id="textpanier1">
+                <p style="font-size: 2.3rem;">Mes commandes</p>
+                <br>
+                <label for="checkbox1">
+
+                    <input type="checkbox" id="checkbox1" name="checkbox1">
+                    <label id="taille_pour_téléphone_car_trop_grand" for="checkbox1">Sélectionner Tous Les articles</label> 
+                </label>
+                  
+            </div>
+            <hr>
+            <p id="Séléction"></p>
+
+            <!--Première article-->
+            <div class="liste_article">
+                <div class="article">
+                    <div class="image">
+
+
+                    </div>
+                    <div class="info_article">
+                        <table class="table">
+                            <tr class="td_descritpion">
+                                <td >t-shirt blanc</td>
+                                <td >100€</td>
+                            </tr>
+                            <tr class="td_descritpion">
+                                <td class="sous_texte"><p>blanc</p></td>
+
+                            </tr>
+                            
+                            <tr class="td_descritpion">
+                                <td class="sous_texte">
+                                    <label for="taille">Taille :</label>
+                                    
+                                    <select name="" id="taille">
+                                        <option value="">XS</option>
+                                        <option value="">S</option>
+                                        <option value="">M</option>
+                                        <option value="">L</option>
+                                        <option value="">XL</option>
+                                        <option value="">XXL</option>
+
+
+                                    </select>
+                                    <label for="quantite">Quantité : </label>
+                                    <select name="" id="quantite">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+
+
+                                    </select>
+                                
+                                </td>
+                            </tr>
+                            <tr class="td_descritpion">
+                                <td>
+                                    
+                                    
+                                </td>
+                            </tr>
+                            <tr class="td_descritpion">
+                                <td class="td_descritpion"><a href=""><img src="assets/icon/delete.png" alt=""></a> 
+                                <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a>
+                            </td>
+                            <td>                    <input type="checkbox" id="checkbox1" name="checkbox1">
+                            </td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+
+                    
+                    
+                </div>
+                
+
+            </div>
+            <!--ddeuxième article-->
+
+            <div class="liste_article">
+                <div class="article">
+                    <div class="image">
+
+
+                    </div>
+                    <div class="info_article">
+                        <table class="table">
+                            <tr class="td_descritpion">
+                                <td >t-shirt blanc</td>
+                                <td >100€</td>
+                            </tr>
+                            <tr class="td_descritpion">
+                                <td class="sous_texte"><p>blanc</p></td>
+
+                            </tr>
+                            
+                            <tr class="td_descritpion">
+                                <td class="sous_texte">
+                                    <label for="taille">Taille :</label>
+                                    
+                                    <select name="" id="taille">
+                                        <option value="">XS</option>
+                                        <option value="">S</option>
+                                        <option value="">M</option>
+                                        <option value="">L</option>
+                                        <option value="">XL</option>
+                                        <option value="">XXL</option>
+
+
+                                    </select>
+                                    <label for="quantite">Quantité : </label>
+                                    <select name="" id="quantite">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+
+
+                                    </select>
+                                
+                                </td>
+                            </tr>
+                            <tr class="td_descritpion">
+                                <td>
+                                    
+                                    
+                                </td>
+                            </tr>
+                            <tr class="td_descritpion">
+                                <td class="td_descritpion"><a href=""><img src="assets/icon/delete.png" alt=""></a> 
+                                <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a></td>
+                                <td>                    <input type="checkbox" id="checkbox1" name="checkbox1">
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+
+                    
+                    
+                </div>
+                
+
+            </div>
+            
+
+            <div class="test">
+                
+            </div>
+        </div>
+
+
+
+    </section>
+    <section id="pub">
+       
+        
+    </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="category">
+                <h3>Home</h3>
+                <ul>
+                    <li><a href="#">Haut</a></li>
+                    <li><a href="#">Bas</a></li>
+                    <li><a href="#">Chaussure</a></li>
+                </ul>
+            </div>
+            <div class="category">
+                <h3>Femme</h3>
+                <ul>
+                    <li><a href="#">Haut</a></li>
+                    <li><a href="#">Bas</a></li>
+                    <li><a href="#">Chaussure</a></li>
+                </ul>
+            </div>
+            <div class="category">
+                <h3>Enfant</h3>
+                <ul>
+                    <li><a href="#">Haut</a></li>
+                    <li><a href="#">Bas</a></li>
+                    <li><a href="#">Chaussure</a></li>
+                </ul>
+            </div>
+        </div>
+        <a href="">à propos de nous</a>
+        
+    </footer>
+</body>
+
+
+
+</body>
+<script src="/javascript/nav-bar.js"></script>
+
+
+</html>
+
+

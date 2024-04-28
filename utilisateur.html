@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/nav-bar.css">
+    <link rel="stylesheet" href="css/carroussel.css">
+    <!--<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Configuration de la disposition des boutons */
+        .button-group {
+            display: grid;  /* Utilisation de la grille */
+            grid-template-columns: repeat(2, 1fr);  /* 3 colonnes de taille égale */
+            gap: 10px;  /* Espace entre les boutons */
+            margin-bottom: 20px;
+        }
+
+        /* Styles pour les liens sous forme de gros boutons blancs */
+        .button-group a {
+            padding: 25px 20px; /* Augmenter la taille des boutons */
+            border: none;
+            border-radius: 10px; /* Bordures arrondies */
+            background-color: white; /* Couleur blanche */
+            color: black; /* Couleur du texte */
+            text-decoration: none;
+            text-align: center;
+            font-size: 18px; /* Taille de police plus grande */
+            font-weight: bold; /* Police en gras */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+            cursor: pointer;
+            transition: box-shadow 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;  /* Espace entre l'icône et le texte */
+        }
+
+        /* Changement de style lors du passage de la souris */
+        .button-group a:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre plus forte */
+            transform: translateY(-2px); /* Déplace légèrement le bouton vers le haut */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <!--<a href="#" class="logo"><img src="/assets/aigle.png" id="logo"></a>-->
+            <a href="index1.html" class="logo"><img src="assets/aigle2.png" id="logo"></a>
+            <div class="nav-links">
+                <ul class="standard-ul">
+                   <li class="deroulant nav-li marge-li"><a href="#">Categorie <i class="fas fa-caret-down"></i></a>
+                        <div class="menu-deroulant">
+                            <ul>
+                                <li>
+                                    <a href="#">Homme</a>
+                                    <div class="menu-deroulant-1">
+                                        <ul>
+                                            <li><a href="#">pantalon</a></li>
+                                            <li><a href="#">t-shirt</a></li>
+                                            <li><a href="#">autre truc</a></li>
+
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#">Femme</a>
+                                    <div class="menu-deroulant-1">
+                                        <ul>
+                                            <li><a href="#">pantalon</a></li>
+                                            <li><a href="#">t-shirt</a></li>
+                                            <li><a href="#">autre truc</a></li>
+
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#">Enfant</a>
+                                    <div class="menu-deroulant-1">
+                                        <ul>
+                                            <li><a href="#">pantalon</a></li>
+                                            <li><a href="#">t-shirt</a></li>
+                                            <li><a href="#">autre truc</a></li>
+
+                                        </ul>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+
+                    </li>
+                    <li class="form">
+                        <button id="submitButton">
+                            <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
+                                <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                        <input class="input" id="textInput" placeholder="Type your text" required="" type="text">
+                        <button class="reset" id="resetButton" type="reset">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="nav-li marge-li "><a href="panier.html"><img src="assets/icon/panier.png" id="panier"></a></li>
+                    <li class="nav-li marge-li "><a href="favoris.html"><img src="assets/icon/coeur.png" id="coeur"></a></li>
+                    <li class="nav-li marge-li "><a href="#"><img src="assets/icon/user.png" id="user"></a></li>
+                </ul>
+            </div>
+            <img src="assets/menu-btn.png" alt="menu barre" class="menu-barre">
+        </nav>
+
+    </header>
+    <main>
+        <div class="container">
+            <h1>Bonjour Billel,</h1>
+            <br><br><br><br><br><br>
+            <div class="button-group">
+                <a href="panier.html"><i class="fas fa-shopping-cart"></i> Mon Panier</a>
+                <a href="favoris.html"><i class="fas fa-heart"></i> Mes Favoris</a>
+                <a href="commandes.html"><i class="fas fa-box"></i> Mes Commandes</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Nous Contacter</a>
+            </div>
+            <br><br><br><br><br><br><br>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="category">
+                <h3>Home</h3>
+                <ul>
+                    <li><a href="#">Haut</a></li>
+                    <li><a href="#">Bas</a></li>
+                    <li><a href="#">Chaussure</a></li>
+                </ul>
+            </div>
+            <div class="category">
+                <h3>Femme</h3>
+                <ul>
+                    <li><a href="#">Haut</a></li>
+                    <li><a href="#">Bas</a></li>
+                    <li><a href="#">Chaussure</a></li>
+                </ul>
+            </div>
+            <div class="category">
+                <h3>Enfant</h3>
+                <ul>
+                    <li><a href="#">Haut</a></li>
+                    <li><a href="#">Bas</a></li>
+                    <li><a href="#">Chaussure</a></li>
+                </ul>
+            </div>
+        </div>
+        <a href="">à propos de nous</a>
+        
+    </footer>
+</body>
+<script src="javascript/nav-bar.js" ></script>
+<script src="javascript/script1.js" ></script>
+<script src="javascript/recherche.js" ></script>
+<script src="javascript/carroussel.js" defer></script>
+</html>
