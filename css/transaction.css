@@ -81,7 +81,6 @@
   width: 30ch;
   font-family: 'Tauri', sans-serif;
   box-sizing: border-box;
-
   
 
 
@@ -149,8 +148,10 @@
     }
 
   .texte{
-    font-size: var(--text_payement);
-    margin-bottom: var(--espace_entre_texte)
+    font-size: 1rem;
+
+    margin-bottom: 15px;
+
 
   }
     

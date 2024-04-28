@@ -39,7 +39,7 @@
 
     
     }
-        #textpanier{
+        #textpanier1{
             width: 100%;
          
             padding: 20px;
@@ -133,8 +133,9 @@
 
  @media screen and (max-width: 1000px){ 
     #liste {
-
-        display: none;
+        font-size: 0.77rem;
+        position: absolute;
+        left: 1%;
     }
 
     #contenu {
@@ -144,9 +145,23 @@
         padding: 50px;
         
         
+        
     }
 
+    #pub{
+        display: none
 
+    }
+    #taille_pour_téléphone_car_trop_grand{
+        font-size: 0.7rem;
+
+    }
+    #textpanier1{
+        width: 50vw;
+        
+    }
+
+    
 
 
 
@@ -155,7 +170,7 @@
         border: none;
         background-color: rgb(255, 255, 255);
         min-height: 23vh;
-        width: 100vw;
+        width: 100%;
         font-family: 'Tauri', sans-serif;
         
         box-shadow: none;
@@ -164,7 +179,7 @@
         bottom: 0;
         position: fixed;
         z-index: 1000; 
-
+        
 
         
 
@@ -185,6 +200,14 @@
 
     }
 
+
+
+
+    
+        
+
+
+    
     
 
     
