@@ -1,3 +1,7 @@
+html{
+    scrollbar-width: none;
+    overflow-x: hidden;
+}
 
 :root {
     --couleur_sous_texte:rgb(117, 110, 110);

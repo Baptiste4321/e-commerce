@@ -1,5 +1,5 @@
 const initSlider = () => {
-    const imageList = document.querySelector(".carroussel .img_carrousell")
+    const imageList = document.querySelector(".carroussel .liste-img")
     const slideButtons = document.querySelectorAll(".carroussel .boutton-defilement")
 
     //
@@ -9,6 +9,10 @@ const initSlider = () => {
             const scrollAmount = imageList.clientWidth * direction;
             imageList.scrollBy( {left: scrollAmount, behavior: "smooth"})
         })
+    })
+
+    imageList.addEventListener("scroll", () => {
+        handleSlideButtons()
     })
 }
 
