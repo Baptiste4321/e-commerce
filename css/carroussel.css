@@ -6,7 +6,6 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #006dda;
     max-width: 1200px;
     width: 95%;
 }
@@ -112,4 +111,25 @@
     top: -10px;
     bottom: -10px
 
+}
+
+@media (max-width: 1023px) {
+    .carroussel .boutton-defilement{
+        display: none !important;
+    }
+
+    .carroussel .liste-img {
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .carroussel .liste-img .img_carrousell{
+        width: 280px;
+        height: 380px;
+    }
+
+    .scrollbar-carroussel .scrollbar-thumb{
+        width: 20%;
+
+    }
 }
