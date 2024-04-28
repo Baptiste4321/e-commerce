@@ -10,14 +10,13 @@
 
 @font-face {
   font-family: 'Tauri';
-  src: url('/Tauri-Regular.ttf') format('truetype');
+  src: url('Tauri-Regular.ttf') format('truetype');
 }
 
 
 
 #infoclient{
-  height: 100vh;
-  background-color: rgb(255, 255, 255);
+  
   padding: 30px;
   
 
@@ -25,7 +24,7 @@
 
 .information{
   background-color: rgb(255, 255, 255);
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex; 
   justify-content: center;
   align-items: flex-start; 
@@ -49,7 +48,7 @@
 .payement{
 
   height: 50vh;
-  border: 3px solid rgb(0, 0, 0);
+  border: 3px solid rgb(255, 255, 255);
 
   width: 50ch;
   margin: 20px;
@@ -57,7 +56,11 @@
 
 }
 
+.Total {
 
+  font-size: 2em; 
+  margin-bottom: 20px;
+}
 
 
 
@@ -75,10 +78,10 @@
 
 #paye {
   position: sticky;
-  
+        
   background-color: white;
   min-height: 10vh;
-  width: 30ch;
+  width: 20vw;
   font-family: 'Tauri', sans-serif;
   box-sizing: border-box;
   
@@ -100,7 +103,19 @@
     input{
 
       height: 5vh;
-      
+      font-family: 'Tauri';    
+      text-indent: 10px;  
+      font-size: 1rem;
+  }
+  select{
+    width: 102%;
+    height: 10vh;
+    font-size: 1rem;
+    text-indent: 5px;  
+    border-radius: 0.5rem;
+    outline: none;
+    border: 2px solid gray;
+    background-color: #fff; 
   }
   
   input:focus{
@@ -182,7 +197,7 @@ color: #3B3B3B;
 cursor: pointer;
 display: inline-block;
 font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-font-size: 0.9rem;
+font-size: 1rem;
 font-weight: 600;
 line-height: normal;
 margin: 0;
@@ -227,3 +242,98 @@ transform: translateY(0);
 
   
 }
+
+
+.pour_telephone{
+  display: none;
+  
+
+}
+
+@media screen and (max-width: 1000px){
+
+
+  #paye {
+    position: absolute;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    min-height: 23vh;
+    width: 100%;
+    font-family: 'Tauri', sans-serif;
+    
+    box-shadow: none;
+    display: grid;
+    place-content: left;
+    bottom: 0;
+    position: fixed;
+    z-index: 1000; 
+  }
+.test{
+  
+  display: none;
+
+}
+
+.pour_telephone{
+  display: grid;
+  width: 100%;
+  place-items: center;
+  
+}
+tr{
+  width: 100vh;
+}
+
+td{
+  width: 100vh;
+
+}
+.information{
+ 
+  display: flex; 
+  justify-content: center;
+  align-items: flex-start; 
+  padding: 0px;
+  
+
+}
+input{
+
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+select{
+  width: 101%;
+  height: 5vh;
+  font-size: 1rem;
+  text-indent: 5px;  
+  border-radius: 0.5rem;
+  outline: none;
+  border: 2px solid gray;
+  background-color: #fff;
+  
+}
+
+.pourcentrerleformulaire{
+
+  width: 100%;
+
+
+  position: absolute;
+
+}
+
+
+.information{
+  min-height: 70vh;
+ 
+  
+
+}
+
+  
+}
+
+
