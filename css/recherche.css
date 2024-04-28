@@ -1,11 +1,14 @@
 #image-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 5vh;
     justify-items: center; /* Aligner les éléments au centre horizontalement */
 }
 
 #image-grid img {
-    height: 20vh;
-    width: 30vh;
+    height: 45vh;
+    width: 35vh;
+}
+.image-container {
+    margin-top: 5vh;
 }
