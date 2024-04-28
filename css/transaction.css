@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Tauri';
+  src: url('Tauri-Regular.ttf') format('truetype');
+}
+
+
+
 html{
   scrollbar-width: none;
   overflow-x: hidden;
@@ -13,10 +20,6 @@ html{
 }
 
 
-@font-face {
-  font-family: 'Tauri';
-  src: url('Tauri-Regular.ttf') format('truetype');
-}
 
 
 
