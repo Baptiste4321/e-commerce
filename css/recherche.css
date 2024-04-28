@@ -17,3 +17,7 @@ html{
 .image-container {
     margin-top: 5vh;
 }
+a   {
+    text-decoration: none;
+    color: black;
+}
