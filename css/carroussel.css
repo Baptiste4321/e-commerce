@@ -1,5 +1,7 @@
+/*Catégorie*/
 #LePlusAcheté #PourVous #Promotion{
-    margin: 0;
+    margin-left: 20px;
+    margin-right: 20px;
     padding: 0;
     box-sizing: border-box;
     display: flex;
@@ -11,6 +13,42 @@
     width: 95%;
 }
 
+.carroussel{
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/*Boutons*/
+
+.carroussel .boutton-defilement{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 50%;
+    color: #fff;
+    border: none;
+    outline: none;
+    background: #000;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.carroussel .boutton-defilement#av-carroussel{
+    left: -20px;
+}
+
+.carroussel .boutton-defilement#ap-carroussel{
+    right: -20px;
+}
+
+.carroussel .boutton-defilement:hover{
+    background: #444;
+}
+
+/*Images*/
 .carroussel .liste-img{
     display: grid;
     gap: 18px;
@@ -30,6 +68,8 @@
     height: 400px;
     object-fit: cover;
 }
+
+/*Barre de défilement*/
 
 .carroussel .scrollbar-carroussel{
     height: 24px;

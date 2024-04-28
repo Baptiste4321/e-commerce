@@ -3,7 +3,10 @@
     src: url('/Tauri-Regular.ttf') format('truetype');
   }
 
-
+html{
+    scrollbar-width: none;
+    overflow-x: hidden;
+}
 
 /* Orphée css */
 
