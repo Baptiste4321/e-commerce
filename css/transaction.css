@@ -136,6 +136,8 @@
 
       border-radius: 0.6rem;
       border: 2px solid rgb(155, 153, 153);
+      font-family: 'Tauri';
+
 
     }
     
@@ -302,6 +304,8 @@ input{
   width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
+  font-family: 'Tauri';
+
 }
 
 select{
