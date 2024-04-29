@@ -1,4 +1,14 @@
 /* Baptiste css */
+
+
+
+
+
+.crédit_tel{
+    display: none;
+
+  }
+
 *{
     margin: 0;
     padding: 0;
@@ -61,53 +71,7 @@ header{
     width: 35px;
 
 }
-@media screen and (max-width: 900px){
-    .navbar{
-        padding: 6vh 10vw;
-        margin: 0;
-        z-index: 999;
-        display: flex block;
-        background-color: bisque;
-        transition: padding 0.3s;
 
-    }
-    .navbar .logo{
-        position: fixed;
-        top: 2.5vh;
-        left: 8vw;
-    }
-    .navbar .menu-barre{
-        display: block;
-    }
-    .nav-links{
-        top: 0;
-        left: 0;
-        position: fixed;
-        background-color: rgba(255, 255, 255, 0.20);
-        backdrop-filter: blur(8px);
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: -100%;
-        transition: all 0.5s;
-    }
-    .nav-links.mobile-menu{
-        margin-left: 0;
-    }
-    .nav-links ul{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .navbar .nav-links ul li{
-        margin: 25px 0;
-        font-size: 1.2em;
-
-    }
-
-}
 .navbar.shrink {
     position: fixed;
     /*margin: 50px;*/
@@ -211,7 +175,7 @@ header{
 footer {
     background-color: bisque;
     color: black;
-    padding: 20px;
+    padding: 30px;
     text-align: center;
     position: relative;
     left: 0;
@@ -219,14 +183,23 @@ footer {
     
     
 }
+.crédit{
+    padding-left: 0%;
+    width: 90vw;
+}
 
+.crédit_texte{
+    font-size: 0.6rem;
+    text-decoration: none;
+    color: gray;
+    margin-right: 10px;
+}
 
 
 .flooter{
-    padding-left: 20%;
+    padding-left: 15%;
     
     width: 90%;
-   
 
 }
 
@@ -236,13 +209,15 @@ td{
    
     text-align: left; 
 
+   
+
 }
 
 .aled{
 
     font-size: 0.8rem;
     
-    width: 10% !important;
+    width: 15% !important;
 
 }
 
@@ -250,10 +225,9 @@ td{
 
 
 
-.footer-container {
-    display: flex;
-    width: 100%;
-}
+
+
+
 
 .category {
     width: 50%;
@@ -372,9 +346,8 @@ input:not(:placeholder-shown) ~ .reset {
 
 
 .social{
-    position: absolute;
-    right: 0;
-    margin-right: 10%;
+  position: absolute;
+  right: 0;
 }
 
 
@@ -451,4 +424,128 @@ input:not(:placeholder-shown) ~ .reset {
     }
   }
   
+
+
+  .liensfooter{
+    text-decoration: none;
+    color: rgb(79, 76, 76);
+
+  }
+
+
+  .liensfooter:hover{
+    color: red;
+    transition: 0.3s;
+
+  }
+
   
+
+
+
+
+
+
+
+
+
+
+  @media screen and (max-width: 900px){
+    .navbar{
+        padding: 6vh 10vw;
+        margin: 0;
+        z-index: 999;
+        display: flex block;
+        background-color: bisque;
+        transition: padding 0.3s;
+
+    }
+    .navbar .logo{
+        position: fixed;
+        top: 2.5vh;
+        left: 8vw;
+    }
+    .navbar .menu-barre{
+        display: block;
+    }
+    .nav-links{
+        top: 0;
+        left: 0;
+        position: fixed;
+        background-color: rgba(255, 255, 255, 0.20);
+        backdrop-filter: blur(8px);
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -100%;
+        transition: all 0.5s;
+    }
+    .nav-links.mobile-menu{
+        margin-left: 0;
+    }
+    .nav-links ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .navbar .nav-links ul li{
+        margin: 25px 0;
+        font-size: 1.2em;
+
+    }
+
+
+    .crédit{
+        display: none;       
+    }
+    .crédit_texte{
+       display: none;
+        
+
+    }
+
+    .crédit_tel{
+        display: flex;
+        width: 90vw;
+    
+      }
+    
+
+
+
+     .crédit_texte_tel{
+        font-size: 0.6rem;
+        text-decoration: none;
+        color: gray;
+        margin-right: 10px;
+        width: 100;
+
+     }
+
+     .social{
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        
+    }
+
+    .footer-container {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+
+    }
+    
+    
+
+}
+
+
+
+.footer-container {
+    display: flex;
+    width: 100%;
+    
+}
