@@ -51,6 +51,10 @@ header{
     font-size: 2em;
     font-weight: bold;
 }
+.icone{
+    width: 23px;
+    height: 23px;
+}
 .navbar .nav-links .standard-ul {
     display: flex;
 
@@ -66,9 +70,10 @@ header{
 .navbar .menu-barre{
     display: none;
     position: fixed;
-    top: 4.9vh;
+    top: 4.1vh;
     right: 2vw;
-    width: 35px;
+    width: 45px;
+    height: 45px;
 
 }
 
