@@ -528,7 +528,7 @@ input:not(:placeholder-shown) ~ .reset {
         text-decoration: none;
         color: gray;
         margin-right: 10px;
-        width: 100;
+        width: 100%;
 
      }
 
