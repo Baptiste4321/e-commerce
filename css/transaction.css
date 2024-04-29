@@ -1,13 +1,10 @@
+
+
+
+
 @font-face {
   font-family: 'Tauri';
-  src: url('Tauri-Regular.ttf') format('truetype');
-}
-
-
-
-html{
-  scrollbar-width: none;
-  overflow-x: hidden;
+  src: url('Tauri-Regular.ttf')  format('woff2')
 }
 
 :root{
@@ -108,12 +105,22 @@ html{
 
 
 
-    input{
+  .unput{
 
       height: 5vh;
-      font-family: 'Tauri';    
+        
       text-indent: 10px;  
       font-size: 1rem;
+      border-radius: 0.6rem;
+      border: 2px solid rgb(155, 153, 153);
+      font-family: 'Tauri';
+      height: 7vh;
+      margin-top: 0.7rem; 
+
+      width: 100%;      
+      margin-left: 0.7rem;
+
+
   }
   select{
     width: 102%;
@@ -126,28 +133,14 @@ html{
     background-color: #fff; 
   }
   
-  input:focus{
+  .unput:focus{
      
       border: 2px solid rgb(3, 3, 3);
   
   }
-    .deuxinput{
-      margin-top: 0.7rem; 
-      width: 100%;
-
-      margin-left: 0.7rem;
-      
-
-    }
-
-    input{
-
-      border-radius: 0.6rem;
-      border: 2px solid rgb(155, 153, 153);
-      font-family: 'Tauri';
-
-
-    }
+    
+   
+    
     
 
     .uninput{
@@ -160,17 +153,13 @@ html{
       font-size: 1rem; 
       margin-top: 0.7rem; 
       margin-left: 0.7rem;
-      height: 4vh;
+      height: 7vh;
       width: 100%;
 
 
     }
 
-    td{
-
-      padding-right:1.2rem;
-
-    }
+    
 
   .texte{
     font-size: 1rem;
