@@ -197,7 +197,7 @@ footer {
 
 
 .flooter{
-    padding-left: 15%;
+    padding-left: 0%;
     
     width: 90%;
 
@@ -215,9 +215,9 @@ td{
 
 .aled{
 
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     
-    width: 15% !important;
+    width: 10% !important;
 
 }
 
@@ -535,7 +535,7 @@ input:not(:placeholder-shown) ~ .reset {
         display: flex;
         width: 100%;
         flex-direction: column;
-
+        justify-content: left; /* Center items horizontally */
     }
     
     
