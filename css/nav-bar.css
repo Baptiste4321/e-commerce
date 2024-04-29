@@ -105,27 +105,29 @@ header{
 }
 
 /* Affichage du menu déroulant lors du survol */
+
+.deroulant{
+    font-size: 20px;
+}
+
 .menu-deroulant {
     display: none;
 }
 
 .nav-links ul li:hover .menu-deroulant  {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     display: block flex;
     position: absolute;
     border-radius: 10px;
-    top: 78%;
+    top: 76%;
     background-color: bisque;
     width:200px ;
 }
 
-.nav-links ul ul ul li a{
-    border: 1px solid black;
-}
 
 .nav-links ul li:hover .menu-deroulant ul{
     display: block;
-    margin: 10px;
+    padding: 10px;
 }
 
 .nav-links ul li:hover .menu-deroulant ul li{
@@ -138,14 +140,17 @@ header{
 }
 
 .menu-deroulant ul li:hover .menu-deroulant-1{
-    border: 1px solid black;
+   /* border: 1px solid black;*/
     display: block;
     position: relative;
-    border-radius: 10px;
+    width: 100%;
     top: 0;
     background-color: bisque;
 }
 
+@media screen {
+    
+}
 /*truc de baptiste*/
 .nav-li{
     display: flex; /* Utilisation de flexbox */
@@ -475,6 +480,7 @@ input:not(:placeholder-shown) ~ .reset {
     }
     .navbar .menu-barre{
         display: block;
+        color: black;
     }
     .nav-links{
         top: 0;
