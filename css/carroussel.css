@@ -46,10 +46,10 @@
     background: #444;
 }
 
-/*Images*/
+/*element*/
 .carroussel .liste-img{
     display: grid;
-    gap: 18px;
+    gap: 30px;
     font-size: 0;
     margin-bottom: 30px;
     overflow-x: auto;
@@ -61,10 +61,20 @@
     display: none;
 }
 
-.carroussel .liste-img .img_carrousell{
-    width: 325px;
+.element-carroussel{
+    padding-top: 2px;
+    background: #006dda;
+}
+
+.carroussel .liste-img .element-carroussel{
+    width: 237px;
     height: 400px;
     object-fit: cover;
+}
+
+ .img_carrousell{
+    width: 100%;
+    height: 75%;
 }
 
 /*Barre de défilement*/
@@ -123,7 +133,7 @@
         margin-bottom: 15px;
     }
 
-    .carroussel .liste-img .img_carrousell{
+    .carroussel .liste-img .element-carroussel{
         width: 280px;
         height: 380px;
     }
