@@ -8,6 +8,8 @@ html{
     grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     grid-gap: 5vh;
     justify-items: center; /* Aligner les éléments au centre horizontalement */
+    margin-top: 5vh;
+    margin-bottom: 7vh;
 }
 
 #image-grid img {
