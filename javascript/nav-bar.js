@@ -8,8 +8,10 @@ window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) { // Changer 100 selon vos besoins
         navbar.classList.add('shrink');
+        navbar.classList.add('shrink2');
     } else {
         navbar.classList.remove('shrink');
+        navbar.classList.remove('shrink2');
     }
 });
 document.getElementById("resetButton").addEventListener("click", function() {
