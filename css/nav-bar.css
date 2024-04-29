@@ -153,8 +153,20 @@ header{
     background-color: bisque;
 }
 
-@media screen {
-    
+@media screen and (max-width: 900px){
+    .deroulant{
+        display: block;
+        position: relative;
+    }
+    .nav-links ul li:hover .menu-deroulant {
+        background-color: rgba(255, 255, 255, 0.20);
+        top: 50%;
+        position: absolute;
+    }
+    .menu-deroulant ul li:hover .menu-deroulant-1{
+        background-color: rgba(255, 255, 255, 0.20);
+        position: absolute;
+    }
 }
 /*truc de baptiste*/
 .nav-li{

@@ -49,7 +49,7 @@
 /*element*/
 .carroussel .liste-img{
     display: grid;
-    gap: 30px;
+    gap: 123px;
     font-size: 0;
     margin-bottom: 30px;
     overflow-x: auto;
@@ -62,19 +62,21 @@
 }
 
 .element-carroussel{
-    padding-top: 2px;
-    background: #006dda;
 }
 
 .carroussel .liste-img .element-carroussel{
     width: 237px;
-    height: 400px;
     object-fit: cover;
 }
 
- .img_carrousell{
+.img_carrousell{
+    margin-top: 0;
     width: 100%;
-    height: 75%;
+    height: 65%;
+}
+
+.text-element-carroussel {
+
 }
 
 /*Barre de défilement*/
