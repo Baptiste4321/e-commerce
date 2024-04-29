@@ -29,3 +29,23 @@ document.getElementById("textInput").addEventListener("keypress", function(event
         redirectToPage();
     }
 });
+
+// Catégorie
+
+const menuDeroulant = document.querySelector(".menu-deroulant")
+const Categorie = document.getElementById("menu-deroulant");
+
+function updatePosition() {
+    const position = Categorie.getBoundingClientRect();
+    console.log(`Left: ${position.left}`);
+    menuDeroulant.style.left = `${position.left}px`;
+}
+
+// Update position initially
+updatePosition();
+
+// Listen for 'scroll' and 'resize' events to update the position
+window.addEventListener("scroll", updatePosition);
+window.addEventListener("resize", updatePosition);
+
+
