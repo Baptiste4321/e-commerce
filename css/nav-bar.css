@@ -212,7 +212,7 @@ footer {
 }
 
 
-td{
+.tdpournavbarre{
     padding: 10px 0; 
    
     text-align: left; 
@@ -547,11 +547,10 @@ input:not(:placeholder-shown) ~ .reset {
     
 
     .flooter{
-        padding-left: 20%;
+        
         
         width: 40vh;
-        background-color: #00acee;
-        
+       
     
     }
     

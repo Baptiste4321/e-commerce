@@ -1,5 +1,14 @@
 
 
+input::placeholder {
+  font-family: 'Tauri';
+  
+}
+/* Change the font style of the text input */
+input[type="text"] {
+  font-family: Arial, sans-serif; /* Specify the desired font family */
+  /* You can also set other properties like font-size, font-weight, etc. */
+}
 
 
 @font-face {
@@ -9,7 +18,7 @@
 
 :root{
 
-    --text_payement: 0.8rem;
+    --text_payement: 0.8rem; 
     --espace_entre_texte:15px;
 
 
@@ -21,31 +30,31 @@
 
 
 #infoclient{
-
+  
   padding: 30px;
-
+  
 
 }
 
 .information{
   background-color: rgb(255, 255, 255);
   min-height: 90vh;
-  display: flex;
+  display: flex; 
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start; 
   padding: 50px;
-
+  
 
 }
 
 .adress{
   position: relative;
-
-
+  
+ 
   width: 100ch;
   margin-right: 3rem;
   margin-bottom: 3rem;
-
+  
   padding: 1.5rem;
 
 }
@@ -57,13 +66,13 @@
 
   width: 50ch;
   margin: 20px;
-
+  
 
 }
 
 .Total {
 
-  font-size: 2em;
+  font-size: 2em; 
   margin-bottom: 20px;
 }
 
@@ -76,90 +85,88 @@
   border-radius: 0%;
   border: 1px solid black;
   color: rgb(66, 66, 66);
-
+  
 
 
 }
 
 #paye {
   position: sticky;
-
+        
   background-color: white;
   min-height: 10vh;
   width: 20vw;
   font-family: 'Tauri', sans-serif;
   box-sizing: border-box;
+  
 
 
 
-
-
+  
 }
   #textpanier{
       padding: 20px;
 
   }
 
+  .gauche{
+    width: 87% !important;
 
-
+  }
 
 
 
   .unput{
 
       height: 5vh;
-
-      text-indent: 10px;
+        
+      text-indent: 10px;  
       font-size: 1rem;
       border-radius: 0.6rem;
       border: 2px solid rgb(155, 153, 153);
       font-family: 'Tauri';
-      height: 7vh;
-      margin-top: 0.7rem;
-
-      width: 100%;
-      margin-left: 0.7rem;
+      height: 5vh;
+      margin-top: 0.7rem; 
+      
+      width: 100%;      
+      
 
 
   }
-  select{
-    width: 102%;
-    height: 10vh;
-    font-size: 1rem;
-    text-indent: 5px;
-    border-radius: 0.5rem;
-    outline: none;
-    border: 2px solid gray;
-    background-color: #fff;
-  }
 
+
+  
+ 
+  
   .unput:focus{
-
+     
       border: 2px solid rgb(3, 3, 3);
-
+  
   }
+    
+   
+    
+    
 
-
-
-
-
-    .uninput{
-
-      margin-top: 0.7rem;
-      margin-left: 0.7rem;
-      width: 100%;
-    }
+   
     .deroule{
-      font-size: 1rem;
-      margin-top: 0.7rem;
-      margin-left: 0.7rem;
-      height: 7vh;
+      font-size: 1rem; 
+      margin-top: 0.7rem; 
+    
+      height: 5vh;
       width: 100%;
-
+      
+      height: 5vh;
+      font-size: 1rem;
+      text-indent: 5px;  
+      border-radius: 0.5rem;
+      outline: none;
+      border: 2px solid gray;
+      background-color: #fff; 
 
     }
 
-
+    
 
   .texte{
     font-size: 1rem;
@@ -168,6 +175,11 @@
 
 
   }
+    
+
+    
+
+      
 
 
 
@@ -178,12 +190,7 @@
 
 
 
-
-
-
-
-
-
+    
 
 /* CSS */
 .button-28 {
@@ -238,14 +245,14 @@ transform: translateY(0);
 
 .test{
   width: 100%;
-
-
+  
+  
 }
 
 
 .pour_telephone{
   display: none;
-
+  
 
 }
 
@@ -259,16 +266,16 @@ transform: translateY(0);
     min-height: 23vh;
     width: 100%;
     font-family: 'Tauri', sans-serif;
-
+    
     box-shadow: none;
     display: grid;
     place-content: left;
     bottom: 0;
     position: fixed;
-    z-index: 1000;
+    z-index: 1000; 
   }
 .test{
-
+  
   display: none;
 
 }
@@ -277,7 +284,7 @@ transform: translateY(0);
   display: grid;
   width: 100%;
   place-items: center;
-
+  
 }
 tr{
   width: 100vh;
@@ -288,12 +295,12 @@ td{
 
 }
 .information{
-
-  display: flex;
+ 
+  display: flex; 
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start; 
   padding: 0px;
-
+  
 
 }
 input{
@@ -309,12 +316,12 @@ select{
   width: 101%;
   height: 5vh;
   font-size: 1rem;
-  text-indent: 5px;
+  text-indent: 5px;  
   border-radius: 0.5rem;
   outline: none;
   border: 2px solid gray;
   background-color: #fff;
-
+  
 }
 
 .pourcentrerleformulaire{
@@ -329,12 +336,12 @@ select{
 
 .information{
   min-height: 70vh;
-
-
+ 
+  
 
 }
 
-
+  
 }
 
 
