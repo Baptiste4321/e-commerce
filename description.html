@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="css/description.css">
+    <link rel="stylesheet" href="css/nav-bar.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <!--<a href="#" class="logo"><img src="/assets/aigle.png" id="logo"></a>-->
+        <a href="index1.html" class="logo"><img src="/assets/aigle2.png" id="logo"></a>
+        <div class="nav-links">
+            <ul class="standard-ul">
+                <li class="deroulant nav-li marge-li"><a href="#">Categorie <i class="fas fa-caret-down"></i></a>
+                    <div class="menu-deroulant">
+                        <ul>
+                            <li>
+                                <a href="#">Homme</a>
+                                <div class="menu-deroulant-1">
+                                    <ul>
+                                        <li><a href="#">pantalon</a></li>
+                                        <li><a href="#">t-shirt</a></li>
+                                        <li><a href="#">autre truc</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="#">Femme</a></li>
+                            <li><a href="#">Enfant</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="form">
+                    <button id="submitButton">
+                        <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
+                            <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                    <input class="input" id="textInput" placeholder="Type your text" required="" type="text">
+                    <button class="reset" id="resetButton" type="reset">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </li>
+                <li class="nav-li marge-li "><a href="panier.html"><img src="assets/icon/panier.png" id="panier"></a></li>
+                <li class="nav-li marge-li "><a href="favoris.html"><img src="assets/icon/coeur.png" id="coeur"></a></li>
+                <li class="nav-li marge-li "><a href="utilisateur.html"><img src="assets/icon/user.png" id="user"></a></li>
+            </ul>
+        </div>
+        <img src="assets/menu-btn.png" alt="menu barre" class="menu-barre">
+    </nav>
+</header>
+<main class="product-main">
+    <div class="product-image">
+        <img id="add_img" alt="Nom du produit">
+    </div>
+    <div class="product-details">
+        <h1>Nom du produit</h1>
+        <p>Prix : $39.45</p>
+        <label for="size">Taille :</label>
+        <select id="size">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+        </select>
+        <h2>Caractéristiques :</h2>
+        <ul>
+            <li>Caractéristique 1</li>
+            <li>Caractéristique 2</li>
+            <li>Caractéristique 3</li>
+        </ul>
+        <button>Ajouter au panier</button>
+    </div>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="category">
+            <h3>Home</h3>
+            <ul>
+                <li><a href="#">Haut</a></li>
+                <li><a href="#">Bas</a></li>
+                <li><a href="#">Chaussure</a></li>
+            </ul>
+        </div>
+        <div class="category">
+            <h3>Femme</h3>
+            <ul>
+                <li><a href="#">Haut</a></li>
+                <li><a href="#">Bas</a></li>
+                <li><a href="#">Chaussure</a></li>
+            </ul>
+        </div>
+        <div class="category">
+            <h3>Enfant</h3>
+            <ul>
+                <li><a href="#">Haut</a></li>
+                <li><a href="#">Bas</a></li>
+                <li><a href="#">Chaussure</a></li>
+            </ul>
+        </div>
+    </div>
+    <a href="contact.html">à propos de nous</a>
+</footer>
+</body>
+<script src="/javascript/nav-bar.js"></script>
+<script src="/javascript/description.js"></script>
+</html>
+
+
