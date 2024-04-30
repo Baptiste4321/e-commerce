@@ -1,6 +1,8 @@
 html{
     scrollbar-width: none;
     overflow-x: hidden;
+    margin: 0 auto;
+    place-items: center;
 }
 
 #image-grid {

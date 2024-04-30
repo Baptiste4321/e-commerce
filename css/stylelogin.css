@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
-
+.logo {
+    width: 200px;
+    height: auto;
+    margin: 30px auto;
+    display: grid;
+    place-items: center;
+}
+header{
+    height: 40px;
+}
 html{
     scrollbar-width: none;
     overflow-x: hidden;
