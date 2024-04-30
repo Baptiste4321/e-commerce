@@ -1,6 +1,8 @@
 html{
     scrollbar-width: none;
     overflow-x: hidden;
+    margin: 0 auto;
+    place-items: center;
 }
 
 #image-grid {
@@ -19,11 +21,12 @@ html{
     border-radius: 10px;
 }
 .image-container {
-    margin-top: 5vh;
+    display: grid;
+    margin: 5vh auto;
+    place-items: center;
 }
 div{
-    margin-left: 1vw;
-    margin-right: 1vw;
+    margin: 0 0;
 }
 a   {
     text-decoration: none;
