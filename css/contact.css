@@ -1,0 +1,65 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            margin-top: 50px; /* Ajoute un espace en haut de la page */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        textarea {
+            height: 100px; /* Hauteur du champ de texte */
+            resize: none; /* Empêche le redimensionnement du champ de texte */
+        }
+
+        /* Styles pour le bouton d'envoi */
+        button {
+            padding: 10px 15px;
+            background-color: white; /* Couleur blanche */
+            color: black; /* Couleur de texte noire */
+            border: 2px solid black; /* Bordure noire */
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        /* Style au survol de la souris */
+        button:hover {
+            background-color: #f0f0f0; /* Couleur de fond gris clair */
+            border-color: #007bff; /* Couleur de bordure bleue */
+            color: #007bff; /* Couleur de texte bleue */
+        }
