@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Infos</title>
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/nav-bar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Ajoutez vos styles CSS ici */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        /* Styles pour le bouton de soumission */
+        button {
+            padding: 10px 15px;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+            border-color: #007bff;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <!--<a href="#" class="logo"><img src="/assets/aigle.png" id="logo"></a>-->
+            <a href="index1.html" class="logo"><img src="assets/aigle2.png" id="logo"></a>
+            <div class="nav-links">
+                <ul class="standard-ul">
+                   <li class="deroulant nav-li marge-li"><a href="#">Categorie <i class="fas fa-caret-down"></i></a>
+                        <div class="menu-deroulant">
+                            <ul>
+                                <li>
+                                    <a href="#">Homme</a>
+                                    <div class="menu-deroulant-1">
+                                        <ul>
+                                            <li><a href="#">pantalon</a></li>
+                                            <li><a href="#">t-shirt</a></li>
+                                            <li><a href="#">autre truc</a></li>
+
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#">Femme</a>
+                                    <div class="menu-deroulant-1">
+                                        <ul>
+                                            <li><a href="#">pantalon</a></li>
+                                            <li><a href="#">t-shirt</a></li>
+                                            <li><a href="#">autre truc</a></li>
+
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#">Enfant</a>
+                                    <div class="menu-deroulant-1">
+                                        <ul>
+                                            <li><a href="#">pantalon</a></li>
+                                            <li><a href="#">t-shirt</a></li>
+                                            <li><a href="#">autre truc</a></li>
+
+                                        </ul>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+
+                    </li>
+                    <li class="form">
+                        <button id="submitButton">
+                            <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
+                                <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                        <input class="input" id="textInput" placeholder="Type your text" required="" type="text">
+                        <button class="reset" id="resetButton" type="reset">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="nav-li marge-li "><a href="panier.html"><img src="assets/icon/panier.png" id="panier"></a></li>
+                    <li class="nav-li marge-li "><a href="favoris.html"><img src="assets/icon/coeur.png" id="coeur"></a></li>
+                    <li class="nav-li marge-li "><a href="utilisateur.html"><img src="assets/icon/user.png" id="user"></a></li>
+                </ul>
+            </div>
+            <img src="assets/menu-btn.png" alt="menu barre" class="menu-barre">
+        </nav>
+
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Mes Infos</h1>
+            <form action="script.php" method="post">
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" name="prenom" value="Billel" required>
+            
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" value="Mezaour" required>
+
+                <label for="naissance">Date de naissance :</label>
+                <input type="date" id="naissance" name="naissance" value="" required>
+            
+                <label for="pays">Pays :</label>
+                <input type="text" id="pays" name="pays" value="France" required>
+
+                <label for="numero_rue">Numéro de rue :</label>
+                <input type="number" id="numero_rue" name="numero_rue" value="12" required>
+
+                <label for="adresse">Nom de rue :</label>
+                <input type="text" id="adresse" name="adresse" value="Rue d'E-commerce" required>
+
+                <label for="ville">Ville :</label>
+                <input type="text" id="ville" name="ville" value="Paris" required>
+
+                <label for="code_postal">Code postal :</label>
+                <input type="number" id="code_postal" name="code_postal" value="75012" required>
+            
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" value="billel.mezaour@gmail.com" required>
+            
+                <label for="num-carte">Numéro de carte :</label>
+                <input type="text" id="num-carte" name="num-carte" placeholder="XXXX-XXXX-XXXX-XXXX" required pattern="\d{4}-\d{4}-\d{4}-\d{4}" title="Le format doit être XXXX-XXXX-XXXX-XXXX">
+            
+                <label for="titulaire-carte">Titulaire de la carte :</label>
+                <input type="text" id="titulaire-carte" name="titulaire-carte" placeholder="Nom complet" required>
+            
+                <label for="date-expiration">Date d'expiration :</label>
+                <input type="month" id="date-expiration" name="date-expiration">
+            
+                <label for="cvv">CVV :</label>
+                <input type="text" id="cvv" name="cvv" placeholder="XXX" required pattern="\d{3}" title="Le CVV doit comporter 3 chiffres">
+            
+                <button type="submit">Mettre à jour</button>
+            </form>
+            
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="category">
+                <h3>Home</h3>
+                <ul>
+                    <li><a href="#">Haut</a></li>
+                    <li><a href="#">Bas</a></li>
+                    <li><a href="#">Chaussure</a></li>
+                </ul>
+            </div>
+            <div class="category">
+                <h3>Femme</h3>
+                <ul>
+                    <li><a href="#">Haut</a></li>
+                    <li><a href="#">Bas</a></li>
+                    <li><a href="#">Chaussure</a></li>
+                </ul>
+            </div>
+            <div class="category">
+                <h3>Enfant</h3>
+                <ul>
+                    <li><a href="#">Haut</a></li>
+                    <li><a href="#">Bas</a></li>
+                    <li><a href="#">Chaussure</a></li>
+                </ul>
+            </div>
+        </div>
+        <a href="contact.html">à propos de nous</a>
+        
+    </footer>
+</body>
+
+</html>
