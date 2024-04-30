@@ -1,7 +1,8 @@
-const initSlider = () => {
-    const imageList = document.querySelector(".carroussel .liste-img")
-    const slideButtons = document.querySelectorAll(".carroussel .boutton-defilement")
-    const sliderScrollbar = document.querySelector("#LePlusAcheté .scrollbar-carroussel")
+// Fonction pour initialiser un carrousel
+const initSlider = (section, i) => {
+    const imageList = section.querySelector(".carroussel${i} .liste-img")
+    const slideButtons = section.querySelectorAll(".boutton-defilement")
+    const sliderScrollbar = section.querySelector("${section} .scrollbar-carroussel")
     const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb")
     const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth
 
@@ -22,16 +23,16 @@ const initSlider = () => {
         }
 
         const handleMouseUp = () => {
-            document.removeEventListener("mousemove", handleMouseMove);
-            document.removeEventListener("mouseup", handleMouseUp);
+            section.removeEventListener("mousemove", handleMouseMove);
+            section.removeEventListener("mouseup", handleMouseUp);
         }
 
-        document.addEventListener("mousemove", handleMouseMove);
-        document.addEventListener("mouseup", handleMouseUp);
+        section.addEventListener("mousemove", handleMouseMove);
+        section.addEventListener("mouseup", handleMouseUp);
     })
     slideButtons.forEach(button =>{
         button.addEventListener("click", () => {
-            const direction = button.id === "av-carroussel" ? -1 : 1;
+            const direction = button.id === `av-carroussel${i}` ? -1 : 1;
             const scrollAmount = imageList.clientWidth * direction;
             imageList.scrollBy( {left: scrollAmount, behavior: "smooth"})
         })
@@ -53,4 +54,26 @@ const initSlider = () => {
     })
 }
 
-window.addEventListener("load", initSlider);
+//window.addEventListener("load", initSlider);
+
+// Initialisation des carrousels sur la page
+window.addEventListener("load", () => {
+    const carousel1 = document.getElementById("LePlusAcheté");
+    const carousel2 = document.getElementById("PourVous");
+
+    let i;
+    if (carousel1) {
+        initSlider(carousel1, 1);
+    }
+
+    if (carousel2) {
+        initSlider(carousel2, 2);
+    }
+});
+
+
+
+
+
+
+

@@ -33,12 +33,20 @@
     transform: translateY(-50%);
 }
 
-.carroussel .boutton-defilement#av-carroussel{
+.carroussel .boutton-defilement#av-carroussel1{
     left: -20px;
     display: none;
 }
 
-.carroussel .boutton-defilement#ap-carroussel{
+.carroussel .boutton-defilement#av-carroussel2{
+    left: -20px;
+    display: none;
+}
+.carroussel .boutton-defilement#ap-carroussel1 {
+    right: -20px;
+}
+
+.carroussel .boutton-defilement#ap-carroussel2{
     right: -20px;
 }
 
