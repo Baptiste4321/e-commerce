@@ -9,14 +9,17 @@ body{
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     line-height: 1.7;
-    color: #ffeba7;
-    background-color: #1f2029;
+    color: bisque;
+    background-color: bisque;
+}
+.colortitre{
+    color: black;
 }
 a:hover {
     text-decoration: none;
 }
 .link {
-    color: #ffeba7;
+    color: bisque;
 }
 .link:hover {
     color: #c4c3ca;
@@ -55,7 +58,7 @@ h6 span{
     padding: 0;
     margin: 10px auto;
     cursor: pointer;
-    background-color: #ffeba7;
+    background-color: #2b2e38;
 }
 .checkbox:checked + label:before,
 .checkbox:not(:checked) + label:before{
@@ -64,7 +67,7 @@ h6 span{
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    color: #ffeba7;
+    color: bisque;
     background-color: #020305;
     font-family: 'unicons';
     content: '\eb4f';
@@ -103,7 +106,7 @@ h6 span{
     background-color: #2b2e38;
     background-image: url('../assets/fond.png');
     position: absolute;
-    border-radius: 6px;
+    border-radius: 20px;
     -webkit-transform-style: preserve-3d;
 }
 .card-back {
@@ -177,7 +180,7 @@ h6 span{
     display: -ms-inline-flexbox;
     display: inline-flex;
     align-items: center;
-    background-color: #ffeba7;
+    background-color: bisque;
     color: #000000;
 }
 .btn:hover{
