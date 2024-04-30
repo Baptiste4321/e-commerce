@@ -1,7 +1,7 @@
 
 
 input::placeholder {
-  font-family: 'Tauri';
+  font-family: Tauri, sans-serif; 
   
 }
 /* Change the font style of the text input */
