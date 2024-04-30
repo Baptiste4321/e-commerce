@@ -127,6 +127,7 @@ header{
     top: 76%;
     background-color: bisque;
     width:200px ;
+    font-size: 15px;
 }
 
 
@@ -151,6 +152,7 @@ header{
     width: 100%;
     top: 0;
     background-color: bisque;
+    font-size: 13px;
 }
 
 @media screen and (max-width: 900px){
