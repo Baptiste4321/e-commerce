@@ -1,6 +1,6 @@
 // Fonction pour initialiser un carrousel
 const initSlider = (section, i) => {
-    const imageList = section.querySelector(".carroussel${i} .liste-img")
+    const imageList = section.querySelector(".carroussel${i} .liste-img${i}")
     const slideButtons = section.querySelectorAll(".boutton-defilement")
     const sliderScrollbar = section.querySelector("${section} .scrollbar-carroussel")
     const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb")
@@ -61,7 +61,7 @@ window.addEventListener("load", () => {
     const carousel1 = document.getElementById("LePlusAcheté");
     const carousel2 = document.getElementById("PourVous");
 
-    let i;
+    //let i;
     if (carousel1) {
         initSlider(carousel1, 1);
     }
