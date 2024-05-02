@@ -160,11 +160,15 @@ header{
         display: block;
         position: relative;
     }
+    .ma-liste li:nth-child(1) {
+        order: 5; /* Placer l'élément "Catégories" à la fin */
+    }
     .nav-links ul li:hover .menu-deroulant {
         background-color: rgba(255, 255, 255, 0.20);
         top: 50%;
         position: absolute;
     }
+
     .menu-deroulant ul li:hover .menu-deroulant-1{
         background-color: rgba(255, 255, 255, 0.20);
         position: absolute;
