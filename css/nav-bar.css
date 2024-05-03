@@ -159,19 +159,22 @@ header{
     .deroulant{
         display: block;
         position: relative;
+        line-height: 0.1%;
+
     }
     .ma-liste li:nth-child(1) {
         order: 5; /* Placer l'élément "Catégories" à la fin */
     }
     .nav-links ul li:hover .menu-deroulant {
-        background-color: rgba(255, 255, 255, 0.20);
-        top: 50%;
+        background-color: rgba(255, 255, 255, 0);
         position: absolute;
+        line-height: 0.5;
     }
 
     .menu-deroulant ul li:hover .menu-deroulant-1{
-        background-color: rgba(255, 255, 255, 0.20);
-        position: absolute;
+        background-color: rgba(255, 255, 255, 0);
+        position: relative;
+        line-height: 0.5;
     }
 }
 /*truc de baptiste*/
@@ -494,7 +497,6 @@ input:not(:placeholder-shown) ~ .reset {
         display: flex block;
         background-color: bisque;
         transition: padding 0.3s;
-
     }
     .navbar .logo{
         position: fixed;
@@ -515,7 +517,7 @@ input:not(:placeholder-shown) ~ .reset {
         height: 100vh;
         display: flex;
         justify-content: center;
-        align-items: center;
+        /*align-items: center;*/
         margin-left: -100%;
         transition: all 0.5s;
     }
@@ -526,6 +528,7 @@ input:not(:placeholder-shown) ~ .reset {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 30%;
     }
     .navbar .nav-links ul li{
         margin: 25px 0;

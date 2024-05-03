@@ -70,6 +70,8 @@
 }
 
 .element-carroussel{
+    border: none;
+    background-color: white;
 }
 
 .carroussel .liste-img .element-carroussel{
