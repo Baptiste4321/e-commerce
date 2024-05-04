@@ -19,7 +19,7 @@ document.getElementById("resetButton").addEventListener("click", function() {
 });
 // Fonction pour rediriger vers la page.html
 function redirectToPage() {
-    window.location.href = "recherche.html";
+    window.location.href = "recherche.php";
 }
 
 // Ecouteur d'événement pour le clic sur le bouton ou l'appui sur la touche Entrée
