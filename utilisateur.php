@@ -1,3 +1,23 @@
+<?php
+session_start();
+include('php/login.php');
+
+
+if (!isset($_SESSION['Mail'])) {
+    header('Location: utilisateur.php');
+    exit();
+}
+
+$Mail = $_SESSION['Mail'];
+$Prenom = $_SESSION['Prenom'];
+
+
+// Récupération de la liste des utilisateurs depuis la base de données
+$query_users = "SELECT Mail, Prenom FROM utilisateur";
+$stmt_users = $pdo->query($query_users);
+$users = $stmt_users->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

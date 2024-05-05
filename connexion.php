@@ -14,9 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 
     if ($user = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['Prenom'] = $user['Prenom'];
         $_SESSION['Mail'] = $user['Mail'];
-        header('Location: php/dashboard.php');
+        header('Location: ../utilisateur.php');
         exit();
     } else {
         $error_message = 'Identifiants incorrects';
@@ -58,16 +58,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <?php endif; ?>
                                         <form method="post" action="">
                                             <div class="form-group">
-                                                <input id="Mail" type="email" class="form-style" placeholder="Email">
+                                                <input id="Mail" type="email" name="Mail" class="form-style" placeholder="Email"> <!-- Ajout de l'attribut name -->
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input id="Hash_mdp" type="password" class="form-style" placeholder="Mot de passe">
+                                                <input id="Hash_mdp" type="password" name="Hash_mdp" class="form-style" placeholder="Mot de passe"> <!-- Ajout de l'attribut name -->
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
-                                            <a href="" type="submit" class="btn mt-4">Connecter</a>
-
+                                            <button type="submit" class="btn mt-4">Connecter</button> <!-- Remplacement de <a> par <button> -->
                                         </form>
+
                                         <p class="mb-0 mt-4 text-center"><a href="index.php" class="link">mot de passe oublié?</a></p>
                                     </div>
 
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 <input type="password" class="form-style" placeholder="Entrer a nouveau">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
-                                            <a href="" type="submit" class="btn mt-4">Enregistrer</a>
+                                            <a href="connexion.html" type="submit" class="btn mt-4">Enregistrer</a>
                                         </form>
 
                                     </div>
