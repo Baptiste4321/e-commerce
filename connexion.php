@@ -1,3 +1,28 @@
+<?php
+session_start();
+include('php/login.php');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $Mail = $_POST['Mail'];
+    $Hash_mdp = $_POST['Hash_mdp'];
+
+    // Vérifiez les informations d'identification dans la base de données
+    $query = "SELECT * FROM Utilisateur WHERE Mail = :Mail AND Hash_mdp = :Hash_mdp";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':Mail', $Mail, PDO::PARAM_STR);
+    $stmt->bindParam(':Hash_mdp', $Hash_mdp, PDO::PARAM_STR);
+    $stmt->execute();
+
+    if ($user = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['Mail'] = $user['Mail'];
+        header('Location: php/dashboard.php');
+        exit();
+    } else {
+        $error_message = 'Identifiants incorrects';
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,40 +53,53 @@
                                 <div class="center-wrap">
                                     <div class="section text-center">
                                         <h4 class="mb-4 pb-3">Connexion</h4>
-                                        <div class="form-group">
-                                            <input type="email" class="form-style" placeholder="Email">
-                                            <i class="input-icon uil uil-at"></i>
-                                        </div>
-                                        <div class="form-group mt-2">
-                                            <input type="password" class="form-style" placeholder="Mot de passe">
-                                            <i class="input-icon uil uil-lock-alt"></i>
-                                        </div>
-                                        <a href="utilisateur.php" class="btn mt-4">Connecter</a>
+                                        <?php if (isset($error_message)) : ?>
+                                            <p style="color: red;"><?php echo $error_message; ?></p>
+                                        <?php endif; ?>
+                                        <form method="post" action="">
+                                            <div class="form-group">
+                                                <input id="Mail" type="email" class="form-style" placeholder="Email">
+                                                <i class="input-icon uil uil-at"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input id="Hash_mdp" type="password" class="form-style" placeholder="Mot de passe">
+                                                <i class="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                            <a href="" type="submit" class="btn mt-4">Connecter</a>
+
+                                        </form>
                                         <p class="mb-0 mt-4 text-center"><a href="index.php" class="link">mot de passe oublié?</a></p>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="card-back">
                                 <div class="center-wrap">
                                     <div class="section text-center">
                                         <h4 class="mb-3 pb-3">Créer compte</h4>
-                                        <div class="form-group">
-                                            <input type="text" class="form-style" placeholder="Nom">
-                                            <i class="input-icon uil uil-user"></i>
-                                        </div>
-                                        <div class="form-group mt-2">
-                                            <input type="email" class="form-style" placeholder="Email">
-                                            <i class="input-icon uil uil-at"></i>
-                                        </div>
-                                        <div class="form-group mt-2">
-                                            <input type="password" class="form-style" placeholder="Mot de passe">
-                                            <i class="input-icon uil uil-lock-alt"></i>
-                                        </div>
-                                        <div class="form-group mt-2">
-                                            <input type="password" class="form-style" placeholder="Entrer a nouveau">
-                                            <i class="input-icon uil uil-lock-alt"></i>
-                                        </div>
-                                        <a href="index.php" class="btn mt-4">Enregistrer</a>
+                                        <?php if (isset($error_message)) : ?>
+                                            <p style="color: red;"><?php echo $error_message; ?></p>
+                                        <?php endif; ?>
+                                        <form action="insertion.php" method="post">
+                                            <div class="form-group">
+                                                <input id="Prenom" type="text" class="form-style" placeholder="Prenom">
+                                                <i class="input-icon uil uil-user"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input id="Mail" type="email" class="form-style" placeholder="Email">
+                                                <i class="input-icon uil uil-at"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input id="Hash_mdp" type="password" class="form-style" placeholder="Mot de passe">
+                                                <i class="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input type="password" class="form-style" placeholder="Entrer a nouveau">
+                                                <i class="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                            <a href="" type="submit" class="btn mt-4">Enregistrer</a>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>
