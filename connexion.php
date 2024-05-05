@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $_SESSION['Prenom'] = $user['Prenom'];
         $_SESSION['Mail'] = $user['Mail'];
-        header('Location: ../utilisateur.php');
+        header('Location: utilisateur.php');
         exit();
     } else {
         $error_message = 'Identifiants incorrects';

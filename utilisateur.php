@@ -100,7 +100,7 @@ $users = $stmt_users->fetchAll(PDO::FETCH_ASSOC);
 </header>
 <main>
     <div class="container">
-        <h1>Bonjour Billel,</h1>
+        <h1>Bonjour <?php echo $Prenom?>,</h1>
         <br><br><br><br><br><br>
         <div class="button-group">
             <a href="panier.html"><i class="fas fa-shopping-cart"></i> Mon Panier</a>
