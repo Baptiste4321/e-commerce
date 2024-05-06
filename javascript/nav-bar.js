@@ -19,8 +19,13 @@ document.getElementById("resetButton").addEventListener("click", function() {
 });
 // Fonction pour rediriger vers la page.html
 function redirectToPage() {
-    window.location.href = "recherche.php";
+    // Récupérer le texte de l'input
+    const searchTerm = document.getElementById("textInput").value;
+
+    // Rediriger vers recherche.php avec le terme de recherche comme paramètre d'URL
+    window.location.href = `recherche.php?mot_recherche=${encodeURIComponent(searchTerm)}`;
 }
+
 
 // Ecouteur d'événement pour le clic sur le bouton ou l'appui sur la touche Entrée
 document.getElementById("submitButton").addEventListener("click", redirectToPage);
