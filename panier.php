@@ -1,3 +1,38 @@
+<?php
+    session_start();
+
+    include 'php/login.php';
+    $sql = "SELECT ID_produit_dans_panier, ID_panier, ID_produit, Quantite FROM produit_dans_panier";
+
+
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $produitid = $_POST["produit"];
+        $_SESSION['produit'] = ['produit' => $produitid];
+
+       
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['suprtache'])) {
+        $tacheid = $_POST['suprtache'];
+        unset($_SESSION['produit'][$produitvaleur]);
+    }
+
+?>
+
+
+<form action="#" method="post">
+    <input type="submit" value="ajouter" name="ajouter">
+    <input type="submit" value="suprimer" name="suprimer">
+
+    <input type="hidden" name="produit">
+
+</form>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +51,7 @@
 
 </head>
 <body>
+
 
 
 <header>
@@ -100,156 +136,88 @@
             <hr>
             <p id="Séléction"></p>
 
-            <!--Première article-->
-            <div class="liste_article">
-                <div class="article">
-                    <div class="image">
-                        <img src="image/image/9.jpg" class="dans_le_block_noir" alt="">
+            
+    <?php if (isset($_SESSION['produit'])): ?>
+        <?php foreach ($_SESSION['produit'] as $produitvaleur => $produitid): ?>
+
+
+                <!--Première article-->
+
+                <div class="liste_article">
+                    <div class="article">
+                        <div class="image">
+                            <img src="image/image/8.jpg" class="dans_le_block_noir" alt="">
+
+                        </div>
+                        <div class="info_article">
+                            <table class="table">
+                                <tr class="td_descritpion">
+                                    <td >t-shirt blanc</td>
+                                    <td >100€</td>
+                                </tr>
+                                <tr class="td_descritpion">
+                                    <td class="sous_texte"><p>blanc</p></td>
+
+                                </tr>
+
+                                <tr class="td_descritpion">
+                                    <td class="sous_texte">
+                                        <label for="taille">Taille :</label>
+
+                                        <select name="" id="taille">
+                                            <option value="">XS</option>
+                                            <option value="">S</option>
+                                            <option value="">M</option>
+                                            <option value="">L</option>
+                                            <option value="">XL</option>
+                                            <option value="">XXL</option>
+
+
+                                        </select>
+                                        <label for="quantite">Quantité : </label>
+                                        <select name="" id="quantite">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+
+
+                                        </select>
+
+                                    </td>
+                                </tr>
+                                <tr class="td_descritpion">
+                                    <td>
+
+
+                                    </td>
+                                </tr>
+                                <tr class="td_descritpion">
+                                    <td class="td_descritpion"><a href=""><img src="assets/icon/delete.png" alt=""></a>
+                                        <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a></td>
+                                    <td>                    <input type="checkbox" id="checkbox1" name="checkbox1">
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+
 
 
                     </div>
-                    <div class="info_article">
-                        <table class="table">
-                            <tr class="td_descritpion">
-                                <td >t-shirt blanc</td>
-                                <td >100€</td>
-                            </tr>
-                            <tr class="td_descritpion">
-                                <td class="sous_texte"><p>blanc</p></td>
-
-                            </tr>
-
-                            <tr class="td_descritpion">
-                                <td class="sous_texte">
-                                    <label for="taille">Taille :</label>
-
-                                    <select name="" id="taille">
-                                        <option value="">XS</option>
-                                        <option value="">S</option>
-                                        <option value="">M</option>
-                                        <option value="">L</option>
-                                        <option value="">XL</option>
-                                        <option value="">XXL</option>
-
-
-                                    </select>
-                                    <label for="quantite">Quantité : </label>
-                                    <select name="" id="quantite">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-
-
-                                    </select>
-
-                                </td>
-                            </tr>
-                            <tr class="td_descritpion">
-                                <td>
-
-
-                                </td>
-                            </tr>
-                            <tr class="td_descritpion">
-                                <td class="td_descritpion"><a href=""><img src="assets/icon/delete.png" alt=""></a>
-                                    <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a>
-                                </td>
-                                <td>                    <input type="checkbox" id="checkbox1" name="checkbox1">
-                                </td>
-                            </tr>
-
-                        </table>
-
-                    </div>
-
 
 
                 </div>
+            <?php endforeach; ?>
 
-
-            </div>
-
-            <!--ddeuxième article-->
-
-            <div class="liste_article">
-                <div class="article">
-                    <div class="image">
-                        <img src="image/image/8.jpg" class="dans_le_block_noir" alt="">
-
-                    </div>
-                    <div class="info_article">
-                        <table class="table">
-                            <tr class="td_descritpion">
-                                <td >t-shirt blanc</td>
-                                <td >100€</td>
-                            </tr>
-                            <tr class="td_descritpion">
-                                <td class="sous_texte"><p>blanc</p></td>
-
-                            </tr>
-
-                            <tr class="td_descritpion">
-                                <td class="sous_texte">
-                                    <label for="taille">Taille :</label>
-
-                                    <select name="" id="taille">
-                                        <option value="">XS</option>
-                                        <option value="">S</option>
-                                        <option value="">M</option>
-                                        <option value="">L</option>
-                                        <option value="">XL</option>
-                                        <option value="">XXL</option>
-
-
-                                    </select>
-                                    <label for="quantite">Quantité : </label>
-                                    <select name="" id="quantite">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-
-
-                                    </select>
-
-                                </td>
-                            </tr>
-                            <tr class="td_descritpion">
-                                <td>
-
-
-                                </td>
-                            </tr>
-                            <tr class="td_descritpion">
-                                <td class="td_descritpion"><a href=""><img src="assets/icon/delete.png" alt=""></a>
-                                    <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a></td>
-                                <td>                    <input type="checkbox" id="checkbox1" name="checkbox1">
-                                </td>
-                            </tr>
-
-                        </table>
-
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
+         <?php endif; ?>
 
 
             <div class="test">
