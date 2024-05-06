@@ -103,7 +103,7 @@ $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
     // Parcourir les résultats et générer le contenu HTML pour chaque produit
     foreach ($resultats as $produit) {
         echo '<div class="image-container">';
-        echo '<img src="image/image/' . $produit['ID_produit'] . '.jpg" alt="' . $produit['Nom'] . '">';
+        echo '<a href="description.php?id=' . $produit['ID_produit'] . '"><img src="image/image/' . $produit['ID_produit'] . '.jpg" alt="' . $produit['Nom'] . '"></a>';
         echo '<div>Prix : $' . number_format($produit['Prix'], 2) . '</div>';
         echo '<a href="description.php?id=' . $produit['ID_produit'] . '">' . $produit['Description'] . '</a>';
         echo '</div>';
