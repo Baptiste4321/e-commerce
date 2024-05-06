@@ -20,8 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Mail déjà utilisé
         header('Location: ../connexion.php?error_message2=Vous%20avez%20deja%20un%20compte.' . '&reg-log=checked');
         exit();
-
-        exit();
     } elseif ($Hash_mdp !== $Hash_mdp_confirm) {
         // Mots de passe non identiques
         header('Location: ../connexion.php?error_message2=Les%20mots%20de%20passe%20ne%20correspondent%20pas.' . '&reg-log=checked');
