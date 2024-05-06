@@ -68,7 +68,7 @@
                                             echo '<p style="color: red;">' . $error_message . '</p>';
                                         }
                                         ?>
-                                        <form action="php/verifier.php" method="post">
+                                        <form method="post" action="php/enregistrer.php">
                                             <div class="form-group">
                                                 <input id="Prenom" name="Prenom" type="text" class="form-style" placeholder="Prenom">
                                                 <i class="input-icon uil uil-user"></i>
