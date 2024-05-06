@@ -39,7 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Redirection vers la page utilisateur après inscription réussie
             $_SESSION['Prenom'] = $Prenom;
             $_SESSION['Mail'] = $Mail;
-            header('Location: ../utilisateur.php');
+            $_SESSION['Type_utilisateur'] = $Type_utilisateur;
+            header('Location: ../'.$Type_utilisateur.'.php');
             exit();
         } else {
             // En cas d'erreur lors de l'inscription, afficher un message d'erreur

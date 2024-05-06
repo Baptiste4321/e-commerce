@@ -1,11 +1,31 @@
+<?php
+session_start();
+include('php/login.php');
+
+
+if (!isset($_SESSION['Mail'])) {
+    header('Location: utilisateur.php');
+    exit();
+}
+
+$Mail = $_SESSION['Mail'];
+$Prenom = $_SESSION['Prenom'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Image Grid</title>
-    <link rel="stylesheet" href="css/recherche.css">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="css/style1.css">
     <link rel="stylesheet" href="css/nav-bar.css">
+    <link rel="stylesheet" href="css/carroussel.css">
+    <!--<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/utilisateur.css">
 </head>
 <body>
 <header>
@@ -72,46 +92,20 @@
         <img src="assets/icon/burger-bar.png" alt="menu barre" class="menu-barre">
     </nav>
 </header>
-<?php
-// Inclure le fichier login.php pour établir la connexion à la base de données
-include 'php/login.php';
-
-// Récupérer le mot de recherche depuis l'URL
-$mot_recherche = isset($_GET['mot_recherche']) ? $_GET['mot_recherche'] : '';
-
-// Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
-$sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE Nom LIKE :mot_recherche OR Description LIKE :mot_recherche";
-
-// Préparer la requête SQL
-$stmt = $pdo->prepare($sql);
-
-// Lié le paramètre de recherche
-$mot_recherche_param = "%$mot_recherche%";
-$stmt->bindParam(':mot_recherche', $mot_recherche_param, PDO::PARAM_STR);
-
-// Exécuter la requête
-$stmt->execute();
-
-// Récupérer les résultats de la requête
-$resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
-
-<!-- Intégration du code PHP généré dans le HTML -->
-
-<div id="image-grid">
-    <?php
-    // Parcourir les résultats et générer le contenu HTML pour chaque produit
-    foreach ($resultats as $produit) {
-        echo '<div class="image-container">';
-        echo '<a href="description.php?id=' . $produit['ID_produit'] . '"><img src="image/image/' . $produit['ID_produit'] . '.jpg" alt="' . $produit['Nom'] . '"></a>';
-        echo '<div>Prix : $' . number_format($produit['Prix'], 2) . '</div>';
-        echo '<a href="description.php?id=' . $produit['ID_produit'] . '">' . $produit['Nom'] . '</a>';
-        echo '</div>';
-    }
-    ?>
-</div>
-<script src="javascript/nav-bar.js"></script>
-
+<main>
+    <div class="container">
+        <h1>Bonjour <?php echo $Prenom?>,</h1>
+        <br><br><br><br><br><br>
+        <div class="button-group">
+            <a href="panier.php"><i class="fas fa-shopping-cart"></i> Mon Panier</a>
+            <a href="favoris.php"><i class="fas fa-heart"></i> Mes Favoris</a>
+            <a href="commandes.php"><i class="fas fa-box"></i> Mes Commandes</a>
+            <a href="infos.php"><i class="fas fa-info"></i> Mes infos</a>
+            <a href="contact.php"><i class="fas fa-envelope"></i> Nous Contacter</a>
+        </div>
+        <br><br><br><br><br><br><br>
+    </div>
+</main>
 <footer>
     <div class="footer-container">
 
@@ -133,8 +127,6 @@ $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <svg viewBox="0 0 16 16" class="socialSvg whatsappSvg"> <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path> </svg>
                     </a>
                 </div>
-
-
             </div>
             <table class="flooter">
                 <tr>
@@ -146,21 +138,16 @@ $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Trouver un Magasin</a></td>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Statut de la commande</a></td>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Homme</a></td>
-
                 </tr>
                 <tr>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Réduction Pour les étudians</a></td>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Nous Contacter</a></td>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Femme</a></td>
-
-
                 </tr>
                 <tr>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Commentaire</a></td>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">avis</a></td>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Enfant</a></td>
-
-
                 </tr>
                 <tr>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Code Promo</a></td>
@@ -173,42 +160,30 @@ $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <td class="tdpournavbarre"><a class="crédit_texte "href="">Politique de confidentialité et de gestion des cookies</a></td>
                                     <td class="tdpournavbarre"><a class="crédit_texte "href="">Condition d'utilisation</a></td>
                                 </tr>
-
-
                             </table>
-
-
-                            <div>
-
+                        </div>
+                    </td>
                 </tr>
 
             </table>
             <br>
-
             <table class="crédit_tel">
                 <tr>
                     <td><a class="crédit_texte_tel">© 2024 Storehack,  Tous droits réservés</a></td>
                 </tr>
                 <tr>
                     <td><a class="crédit_texte_tel"href="">Politique de confidentialité et de gestion des cookies</a></td>
-
                 </tr>
                 <tr>
                     <td><a class="crédit_texte_tel"href="">Condition d'utilisation</a></td>
-
                 </tr>
-
             </table>
         </div>
     </div>
-
-
-
-
-
-    </div>
-
 </footer>
-
 </body>
+<script src="javascript/nav-bar.js" ></script>
+<script src="javascript/script1.js" ></script>
+<script src="javascript/recherche.js" ></script>
+<script src="javascript/carroussel.js" defer></script>
 </html>

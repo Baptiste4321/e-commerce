@@ -1,5 +1,9 @@
-// Définition de la variable contenant le chemin de l'image
-var imagePath = "image/image/3.jpg";
+// Récupération de l'ID du produit à partir de l'URL
+var urlParams = new URLSearchParams(window.location.search);
+var idProduit = urlParams.get('id');
+
+// Définition du chemin de l'image avec l'ID du produit
+var imagePath = "image/image/" + idProduit + ".jpg";
 
 // Récupération de l'élément image
 var imageElement = document.getElementById("add_img");
