@@ -35,7 +35,7 @@ CREATE table Domicile(
 
 -- Table Produit
 CREATE TABLE Produit (
-                         ID_produit INT PRIMARY KEY,
+                         ID_produit INT AUTO_INCREMENT PRIMARY KEY,
                          Nom VARCHAR(255),
                          Description TEXT,
                          Prix DECIMAL(10, 2),
