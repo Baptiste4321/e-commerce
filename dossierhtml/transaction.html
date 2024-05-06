@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar</title>
-    <link rel="stylesheet" href="css/favoris.css">
-    <link rel="stylesheet" href="css/nav-bar.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="css/carroussel.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    
 
+
+    <title>Navbar</title>
+    <link rel="stylesheet" href="../css/transaction.css">
+    <link rel="stylesheet" href="../css/nav-bar.css">
     
 
     
@@ -22,19 +21,19 @@
     <header>
         <nav class="navbar">
             <!--<a href="#" class="logo"><img src="/assets/aigle.png" id="logo"></a>-->
-            <a href="index1.html" class="logo"><img src="assets/aigle2.png" id="logo"></a>
+            <a href="index1.html" class="logo"><img src="../assets/aigle2.png" id="logo"></a>
             <div class="nav-links">
                 <ul class="standard-ul">
-                    <li class="deroulant nav-li marge-li"><a href="#">Categorie <i class="fas fa-caret-down"></i></a>
+                    <li class="deroulant nav-li marge-li"><a href="#">Catégories<i class="fas fa-caret-down"></i></a>
                         <div class="menu-deroulant">
                             <ul>
                                 <li>
                                     <a href="#">Homme</a>
                                     <div class="menu-deroulant-1">
                                         <ul>
-                                            <li><a href="#">pantalon</a></li>
-                                            <li><a href="#">t-shirt</a></li>
-                                            <li><a href="#">autre truc</a></li>
+                                            <li><a href="#">Pantalons</a></li>
+                                            <li><a href="#">T-shirts</a></li>
+                                            <li><a href="#">Chaussures</a></li>
 
                                         </ul>
                                     </div>
@@ -43,9 +42,9 @@
                                     <a href="#">Femme</a>
                                     <div class="menu-deroulant-1">
                                         <ul>
-                                            <li><a href="#">pantalon</a></li>
-                                            <li><a href="#">t-shirt</a></li>
-                                            <li><a href="#">autre truc</a></li>
+                                            <li><a href="#">Pantalons</a></li>
+                                            <li><a href="#">T-shirts</a></li>
+                                            <li><a href="#">Chaussures</a></li>
 
                                         </ul>
                                     </div>
@@ -54,9 +53,9 @@
                                     <a href="#">Enfant</a>
                                     <div class="menu-deroulant-1">
                                         <ul>
-                                            <li><a href="#">pantalon</a></li>
-                                            <li><a href="#">t-shirt</a></li>
-                                            <li><a href="#">autre truc</a></li>
+                                            <li><a href="#">Pantalons</a></li>
+                                            <li><a href="#">T-shirts</a></li>
+                                            <li><a href="#">Chaussures</a></li>
 
                                         </ul>
                                     </div>
@@ -82,230 +81,143 @@
                             </svg>
                         </button>
                     </li>
-                    <li class="nav-li marge-li "><a href="panier.html"><img class='icone' src="assets/icon/panier.png" id="panier"></a></li>
-                    <li class="nav-li marge-li "><a href="favoris.html"><img class='icone' src="assets/icon/coeur.png" id="coeur"></a></li>
-                    <li class="nav-li marge-li "><a href="utilisateur.html"><img class='icone' src="assets/icon/user.png" id="user"></a></li>
+                    <li class="nav-li marge-li "><a href="panier.html"><img class='icone' src="../assets/icon/panier.png" id="panier"></a></li>
+                    <li class="nav-li marge-li "><a href="favoris.html"><img class='icone' src="../assets/icon/coeur.png" id="coeur"></a></li>
+                    <li class="nav-li marge-li "><a href="utilisateur.html"><img class='icone' src="../assets/icon/user.png" id="user"></a></li>
                 </ul>
             </div>
-            <img src="assets/icon/burger-bar.png" alt="menu barre" class="menu-barre">
+            <img src="../assets/icon/burger-bar.png" alt="menu barre" class="menu-barre">
         </nav>
 
     </header>
-
-    
-    <main>
-    <section id="contenu">
-        <div id="liste">
-            <div id="textpanier1">
-                <p style="font-size: 2.3rem;">Mes favoris</p>
-              
-                
-                  
-            </div>
-            <hr>
-            <p id="Séléction"></p>
-
-            <!--Première article-->
-            <div class="liste_article">
-                <div class="article">
-                    <div class="image">
-                        <img src="image/image/9.jpg" class="dans_le_block_noir" alt="">
-
-
-                    </div>
-                    <div class="info_article">
-                        <table class="table">
-                            <tr class="td_descritpion">
-                                <td >t-shirt blanc</td>
-                                <td >100€</td>
+    <main> 
+        <section id="infoclient">
+            <div class="information">
+                <div class="adress">
+                    <table class="test">
+                        <td>
+                            <tr>
+                                 <td> <p style="font-size: 2rem; padding: 1rem;">Livraison</p></td>
                             </tr>
-                            <tr class="td_descritpion">
-                                <td class="sous_texte"><p>blanc</p></td>
-
+                            <tr>
+                                <td><p style="font-size: 1.1rem; margin-top: 20px; margin-left: 0.7rem;">Pays<span style="color: red;">*</span></p></td>
+                            <tr>    
+                                <td  colspan="2"><select name="test" id="test" class="deroule">
+                                    <option>Afrique du Sud</option>
+                                    <option>Albanie</option>
+                                    <option>Algérie</option>
+                                </select></td>
+                               
                             </tr>
-                            
-                            
-                            <tr class="td_descritpion">
-                                <td>
-                                    
-                                    
-                                </td>
                             </tr>
-                            <tr class="td_descritpion">
-                                <td class="td_descritpion"><a href=""><img src="assets/icon/delete.png" alt=""></a> 
-                                <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a>
-                            </td>
-                            
+                                 <td> <p style="font-size: 1.1rem; margin-top: 0.7rem; margin-left: 0.7rem; ">Nom <span style="color: red;">*</span></p></td>
+                                 <td> <p style="font-size: 1.1rem; margin-top: 0.7rem; margin-left: 0.7rem;">Prénom<span style="color: red;">*</span></p></td>
+                            <tr>
+                                <td> <input  class="unput gauche" type="text"></td>
+                                <td> <input  class="unput" type="text"></td>
                             </tr>
+                            <tr>
+                                <td> <p style="font-size: 1.1rem; margin-top: 0.7rem; margin-left: 0.7rem;">Adress<span style="color: red;">*</span></p></td>
 
-                        </table>
-
-                    </div>
-
-                    
-                    
-                </div>
-                
-
-            </div>
-            <!--ddeuxième article-->
-
-            <div class="liste_article">
-                <div class="article">
-                    <div class="image">
-                        <img src="image/image/9.jpg" class="dans_le_block_noir" alt="">
-
-
-                    </div>
-                    <div class="info_article">
-                        <table class="table">
-                            <tr class="td_descritpion">
-                                <td >t-shirt blanc</td>
-                                <td >100€</td>
-                            </tr>
-                            <tr class="td_descritpion">
-                                <td class="sous_texte"><p>blanc</p></td>
 
                             </tr>
-                            
+                            <tr>
+                                <td  colspan="2"> <input class="unput" type="text"></td>
+
+
+                            </tr>
+                            <tr>
+                                <td> <p style="font-size: 1.1rem; margin-top: 0.7rem; margin-left: 0.7rem;">Ville<span style="color: red;">*</span></p></td>
+                                <td> <p style="font-size: 1.1rem; margin-top: 0.7rem; margin-left: 0.7rem;">Code postal<span style="color: red;">*</span></p></td>
+                            </tr>
+                            <tr>
+                                <td> <input class="unput gauche" type="text"></td>
+                                <td> <input class="unput" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td> <p style="font-size: 1.1rem; margin-top: 0.7rem; margin-left: 0.7rem;">Numéro de téléphone<span style="color: red;">*</span></p></td>
+
+
+                            </tr>
+                            <tr>
+                                <td  colspan="2"> <input class="unput " class="uninput" type="text"></td>
+
+
+                            </tr>
                            
-                            <tr class="td_descritpion">
-                                <td>
-                                    
-                                    
-                                </td>
+
+                    </table>
+                    <div class="pourcentrerleformulaire"> 
+                        <table class="pour_telephone">
+                            <tr>
+                                <td><p style="font-size: 1.5rem; margin-bottom: 30px;">Livraison</p></td>
                             </tr>
-                            <tr class="td_descritpion">
-                                <td class="td_descritpion"><a href=""><img src="assets/icon/delete.png" alt=""></a> 
-                                <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a></td>
-                                
+                            
+                            <tr>
+                                <td><select name="Pays" id="" placeholder="Pays">
+                                    <option value="">France</option>
+
+                                </select></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><input class="unput" type="text" placeholder="Nom*"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><input class="unput" type="text" placeholder="Prénom"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><input class="unput" type="text" placeholder="Adress*"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><input class="unput" type="text" placeholder="Ville*"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><input class="unput" type="text" placeholder="Code Postal*"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><input class="unput" type="text" placeholder="Numéro de téléphone"></td>
                             </tr>
 
                         </table>
-
                     </div>
 
-                    
-                    
+                </div>
+                <div id="paye">
+                    <div id="textpanier">
+        
+                        <table>
+                            <td>
+                                <tr ><p class="texte">prix sans livraison : </p></tr>
+                            </td>
+                            <td>
+                                <tr><p class="texte">livraison : </p></tr>
+                            </td>
+                            <td>
+                                <tr><p class="Total">Total :</p></tr>
+                            </td>
+                            <td>
+                                <tr><a href="transaction.html" class="button-28" role="button">commander</a>
+                                </tr>
+                            </td>
+        
+                        </table>
+        
+                    </div>
+        
                 </div>
                 
 
-            </div>
-            
+     
 
-            <div class="test">
-                
-            </div>
-        </div>
-        
+        </section>
 
-
-    </section>
-    <section id="LePlusAcheté">
-        <h2>Le plus acheté</h2>
-        <br>
-        <div class='carroussel'>
-            <button id="av-carroussel" class="boutton-defilement material-symbols-rounded">chevron_left</button>
-            <div class='liste-img'>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/1.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/12.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/15.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/16.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/19.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/7.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/8.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/9.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/10.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/11.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-            </div>
-            <button id="ap-carroussel" class="boutton-defilement material-symbols-rounded">chevron_right</button>
-            <div class="scrollbar-carroussel">
-               <div class="scrollbar-container">
-                   <div class="scrollbar-thumb"></div>
-               </div>
-           </div>
-        </div>
-    </section>
+  
     </main>
     <footer>
         <div class="footer-container">
@@ -408,10 +320,15 @@
 
 
 
-<script src="javascript/nav-bar.js"></script>
-<script src="javascript/carroussel.js"></script>
+
+
+
+
+</body>
+<script src="../javascript/nav-bar.js"></script>
 
 
 </html>
+
 
 
