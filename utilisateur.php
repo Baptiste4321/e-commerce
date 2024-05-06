@@ -40,7 +40,7 @@ $users = $stmt_users->fetchAll(PDO::FETCH_ASSOC);
         <a href="index.php" class="logo"><img src="assets/aigle2.png" id="logo" alt=""></a>
         <div class="nav-links">
             <ul class="standard-ul ma-liste">
-                <li class="deroulant nav-li marge-li"><a href="#">Catégories<i class="fas fa-caret-down"></i></a>
+                <li class="deroulant nav-li marge-li"><a href="#">Catégories</i></a>
                     <div class="menu-deroulant">
                         <ul>
                             <li>
