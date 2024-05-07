@@ -131,10 +131,10 @@
                 include 'php/login.php';
 
                 // Récupérer le mot de recherche depuis l'URL
-                $mot_recherche = isset($_GET['mot_recherche']) ? $_GET['mot_recherche'] : '';
+                $mot_recherche = 'pantalon';
 
                 // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
-                $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE Nom LIKE :mot_recherche OR Description LIKE :mot_recherche";
+                $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE Description LIKE :mot_recherche OR Description LIKE :mot_recherche";
 
                 // Préparer la requête SQL
                 $stmt = $pdo->prepare($sql);
@@ -149,17 +149,22 @@
                 // Récupérer les résultats de la requête
                 $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 ?>
-                <?php
-                // Parcourir les résultats et générer le contenu HTML pour chaque produit
-                foreach ($resultats as $produit) {
-                    echo '<div class="image-container">';
-                    echo '<img src="image/image/' . $produit['ID_produit'] . '.jpg" alt="' . $produit['Nom'] . '">';
-                    echo '<div>Prix : $' . number_format($produit['Prix'], 2) . '</div>';
-                    echo '<a href="description.php?id=' . $produit['ID_produit'] . '">' . $produit['Description'] . '</a>';
-                    echo '</div>';
-                }
-                ?>
-                <a class="element-carroussel" href="description.php?id=">
+                <div class="liste-img" id="liste-img2">
+                    <?php
+                    // Parcourir les résultats et générer le contenu HTML pour chaque produit
+                    foreach ($resultats as $produit) {
+                        echo '<a class="element-carroussel">';
+                        echo '<div class="img-element-carroussel">';
+                        echo '<img class="img_carrousell" src="image/image/' . $produit['ID_produit'] . '.jpg" alt="' . $produit['Nom'] . '">';
+                        echo '</div>';
+                        echo '<div class="text-element-carroussel">';
+                        echo '<p><b>' . $produit['Description'] . '</b></p>';
+                        echo '<p>Prix : $' . number_format($produit['Prix'], 2) . '</p>';
+                        echo '</div>';
+                        echo '</a>';
+                    }
+                    ?>
+                <!--<a class="element-carroussel" href="description.php?id=">
                     <div class="img-element-carroussel">
                         <img class="img_carrousell" src="image/image/1.jpg" alt="">
                     </div>
@@ -167,7 +172,7 @@
                         <p><b>Description produit</b></p>
                         <p>Prix : 39,97$</p>
                     </div>
-                </a>
+                </a>-->
             </div>
             <button id="ap-carroussel1" class="boutton-defilement material-symbols-rounded">chevron_right</button>
         </div>
@@ -179,7 +184,7 @@
         <div id="carroussel2" class="carroussel">
             <button id="av-carroussel2" class="boutton-defilement material-symbols-rounded">chevron_left</button>
             <div class="liste-img" id="liste-img2">
-                <button class="element-carroussel">
+                <a class="element-carroussel" href="description.php">
                     <div class="img-element-carroussel">
                         <img class='img_carrousell' src="image/image/1.jpg" alt="">
                     </div>
@@ -187,7 +192,7 @@
                         <p><b>Description produit</b></p>
                         <p>Prix : 39,97$</p>
                     </div>
-                </button>
+                </a>
                 <button class="element-carroussel">
                     <div class="img-element-carroussel">
                         <img class="img_carrousell" src="image/image/12.jpg" alt="">
