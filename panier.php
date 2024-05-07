@@ -1,33 +1,149 @@
-          <?php
+       
+       
+       <?php
     session_start();
 
+    
+
     include 'php/login.php';
-    $sql = "SELECT ID_produit_dans_panier, ID_panier, ID_produit, Quantite FROM produit_dans_panier";
+
+    if (!isset($_SESSION['Mail'])) {
+        header('Location: utilisateur.php');
+        exit();
+    }
+
+    $Mail = $_SESSION['Mail'];
+    $Prenom = $_SESSION['Prenom'];
+
+    echo $Prenom;
 
 
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["ajouter"])) {
+    $produit_dans_panier_query = "SELECT p.Nom, p.Prix, pdp.Quantite, p.ID_produit, pdp.ID_produit_dans_panier 
+    FROM Produit 
+    p JOIN Produit_dans_panier pdp 
+    ON p.ID_produit = pdp.ID_produit 
+    JOIN Panier pa ON pdp.ID_panier = pa.ID_panier 
+    JOIN Utilisateur u ON pa.Mail = u.Mail 
+    WHERE u.Mail = :Mail"; 
+    
+
+    $stmt = $pdo->prepare($produit_dans_panier_query);
+    $stmt->bindParam(':Mail', $Mail);
+    $stmt->execute();
+
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    echo "ID_produit_dans_panier :". $row["ID_produit_dans_panier"]. "<br>";
+    echo "Nom du produit : " . $row['Nom'] . "<br>";
+    echo "Produit id : " . $row['ID_produit']. "<br>";
+    echo "Prix : " . $row['Prix'] . "<br>";
+    echo "Quantité dans le panier : " . $row['Quantite'] . "<br>";
+    echo "------------------------------<br>";
+
+    if (isset($row["ID_produit_dans_panier"])) {
+        $produitid = $row["ID_produit_dans_panier"];
+        // Add the product to the session array with the product ID as the key
+        $_SESSION['produit'][$produitid] = ['produit' => $produitid];
+        echo $produitid;
+        
+    }
+    
+}
+
+
+
+
+    
+
+
+
+
+    
+    /*if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["ajouter"])) {
         $produitid = $_POST["produit"];
-     
-        $_SESSION['produit'][] = ['produit' => $produitid];
+        // Add the product to the session array with the product ID as the key
+        $_SESSION['produit'][$produitid] = ['produit' => $produitid];
+        echo $produitid;
+    }*/
+    
+    
+  
+    // Output the contents of the session array before removal
+    
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['suprtache'])) {
+            $produit_id_to_remove = $_POST['suprtache'];
+
+            $host = 'localhost';
+            $db_name = 'ECOMMERCE';
+            $username = 'root';
+            $password = '';
+
+            echo "FIS DE PUTE". $produit_id_to_remove;
+            
+            // Check if the product ID exists in the session array
+            if (isset($_SESSION['produit'][$produit_id_to_remove])) {
+                // Unset the product from the session array
+
+
+                try {
+                    
+                    $pdo = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
+
+
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    
+                    // Prepare the SQL statement
+                    $stmt = $pdo->prepare("DELETE FROM produit_dans_panier WHERE ID_produit_dans_panier = :id");
+                    
+                    // Bind parameters
+                    
+                    $stmt->bindParam(':id', $produit_id_to_remove, PDO::PARAM_INT);
+                    
+                    // Execute the statement
+                    $stmt->execute();
+
+
+                    
+                    echo "Record deleted successfully";
+                    header("Location: panier.php");
+                } catch(PDOException $e) {
+                    echo "Error: " . $e->getMessage();
+                }
+
+
+
+
+
+
+
+
+                unset($_SESSION['produit'][$produit_id_to_remove]);
+                echo "Product removed: $produit_id_to_remove<br>";
+            } else {
+                echo "Product with ID $produit_id_to_remove not found<br>";
+            }
+
+
+        }
+            
        
-    }
+    
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['suprtache'])) {
-        $produitid = $_POST['suprtache'];
-        unset($_SESSION['produit'][$produitid]);
-    }
+
+   
 
 ?>
-
 
 <form action="#" method="post">
     <input type="submit" value="ajouter" name="ajouter">
 
+    <input type="hidden" name="produit">
     <input type="text" name="produit">
 
 </form>
+ 
+
 
 
 
@@ -139,93 +255,20 @@
   
 
             
-    <?php if (isset($_SESSION['produit'])): ?>
-        <?php foreach ($_SESSION['produit'] as $produitvaleur => $produitid): ?>
+            <?php if (isset($_SESSION['produit'])): ?>
+    <?php foreach ($_SESSION['produit'] as $produit_id => $produit_data): ?>
+        <!-- Première article -->
+        <form action="#" method="post">
+            <p><?php echo $produit_id; ?></p>
+            <input type="hidden" value="<?php echo $produit_id; ?>" name="suprtache">
+            <button type="submit"><img src="assets/icon/delete.png" alt=""></button>
+            <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a>
+        </form>
+        <!-- fin du premier article -->
+    <?php endforeach; ?>
+<?php endif; ?>
 
 
-                <!--Première article-->
-
-                <div class="liste_article">
-                    <div class="article">
-                        <div class="image">
-                            <img src="image/image/8.jpg" class="dans_le_block_noir" alt="">
-
-                        </div>
-                        <div class="info_article">
-                            <table class="table">
-                                <tr class="td_descritpion">
-                                    <td >t-shirt blanc</td>
-                                    <td >100€</td>
-                                </tr>
-                                <tr class="td_descritpion">
-                                    <td class="sous_texte"><p>blanc</p></td>
-
-                                </tr>
-
-                                <tr class="td_descritpion">
-                                    <td class="sous_texte">
-                                        <label for="taille">Taille :</label>
-
-                                        <select name="" id="taille">
-                                            <option value="">XS</option>
-                                            <option value="">S</option>
-                                            <option value="">M</option>
-                                            <option value="">L</option>
-                                            <option value="">XL</option>
-                                            <option value="">XXL</option>
-
-
-                                        </select>
-                                        <label for="quantite">Quantité : </label>
-                                        <select name="" id="quantite">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-
-
-                                        </select>
-
-                                    </td>
-                                </tr>
-                                <tr class="td_descritpion">
-                                    <td>
-
-
-                                    </td>
-                                </tr>
-                                <tr class="td_descritpion">
-                                    <td class="td_descritpion">
-                                        <form action="#" method="post">
-                                            <input type="hidden" value="<?php echo $produitvaleur  ?>" name="suprtache">
-                                            <button type="submit"><img src="assets/icon/delete.png" alt=""></button>
-                                            <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a></td>
-                                        </form>
-                                       
-                                    <td>                    
-                                        <input type="checkbox" id="checkbox1" name="checkbox1">
-                                    </td>
-                                </tr>
-
-                            </table>
-
-                        </div>
-
-
-
-                    </div>
-
-
-                </div>
-            <?php endforeach; ?>
-
-         <?php endif; ?>
 
 
             <div class="test">
@@ -255,6 +298,7 @@
             </div>
 
         </div>
+
 
 
 

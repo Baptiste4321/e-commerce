@@ -41,3 +41,6 @@ INSERT INTO Utilisateur (Mail, Hash_mdp, Type_utilisateur, Date_de_naissance, No
                                                                                                ('utilisateur8@example.com', 'hash8', 'client', '1997-08-08', 'Thomas', 'David'),
                                                                                                ('utilisateur9@example.com', 'hash9', 'client', '1998-09-09', 'Jackson', 'Jessica'),
                                                                                                ('utilisateur10@example.com', 'hash10', 'client', '1999-10-10', 'White', 'Chris');
+
+
+
