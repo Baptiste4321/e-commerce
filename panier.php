@@ -1,4 +1,4 @@
-<?php
+          <?php
     session_start();
 
     include 'php/login.php';
@@ -6,16 +6,17 @@
 
 
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["ajouter"])) {
         $produitid = $_POST["produit"];
-        $_SESSION['produit'] = ['produit' => $produitid];
+     
+        $_SESSION['produit'][] = ['produit' => $produitid];
 
        
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['suprtache'])) {
-        $tacheid = $_POST['suprtache'];
-        unset($_SESSION['produit'][$produitvaleur]);
+        $produitid = $_POST['suprtache'];
+        unset($_SESSION['produit'][$produitid]);
     }
 
 ?>
@@ -23,9 +24,8 @@
 
 <form action="#" method="post">
     <input type="submit" value="ajouter" name="ajouter">
-    <input type="submit" value="suprimer" name="suprimer">
 
-    <input type="hidden" name="produit">
+    <input type="text" name="produit">
 
 </form>
 
@@ -136,6 +136,8 @@
             <hr>
             <p id="Séléction"></p>
 
+  
+
             
     <?php if (isset($_SESSION['produit'])): ?>
         <?php foreach ($_SESSION['produit'] as $produitvaleur => $produitid): ?>
@@ -199,9 +201,15 @@
                                     </td>
                                 </tr>
                                 <tr class="td_descritpion">
-                                    <td class="td_descritpion"><a href=""><img src="assets/icon/delete.png" alt=""></a>
-                                        <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a></td>
-                                    <td>                    <input type="checkbox" id="checkbox1" name="checkbox1">
+                                    <td class="td_descritpion">
+                                        <form action="#" method="post">
+                                            <input type="hidden" value="<?php echo $produitvaleur  ?>" name="suprtache">
+                                            <button type="submit"><img src="assets/icon/delete.png" alt=""></button>
+                                            <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a></td>
+                                        </form>
+                                       
+                                    <td>                    
+                                        <input type="checkbox" id="checkbox1" name="checkbox1">
                                     </td>
                                 </tr>
 
