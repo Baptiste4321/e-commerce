@@ -19,7 +19,7 @@
 
 
 
-    $produit_dans_panier_query = "SELECT p.Nom, p.Prix, pdp.Quantite, p.ID_produit, pdp.ID_produit_dans_panier 
+    $produit_dans_panier_query = "SELECT p.Nom, p.Prix, pdp.Quantite, p.ID_produit, pdp.ID_produit_dans_panier, pa.ID_panier
     FROM Produit 
     p JOIN Produit_dans_panier pdp 
     ON p.ID_produit = pdp.ID_produit 
@@ -38,13 +38,22 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     echo "Produit id : " . $row['ID_produit']. "<br>";
     echo "Prix : " . $row['Prix'] . "<br>";
     echo "Quantité dans le panier : " . $row['Quantite'] . "<br>";
+    echo "id_ panier". $row["ID_panier"]. "<br>";
+    $_SESSION['row_panier'] = $row["ID_panier"];
     echo "------------------------------<br>";
 
     if (isset($row["ID_produit_dans_panier"])) {
         $produitid = $row["ID_produit_dans_panier"];
         // Add the product to the session array with the product ID as the key
         $_SESSION['produit'][$produitid] = ['produit' => $produitid];
-        echo $produitid;
+     
+
+
+
+
+
+
+        
         
     }
     
@@ -53,7 +62,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
 
 
-    
+
+
 
 
 
@@ -129,7 +139,9 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             
        
     
+        $test = $_SESSION['row_panier'];
 
+        echo "Bonjour l'id du panier est " . $test;
 
    
 
@@ -255,7 +267,38 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   
 
             
-            <?php if (isset($_SESSION['produit'])): ?>
+            <?php 
+                try {
+                    $pdo = new PDO('mysql:host=localhost;dbname=ECOMMERCE', 'root', '');
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    
+                    $panier_id = $_SESSION['row_panier']; // Example panier ID
+                    
+                    $stmt = $pdo->prepare("
+                        SELECT u.Mail
+                        FROM Utilisateur u
+                        JOIN Panier p ON u.Mail = p.Mail
+                        WHERE p.ID_panier = :panier_id
+                    ");
+                    
+                    $stmt->bindParam(':panier_id', $panier_id, PDO::PARAM_INT);
+                    $stmt->execute();
+                    
+                    $userMail = $stmt->fetchColumn(); // Fetch directly the value of the first column
+                    
+                    
+                } catch(PDOException $e) {
+                    echo "Error: " . $e->getMessage();
+                }
+                
+            
+            
+            
+            
+            
+            
+            
+            if (isset($_SESSION['produit']) && $userMail == $_SESSION['Mail'] ): ?>
     <?php foreach ($_SESSION['produit'] as $produit_id => $produit_data): ?>
         <!-- Première article -->
         <form action="#" method="post">
