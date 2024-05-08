@@ -1,11 +1,7 @@
        
-       
-       <?php
-    session_start();
-
-    
-
-    include 'php/login.php';
+<?php
+     session_start();
+     include 'php/login.php';
 
     if (!isset($_SESSION['Mail'])) {
         header('Location: utilisateur.php');
@@ -18,142 +14,10 @@
     echo $Prenom;
 
 
-
-    $produit_dans_panier_query = "SELECT p.Nom, p.Prix, pdp.Quantite, p.ID_produit, pdp.ID_produit_dans_panier, pa.ID_panier
-    FROM Produit 
-    p JOIN Produit_dans_panier pdp 
-    ON p.ID_produit = pdp.ID_produit 
-    JOIN Panier pa ON pdp.ID_panier = pa.ID_panier 
-    JOIN Utilisateur u ON pa.Mail = u.Mail 
-    WHERE u.Mail = :Mail"; 
-    
-
-    $stmt = $pdo->prepare($produit_dans_panier_query);
-    $stmt->bindParam(':Mail', $Mail);
-    $stmt->execute();
-
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    echo "ID_produit_dans_panier :". $row["ID_produit_dans_panier"]. "<br>";
-    echo "Nom du produit : " . $row['Nom'] . "<br>";
-    echo "Produit id : " . $row['ID_produit']. "<br>";
-    echo "Prix : " . $row['Prix'] . "<br>";
-    echo "Quantité dans le panier : " . $row['Quantite'] . "<br>";
-    echo "id_ panier". $row["ID_panier"]. "<br>";
-    $_SESSION['row_panier'] = $row["ID_panier"];
-    echo "------------------------------<br>";
-
-    if (isset($row["ID_produit_dans_panier"])) {
-        $produitid = $row["ID_produit_dans_panier"];
-        // Add the product to the session array with the product ID as the key
-        $_SESSION['produit'][$produitid] = ['produit' => $produitid];
-     
-
-
-
-
-
-
-        
-        
-    }
-    
-}
-
-
-
-
-
-
-
-
-
-
-    
-    /*if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["ajouter"])) {
-        $produitid = $_POST["produit"];
-        // Add the product to the session array with the product ID as the key
-        $_SESSION['produit'][$produitid] = ['produit' => $produitid];
-        echo $produitid;
-    }*/
-    
-    
-  
-    // Output the contents of the session array before removal
-    
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['suprtache'])) {
-            $produit_id_to_remove = $_POST['suprtache'];
-
-            $host = 'localhost';
-            $db_name = 'ECOMMERCE';
-            $username = 'root';
-            $password = '';
-
-            echo "FIS DE PUTE". $produit_id_to_remove;
-            
-            // Check if the product ID exists in the session array
-            if (isset($_SESSION['produit'][$produit_id_to_remove])) {
-                // Unset the product from the session array
-
-
-                try {
-                    
-                    $pdo = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
-
-
-                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    
-                    // Prepare the SQL statement
-                    $stmt = $pdo->prepare("DELETE FROM produit_dans_panier WHERE ID_produit_dans_panier = :id");
-                    
-                    // Bind parameters
-                    
-                    $stmt->bindParam(':id', $produit_id_to_remove, PDO::PARAM_INT);
-                    
-                    // Execute the statement
-                    $stmt->execute();
-
-
-                    
-                    echo "Record deleted successfully";
-                    header("Location: panier.php");
-                } catch(PDOException $e) {
-                    echo "Error: " . $e->getMessage();
-                }
-
-
-
-
-
-
-
-
-                unset($_SESSION['produit'][$produit_id_to_remove]);
-                echo "Product removed: $produit_id_to_remove<br>";
-            } else {
-                echo "Product with ID $produit_id_to_remove not found<br>";
-            }
-
-
-        }
-            
-       
-    
-        $test = $_SESSION['row_panier'];
-
-        echo "Bonjour l'id du panier est " . $test;
-
-   
-
 ?>
+ 
 
-<form action="#" method="post">
-    <input type="submit" value="ajouter" name="ajouter">
 
-    <input type="hidden" name="produit">
-    <input type="text" name="produit">
-
-</form>
  
 
 
@@ -265,52 +129,49 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             <p id="Séléction"></p>
 
   
-
-            
             <?php 
-                try {
-                    $pdo = new PDO('mysql:host=localhost;dbname=ECOMMERCE', 'root', '');
-                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    
-                    $panier_id = $_SESSION['row_panier']; // Example panier ID
-                    
-                    $stmt = $pdo->prepare("
-                        SELECT u.Mail
-                        FROM Utilisateur u
-                        JOIN Panier p ON u.Mail = p.Mail
-                        WHERE p.ID_panier = :panier_id
-                    ");
-                    
-                    $stmt->bindParam(':panier_id', $panier_id, PDO::PARAM_INT);
-                    $stmt->execute();
-                    
-                    $userMail = $stmt->fetchColumn(); // Fetch directly the value of the first column
-                    
-                    
-                } catch(PDOException $e) {
-                    echo "Error: " . $e->getMessage();
-                }
-                
-            
-            
-            
-            
-            
-            
-            
-            if (isset($_SESSION['produit']) && $userMail == $_SESSION['Mail'] ): ?>
-    <?php foreach ($_SESSION['produit'] as $produit_id => $produit_data): ?>
+   
+
+    
+
+    $produit_dans_panier_query = "SELECT p.Nom, p.Prix, pdp.Quantite, p.ID_produit, pdp.ID_produit_dans_panier, pa.ID_panier
+    FROM Produit 
+    p JOIN Produit_dans_panier pdp 
+    ON p.ID_produit = pdp.ID_produit 
+    JOIN Panier pa ON pdp.ID_panier = pa.ID_panier 
+    JOIN Utilisateur u ON pa.Mail = u.Mail 
+    WHERE u.Mail = :Mail"; 
+
+    $stmt = $pdo->prepare($produit_dans_panier_query);
+    $stmt->bindParam(':Mail', $Mail);
+    $stmt->execute();
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+        $_SESSION['ID_produit_dans_panier'] = $row["ID_produit_dans_panier"];
+        
+        ?>            
         <!-- Première article -->
         <form action="#" method="post">
-            <p><?php echo $produit_id; ?></p>
-            <input type="hidden" value="<?php echo $produit_id; ?>" name="suprtache">
+            <p><?php echo $row['Nom']; ?></p>
+            <input type="hidden" value="<?php echo $row['ID_produit_dans_panier']; ?>" name="suprtache">
             <button type="submit"><img src="assets/icon/delete.png" alt=""></button>
             <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a>
         </form>
         <!-- fin du premier article -->
-    <?php endforeach; ?>
-<?php endif; ?>
 
+        
+<?php } ?>
+<?php 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $byeproduit = $_SESSION['ID_produit_dans_panier'] ;
+    echo $byeproduit;
+}
+
+
+?> 
 
 
 
