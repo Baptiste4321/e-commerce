@@ -33,20 +33,12 @@
     transform: translateY(-50%);
 }
 
-.carroussel .boutton-defilement#av-carroussel1{
+.carroussel .boutton-defilement#av-carroussel{
     left: -20px;
     display: none;
 }
 
-.carroussel .boutton-defilement#av-carroussel2{
-    left: -20px;
-    display: none;
-}
-.carroussel .boutton-defilement#ap-carroussel1 {
-    right: -20px;
-}
-
-.carroussel .boutton-defilement#ap-carroussel2{
+.carroussel .boutton-defilement#ap-carroussel{
     right: -20px;
 }
 
@@ -70,8 +62,6 @@
 }
 
 .element-carroussel{
-    border: none;
-    background-color: white;
 }
 
 .carroussel .liste-img .element-carroussel{

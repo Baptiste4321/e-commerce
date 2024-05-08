@@ -123,68 +123,10 @@
     <section id="LePlusAcheté">
         <h2>Le plus acheté</h2>
         <br>
-        <div id="carroussel1" class="carroussel">
-            <button id="av-carroussel1" class="boutton-defilement material-symbols-rounded">chevron_left</button>
-            <div class='liste-img' id="liste-img1">
-                <?php
-                // Inclure le fichier login.php pour établir la connexion à la base de données
-                include 'php/login.php';
-
-                // Récupérer le mot de recherche depuis l'URL
-                $mot_recherche = 'pantalon';
-
-                // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
-                $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE Description LIKE :mot_recherche OR Description LIKE :mot_recherche";
-
-                // Préparer la requête SQL
-                $stmt = $pdo->prepare($sql);
-
-                // Lié le paramètre de recherche
-                $mot_recherche_param = "%$mot_recherche%";
-                $stmt->bindParam(':mot_recherche', $mot_recherche_param, PDO::PARAM_STR);
-
-                // Exécuter la requête
-                $stmt->execute();
-
-                // Récupérer les résultats de la requête
-                $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                ?>
-                <div class="liste-img" id="liste-img2">
-                    <?php
-                    // Parcourir les résultats et générer le contenu HTML pour chaque produit
-                    foreach ($resultats as $produit) {
-                        echo '<a class="element-carroussel">';
-                        echo '<div class="img-element-carroussel">';
-                        echo '<img class="img_carrousell" src="image/image/' . $produit['ID_produit'] . '.jpg" alt="' . $produit['Nom'] . '">';
-                        echo '</div>';
-                        echo '<div class="text-element-carroussel">';
-                        echo '<p><b>' . $produit['Description'] . '</b></p>';
-                        echo '<p>Prix : $' . number_format($produit['Prix'], 2) . '</p>';
-                        echo '</div>';
-                        echo '</a>';
-                    }
-                    ?>
-                <!--<a class="element-carroussel" href="description.php?id=">
-                    <div class="img-element-carroussel">
-                        <img class="img_carrousell" src="image/image/1.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </a>-->
-            </div>
-            <button id="ap-carroussel1" class="boutton-defilement material-symbols-rounded">chevron_right</button>
-        </div>
-    </section>
-    <br><br><br>
-    <section id="PourVous">
-        <h2>Pour vous</h2>
-        <br>
-        <div id="carroussel2" class="carroussel">
-            <button id="av-carroussel2" class="boutton-defilement material-symbols-rounded">chevron_left</button>
-            <div class="liste-img" id="liste-img2">
-                <a class="element-carroussel" href="description.php">
+        <div class='carroussel'>
+            <button id="av-carroussel" class="boutton-defilement material-symbols-rounded">chevron_left</button>
+            <div class='liste-img'>
+                <button class='element-carroussel'>
                     <div class="img-element-carroussel">
                         <img class='img_carrousell' src="image/image/1.jpg" alt="">
                     </div>
@@ -192,82 +134,82 @@
                         <p><b>Description produit</b></p>
                         <p>Prix : 39,97$</p>
                     </div>
-                </a>
-                <button class="element-carroussel">
+                </button>
+                <button class='element-carroussel'>
                     <div class="img-element-carroussel">
-                        <img class="img_carrousell" src="image/image/12.jpg" alt="">
+                        <img class='img_carrousell' src="image/image/12.jpg" alt="">
                     </div>
                     <div class="text-element-carroussel">
                         <p><b>Description produit</b></p>
                         <p>Prix : 39,97$</p>
                     </div>
                 </button>
-                <button class="element-carroussel">
+                <button class='element-carroussel'>
                     <div class="img-element-carroussel">
-                        <img class="img_carrousell" src="image/image/15.jpg" alt="">
+                        <img class='img_carrousell' src="image/image/15.jpg" alt="">
                     </div>
                     <div class="text-element-carroussel">
                         <p><b>Description produit</b></p>
                         <p>Prix : 39,97$</p>
                     </div>
                 </button>
-                <button class="element-carroussel">
+                <button class='element-carroussel'>
                     <div class="img-element-carroussel">
-                        <img class="img_carrousell" src="image/image/16.jpg" alt="">
+                        <img class='img_carrousell' src="image/image/16.jpg" alt="">
                     </div>
                     <div class="text-element-carroussel">
                         <p><b>Description produit</b></p>
                         <p>Prix : 39,97$</p>
                     </div>
                 </button>
-                <button class="element-carroussel">
+                <button class='element-carroussel'>
                     <div class="img-element-carroussel">
-                        <img class="img_carrousell" src="image/image/19.jpg" alt="">
+                        <img class='img_carrousell' src="image/image/19.jpg" alt="">
                     </div>
                     <div class="text-element-carroussel">
                         <p><b>Description produit</b></p>
                         <p>Prix : 39,97$</p>
                     </div>
                 </button>
-                <button class="element-carroussel">
+                <button class='element-carroussel'>
                     <div class="img-element-carroussel">
-                        <img class="img_carrousell" src="image/image/7.jpg" alt="">
+                        <img class='img_carrousell' src="image/image/7.jpg" alt="">
                     </div>
                     <div class="text-element-carroussel">
                         <p><b>Description produit</b></p>
                         <p>Prix : 39,97$</p>
                     </div>
                 </button>
-                <button class="element-carroussel">
+                <button class='element-carroussel'>
                     <div class="img-element-carroussel">
-                        <img class="img_carrousell" src="image/image/8.jpg" alt="">
+                        <img class='img_carrousell' src="image/image/8.jpg" alt="">
                     </div>
                     <div class="text-element-carroussel">
                         <p><b>Description produit</b></p>
                         <p>Prix : 39,97$</p>
                     </div>
                 </button>
-                <button class="element-carroussel">
+                <button class='element-carroussel'>
                     <div class="img-element-carroussel">
-                        <img class="img_carrousell" src="image/image/9.jpg" alt="">
+                        <img class='img_carrousell' src="image/image/9.jpg" alt="">
                     </div>
                     <div class="text-element-carroussel">
                         <p><b>Description produit</b></p>
                         <p>Prix : 39,97$</p>
                     </div>
                 </button>
-                <button class="element-carroussel">
+                <button class='element-carroussel'>
                     <div class="img-element-carroussel">
-                        <img class="img_carrousell" src="image/image/10.jpg" alt="">
+                        <img class='img_carrousell' src="image/image/10.jpg" alt="">
                     </div>
                     <div class="text-element-carroussel">
                         <p><b>Description produit</b></p>
                         <p>Prix : 39,97$</p>
                     </div>
                 </button>
-                <button class="element-carroussel">
+                <button class='element-carroussel'>
                     <div class="img-element-carroussel">
-                        <img class="img_carrousell" src="image/image/11.jpg" alt="">
+                        <img class='img_carrousell' src="image/image/11.jpg" alt="">
                     </div>
                     <div class="text-element-carroussel">
                         <p><b>Description produit</b></p>
@@ -275,7 +217,12 @@
                     </div>
                 </button>
             </div>
-            <button id="ap-carroussel2" class="boutton-defilement material-symbols-rounded">chevron_right</button>
+            <button id="ap-carroussel" class="boutton-defilement material-symbols-rounded">chevron_right</button>
+            <div class="scrollbar-carroussel">
+                <div class="scrollbar-container">
+                    <div class="scrollbar-thumb"></div>
+                </div>
+            </div>
         </div>
     </section>
 </main>
