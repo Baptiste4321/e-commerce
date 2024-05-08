@@ -119,6 +119,7 @@
          <button>Ajouter au Panier</button>
      </section> -->
 
+
     <!-- Ajouter plus de sections pour plus de produits -->
     <section id="LePlusAcheté">
         <h2>Le plus acheté</h2>
@@ -150,6 +151,7 @@
             ?>
 
             <div class='liste-img'>
+
                 <?php
                 // Boucle PHP pour générer les éléments du carrousel
                 foreach ($resultats as $produit) {
@@ -160,10 +162,10 @@
                     $i = $produit['ID_produit'];
                     echo '<button class="element-carroussel">';
                     echo '<div class="img-element-carroussel">';
-                    echo "<img class='img_carrousell' src='image/image/$i.jpg' alt='Image $i'>";
+                    echo "<a href='$redirection'><img class='img_carrousell' src='image/image/$i.jpg' alt='Image $i'></a>";
                     echo '</div>';
                     echo '<div class="text-element-carroussel">';
-                    echo '<p><b>Description produit</b></p>';
+                    echo "<a href='$redirection'><p><b>Description produit</b></p></a>";
                     echo '<p>Prix : 39,97$</p>';
                     echo '</div>';
                     echo '</button>';
