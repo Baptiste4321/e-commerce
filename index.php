@@ -131,7 +131,7 @@
                 for ($i = 1; $i <= 10; $i++) { // Changez 5 par le nombre d'éléments que vous voulez afficher
                     echo '<a class="element-carroussel">';
                     echo '<div class="img-element-carroussel">';
-                    echo '<img class="img_carrousell" src="image/image/' . $i . '.jpg" alt="Image ' . $i . '">';
+                    echo "<img class='img_carrousell' src='image/image/$i.jpg' alt='Image $i'>";
                     echo '</div>';
                     echo '<div class="text-element-carroussel">';
                     echo '<p><b>Description produit</b></p>';
