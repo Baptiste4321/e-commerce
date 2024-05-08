@@ -125,10 +125,39 @@
         <br>
         <div class='carroussel'>
             <button id="av-carroussel" class="boutton-defilement material-symbols-rounded">chevron_left</button>
+            <?php
+            // Inclure le fichier login.php pour établir la connexion à la base de données
+            include 'php/login.php';
+
+            // Récupérer le mot de recherche depuis l'URL
+            $mot_recherche = 'femme';
+
+            // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
+            $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE sexe LIKE :mot_recherche OR Description LIKE :mot_recherche";
+
+            // Préparer la requête SQL
+            $stmt = $pdo->prepare($sql);
+
+            // Lié le paramètre de recherche
+            $mot_recherche_param = "%$mot_recherche%";
+            $stmt->bindParam(':mot_recherche', $mot_recherche_param, PDO::PARAM_STR);
+
+            // Exécuter la requête
+            $stmt->execute();
+
+            // Récupérer les résultats de la requête
+            $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+
             <div class='liste-img'>
                 <?php
                 // Boucle PHP pour générer les éléments du carrousel
-                for ($i = 1; $i <= 10; $i++) { // Changez 5 par le nombre d'éléments que vous voulez afficher
+                foreach ($resultats as $produit) {
+                    $redirection= "description.php?id=" . $produit['ID_produit'];
+                    if($produit['ID_produit'] == 1){
+                        $redirection= "personnaliser.php?id=" . $produit['ID_produit'];
+                    }
+                    $i = $produit['ID_produit'];
                     echo '<button class="element-carroussel">';
                     echo '<div class="img-element-carroussel">';
                     echo "<img class='img_carrousell' src='image/image/$i.jpg' alt='Image $i'>";
