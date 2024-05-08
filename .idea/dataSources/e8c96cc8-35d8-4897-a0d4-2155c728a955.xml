@@ -1145,7 +1145,7 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
     </schema>
     <schema id="325" parent="1" name="ecommerce">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-05-07.12:47:10</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-05-08.12:46:02</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="326" parent="1" name="mysql">
@@ -1387,7 +1387,7 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="383" parent="339" name="ID_panier">
-      <AutoIncrement>15</AutoIncrement>
+      <AutoIncrement>13</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1420,6 +1420,7 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="390" parent="340" name="ID_produit">
+      <AutoIncrement>22</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>

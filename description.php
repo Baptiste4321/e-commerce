@@ -17,7 +17,7 @@
         <a href="index.php" class="logo"><img src="assets/aigle2.png" id="logo"></a>
         <div class="nav-links">
             <ul class="standard-ul">
-                <li class="deroulant nav-li marge-li"><a href="#">Catégories<i class="fas fa-caret-down"></i></a>
+                <li class="deroulant nav-li marge-li"><a href="#">Catégories</a>
                     <div class="menu-deroulant">
                         <ul>
                             <li>
