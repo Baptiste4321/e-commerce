@@ -2,19 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Image Grid</title>
-    <link rel="stylesheet" href="css/recherche.css">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="css/description.css">
     <link rel="stylesheet" href="css/nav-bar.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
 <header>
     <nav class="navbar">
         <!--<a href="#" class="logo"><img src="/assets/aigle.png" id="logo"></a>-->
-        <a href="index.php" class="logo"><img src="assets/aigle2.png" id="logo" alt=""></a>
+        <a href="index.php" class="logo"><img src="assets/aigle2.png" id="logo"></a>
         <div class="nav-links">
-            <ul class="standard-ul ma-liste">
-                <li class="deroulant nav-li marge-li"><a href="#">Catégories</a>
+            <ul class="standard-ul">
+                <li class="deroulant nav-li marge-li"><a href="#">Catégories<i class="fas fa-caret-down"></i></a>
                     <div class="menu-deroulant">
                         <ul>
                             <li>
@@ -35,6 +38,7 @@
                                         <li><a href="#">Pantalons</a></li>
                                         <li><a href="#">T-shirts</a></li>
                                         <li><a href="#">Chaussures</a></li>
+
                                     </ul>
                                 </div>
                             </li>
@@ -45,12 +49,18 @@
                                         <li><a href="#">Pantalons</a></li>
                                         <li><a href="#">T-shirts</a></li>
                                         <li><a href="#">Chaussures</a></li>
+
                                     </ul>
                                 </div>
                             </li>
+
                         </ul>
+
+
                     </div>
+
                 </li>
+
                 <li class="form">
                     <button id="submitButton">
                         <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
@@ -64,57 +74,75 @@
                         </svg>
                     </button>
                 </li>
-                <li class="nav-li marge-li "><a href="panier.php"><img class='icone' src="assets/icon/panier.png" id="panier" alt=""></a></li>
-                <li class="nav-li marge-li "><a href="favoris.php"><img class='icone' src="assets/icon/coeur.png" id="coeur" alt=""></a></li>
-                <li class="nav-li marge-li "><a href="connexion.php"><img class='icone' src="assets/icon/user.png" id="user" alt=""></a></li>
+                <li class="nav-li marge-li "><a href="panier.php"><img class='icone' src="assets/icon/panier.png" id="panier"></a></li>
+                <li class="nav-li marge-li "><a href="favoris.php"><img class='icone' src="assets/icon/coeur.png" id="coeur"></a></li>
+                <li class="nav-li marge-li "><a href="utilisateur.php"><img class='icone' src="assets/icon/user.png" id="user"></a></li>
             </ul>
         </div>
         <img src="assets/icon/burger-bar.png" alt="menu barre" class="menu-barre">
     </nav>
+
 </header>
 <?php
-// Inclure le fichier login.php pour établir la connexion à la base de données
-include 'php/login.php';
+include('php/login.php');
 
-// Récupérer le mot de recherche depuis l'URL
-$mot_recherche = isset($_GET['mot_recherche']) ? $_GET['mot_recherche'] : '';
+// Vérification si l'ID du produit est présent dans l'URL
+if(isset($_GET['id'])) {
+    // Récupération de l'ID du produit depuis l'URL
+    $id_produit = $_GET['id'];
 
-// Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
-$sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE Nom LIKE :mot_recherche OR Description LIKE :mot_recherche";
+    // Requête pour récupérer les informations du produit depuis la base de données
+    $query = "SELECT * FROM Produit WHERE ID_produit = :id_produit";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':id_produit', $id_produit, PDO::PARAM_INT);
+    $stmt->execute();
 
-// Préparer la requête SQL
-$stmt = $pdo->prepare($sql);
+    // Récupération des données du produit
+    $produit = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Lié le paramètre de recherche
-$mot_recherche_param = "%$mot_recherche%";
-$stmt->bindParam(':mot_recherche', $mot_recherche_param, PDO::PARAM_STR);
+    // Vérification si le produit existe
+    if($produit) {
+        // Définition des informations du produit
+        $nom_produit = $produit['Nom'];
+        $prix_produit = $produit['Prix'];
+        $caracteristiques = explode(',', $produit['Description']); // Si les caractéristiques sont stockées sous forme de chaîne séparée par des virgules
 
-// Exécuter la requête
-$stmt->execute();
-
-// Récupérer les résultats de la requête
-$resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // Définition du chemin de l'image
+        $imagePath = "image/image/" . $id_produit . ".jpg";
+    } else {
+        // Redirection vers une page d'erreur si le produit n'existe pas
+        header('Location: erreur.php');
+        exit();
+    }
+} else {
+    // Redirection vers une page d'erreur si l'ID du produit n'est pas fourni dans l'URL
+    header('Location: erreur.php');
+    exit();
+}
 ?>
 
-<!-- Intégration du code PHP généré dans le HTML -->
-
-<div id="image-grid">
-    <?php
-    // Parcourir les résultats et générer le contenu HTML pour chaque produit
-    foreach ($resultats as $produit) {
-        $redirection= "description.php?id=" . $produit['ID_produit'];
-        if($produit['ID_produit'] == 1){
-            $redirection= "personnaliser.php?id=" . $produit['ID_produit'];
-        }
-        echo '<div class="image-container">';
-        echo '<a href='. $redirection .'><img src="image/image/' . $produit['ID_produit'] . '.jpg" alt="' . $produit['Nom'] . '"></a>';
-        echo '<div>Prix : $' . number_format($produit['Prix'], 2) . '</div>';
-        echo '<a href='. $redirection .'>' . $produit['Nom'] . '</a>';
-        echo '</div>';
-    }
-    ?>
-</div>
-<script src="javascript/nav-bar.js"></script>
+<main class="product-main">
+    <div class="product-image2">
+        <img id="add_img" src="<?php echo $imagePath; ?>" alt="<?php echo $nom_produit; ?>">
+    </div>
+    <div class="product-details">
+        <h1><?php echo $nom_produit; ?></h1>
+        <p>Prix : $<?php echo $prix_produit; ?></p>
+        <label for="size">Taille :</label>
+        <select id="size">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+        </select>
+        <h2>Caractéristiques :</h2>
+        <ul>
+            <?php foreach($caracteristiques as $caracteristique) : ?>
+                <li><?php echo $caracteristique; ?></li>
+            <?php endforeach; ?>
+        </ul>
+        <button>Ajouter au panier</button>
+    </div>
+</main>
 
 <footer>
     <div class="footer-container">
@@ -182,7 +210,7 @@ $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </table>
 
 
-                            <div>
+                            <div> </td>
 
                 </tr>
 
@@ -213,6 +241,9 @@ $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
 </footer>
-
 </body>
+<script src="/javascript/nav-bar.js"></script>
+<script src="/javascript/description.js"></script>
 </html>
+
+

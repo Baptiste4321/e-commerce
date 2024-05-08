@@ -6,69 +6,53 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
         }
-
-        #container {
+        #tshirt {
             width: 30vw;
-            height: 80vh;
+            height:80vh ;
             background-image: url('assets/t-shirt.png'); /* Image de t-shirt */
-            background-size: 100% auto; /* Rend l'image responsive */
-            background-repeat: no-repeat; /* Empêche la répétition de l'image */
+            background-size: cover;
             position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin: 20px auto;
         }
-
-        #uploadedImageContainer {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
         #uploadedImage {
-            max-width: 100%; /* Redimensionne l'image pour qu'elle soit contenue dans le conteneur */
-            max-height: 100%;
+            max-width: 15vw;
+            max-height: 40vh;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
-
         #fileInput {
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
-<div id="container">
-    <div id="uploadedImageContainer">
-        <!-- Image uploadée par l'utilisateur -->
-    </div>
+<h1>T-Shirt Personnalisable</h1>
+<div id="tshirt">
+    <!-- Image uploadée par l'utilisateur -->
+    <img id="uploadedImage" src="#" alt="Uploaded Image">
 </div>
 <input type="file" id="fileInput" accept="image/*">
 
 <script>
     window.addEventListener('DOMContentLoaded', () => {
         const fileInput = document.getElementById('fileInput');
-        const uploadedImageContainer = document.getElementById('uploadedImageContainer');
+        const uploadedImage = document.getElementById('uploadedImage');
 
         fileInput.addEventListener('change', (event) => {
             const file = event.target.files[0];
             if (file) {
                 const reader = new FileReader();
                 reader.onload = (e) => {
-                    uploadedImageContainer.style.backgroundImage = `url(${e.target.result})`;
+                    uploadedImage.src = e.target.result;
                 };
                 reader.readAsDataURL(file);
             }
         });
     });
 </script>
+
 </body>
 </html>

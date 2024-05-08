@@ -126,96 +126,20 @@
         <div class='carroussel'>
             <button id="av-carroussel" class="boutton-defilement material-symbols-rounded">chevron_left</button>
             <div class='liste-img'>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/1.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/12.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/15.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/16.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/19.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/7.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/8.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/9.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/10.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
-                <button class='element-carroussel'>
-                    <div class="img-element-carroussel">
-                        <img class='img_carrousell' src="image/image/11.jpg" alt="">
-                    </div>
-                    <div class="text-element-carroussel">
-                        <p><b>Description produit</b></p>
-                        <p>Prix : 39,97$</p>
-                    </div>
-                </button>
+                <?php
+                // Boucle PHP pour générer les éléments du carrousel
+                for ($i = 1; $i <= 10; $i++) { // Changez 5 par le nombre d'éléments que vous voulez afficher
+                    echo '<a class="element-carroussel">';
+                    echo '<div class="img-element-carroussel">';
+                    echo '<img class="img_carrousell" src="image/image/' . $i . '.jpg" alt="Image ' . $i . '">';
+                    echo '</div>';
+                    echo '<div class="text-element-carroussel">';
+                    echo '<p><b>Description produit</b></p>';
+                    echo '<p>Prix : 39,97$</p>';
+                    echo '</div>';
+                    echo '</a>';
+                }
+                ?>
             </div>
             <button id="ap-carroussel" class="boutton-defilement material-symbols-rounded">chevron_right</button>
             <div class="scrollbar-carroussel">
@@ -225,6 +149,7 @@
             </div>
         </div>
     </section>
+
 </main>
 <footer>
     <div class="footer-container">
