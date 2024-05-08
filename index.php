@@ -129,7 +129,7 @@
                 <?php
                 // Boucle PHP pour générer les éléments du carrousel
                 for ($i = 1; $i <= 10; $i++) { // Changez 5 par le nombre d'éléments que vous voulez afficher
-                    echo '<a class="element-carroussel">';
+                    echo '<button class="element-carroussel">';
                     echo '<div class="img-element-carroussel">';
                     echo "<img class='img_carrousell' src='image/image/$i.jpg' alt='Image $i'>";
                     echo '</div>';
@@ -137,7 +137,7 @@
                     echo '<p><b>Description produit</b></p>';
                     echo '<p>Prix : 39,97$</p>';
                     echo '</div>';
-                    echo '</a>';
+                    echo '</button>';
                 }
                 ?>
             </div>
