@@ -58,7 +58,7 @@ if(isset($_GET['id'])) {
 
 <main class="product-main">
     <div class="product-image2">
-        <img id="add_img" src="<?php echo $imagePath; ?>" alt="<?php echo $nom_produit; ?>">
+        <img id="uploadedImage" src="#" alt="Uploaded Image">
     </div>
     <div class="product-details">
         <h1><?php echo $nom_produit; ?></h1>
@@ -75,6 +75,7 @@ if(isset($_GET['id'])) {
                 <li><?php echo $caracteristique; ?></li>
             <?php endforeach; ?>
         </ul>
+        <input type="file" id="fileInput" accept="image/*">
         <button>Ajouter au panier</button>
     </div>
 </main>
@@ -86,6 +87,23 @@ include "includes/footer.php"
 </body>
 <script src="/javascript/nav-bar.js"></script>
 <script src="/javascript/description.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const fileInput = document.getElementById('fileInput');
+        const uploadedImage = document.getElementById('uploadedImage');
+
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    uploadedImage.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>
 </html>
 
 
