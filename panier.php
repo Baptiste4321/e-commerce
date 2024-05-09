@@ -19,6 +19,28 @@
 
 
  
+ 
+ <?php 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $byeproduit = $_POST["suprtache"];
+    echo $byeproduit;
+
+    $produit_dans_panier_query = "DELETE FROM `produit_dans_panier` WHERE `ID_produit_dans_panier`=:byeproduit"; 
+
+    $stmt = $pdo->prepare($produit_dans_panier_query);
+    $stmt->bindParam(':byeproduit', $byeproduit);
+    $stmt->execute();
+    header('Location: panier.php');
+    exit();
+
+
+}
+
+
+
+
+?> 
 
 
 
@@ -148,30 +170,95 @@
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-        $_SESSION['ID_produit_dans_panier'] = $row["ID_produit_dans_panier"];
         
+        
+      
+
         ?>            
         <!-- Première article -->
-        <form action="#" method="post">
-            <p><?php echo $row['Nom']; ?></p>
-            <input type="hidden" value="<?php echo $row['ID_produit_dans_panier']; ?>" name="suprtache">
-            <button type="submit"><img src="assets/icon/delete.png" alt=""></button>
-            <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a>
-        </form>
+        <div class="liste_article">
+                    <div class="article">
+                        <div class="image">
+                            <img src="image/image/8.jpg" class="dans_le_block_noir" alt="">
+
+                        </div>
+                        <div class="info_article">
+                            <table class="table">
+                                <tr class="td_descritpion">
+                                    <td ><?php echo $row["Nom"]; ?></td>
+                                    <td ><?php echo $row["Prix"]; ?>€</td>
+                                </tr>
+                                <tr class="td_descritpion">
+                                    <td class="sous_texte"><p>blanc</p></td>
+
+                                </tr>
+
+                                <tr class="td_descritpion">
+                                    <td class="sous_texte">
+                                        <label for="taille">Taille :</label>
+
+                                        <select name="" id="taille">
+                                            <option value="">XS</option>
+                                            <option value="">S</option>
+                                            <option value="">M</option>
+                                            <option value="">L</option>
+                                            <option value="">XL</option>
+                                            <option value="">XXL</option>
+
+
+                                        </select>
+                                        <label for="quantite">Quantité : </label>
+                                        <select name="" id="quantite">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+
+
+                                        </select>
+
+                                    </td>
+                                </tr>
+                                <tr class="td_descritpion">
+                                    <td>
+
+
+                                    </td>
+                                </tr>
+                                <tr class="td_descritpion">
+                                    <td class="td_descritpion">
+                                        <form action="#" method="post">
+                                            <input type="hidden" value="<?php $row["ID_produit_dans_panier"]; ?>" name="suprtache">
+                                            <button type="submit"><img src="assets/icon/delete.png" alt=""></button>
+                                            <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a></td>
+                                        </form>
+                                       
+                                    <td>                    
+                                        <input type="checkbox" id="checkbox1" name="checkbox1">
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
         <!-- fin du premier article -->
 
         
 <?php } ?>
-<?php 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $byeproduit = $_SESSION['ID_produit_dans_panier'] ;
-    echo $byeproduit;
-}
-
-
-?> 
 
 
 
