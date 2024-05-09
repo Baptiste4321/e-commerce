@@ -58,7 +58,7 @@ if(isset($_GET['id'])) {
 
 <main class="product-main">
     <div class="product-image2">
-        <img id="uploadedImage" src="#" alt="Uploaded Image">
+        <img class="taille-img" id="uploadedImage" src="#" alt="Uploaded Image">
     </div>
     <div class="product-details">
         <h1><?php echo $nom_produit; ?></h1>

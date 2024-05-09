@@ -19,6 +19,15 @@
     position: relative;
     margin: 20px;
 }
+.taille-img{
+    min-width: 50%;
+    min-height: 30%;
+    max-width: 80%;
+    max-height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
 
 .product-details {
     flex: 1;
@@ -84,14 +93,21 @@ main {
 
 /* Pour les écrans plus petits que 900px */
 @media screen and (max-width: 900px) {
+    .product-image2 {
+        width: 39vh; /* Largeur fixe en pixels */
+        height: 45vh;
+        background-image: url('../assets/t-shirt.png'); /* Image de t-shirt */
+        background-size: cover;
+        position: relative;
+        margin: 20px;
+    }
     .product-main {
         flex-direction: column; /* Change la direction du flux en colonne */
     }
 
     .product-details {
-        width: calc(100% - 240px); /* largeur de l'écran - largeur de l'image */
-        margin-left: 20px; /* Ajoute une marge sur le côté gauche */
-        margin-right: 20px; /* Ajoute une marge sur le côté droit */
+        width: auto; /* largeur de l'écran - largeur de l'image */
+        place-items: center;
     }
 
     .product-details button {
