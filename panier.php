@@ -156,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
 
-    $produit_dans_panier_query = "SELECT p.Nom, p.Prix, pdp.Quantite, p.ID_produit, pdp.ID_produit_dans_panier, pa.ID_panier
+    $produit_dans_panier_query = "SELECT p.Nom, p.Prix, pdp.Quantite, p.ID_produit, pdp.ID_produit_dans_panier, pa.ID_panier,p.Description 
     FROM Produit 
     p JOIN Produit_dans_panier pdp 
     ON p.ID_produit = pdp.ID_produit 
@@ -167,12 +167,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $pdo->prepare($produit_dans_panier_query);
     $stmt->bindParam(':Mail', $Mail);
     $stmt->execute();
+    $totalPrix = 0;
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
         $imagePath = "image/image/" . $row["ID_produit"] . ".jpg";
+       
+
         
-      
+       
+
+        $totalPrix += $row["Prix"];
+
+        
 
         ?>            
         <!-- Première article -->
@@ -189,7 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <td ><?php echo $row["Prix"]; ?>€</td>
                                 </tr>
                                 <tr class="td_descritpion">
-                                    <td class="sous_texte"><p>blanc</p></td>
+                                    <td class="sous_texte"><p><?php echo $row["Description"]; ?></p></td>
 
                                 </tr>
 
@@ -257,7 +264,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- fin du premier article -->
 
         
-<?php } ?>
+<?php }
+$_SESSION["totalPrix"] = $totalPrix;
+
+?>
 
 
 
@@ -271,13 +281,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <table>
                     <td>
-                        <tr ><p class="texte">prix sans livraison : </p></tr>
+                        <tr ><p class="texte">prix sans livraison : <?php echo $_SESSION["totalPrix"]; ?></p></tr>
                     </td>
                     <td>
-                        <tr><p class="texte">livraison : </p></tr>
+                        <tr><p class="texte">livraison : <?php echo $_SESSION["totalPrix"]; ?></p></tr>
                     </td>
                     <td>
-                        <tr><p class="Total">Total :</p></tr>
+                        <tr><p class="Total">Total : <?php echo $_SESSION["totalPrix"]; ?></p></tr>
                     </td>
                     <td>
                         <tr><a href="transaction.html" class="button-28" role="button">commander</a>
