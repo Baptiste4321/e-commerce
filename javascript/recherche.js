@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const link = document.createElement('a');
         link.textContent = `description produit pour femme${i}`;
         imageContainer.appendChild(link);
-        link.href = `description.php`;
+        link.href = `description.html`;
 
         // Ajout du gestionnaire d'événements clic
         imageContainer.addEventListener('click', function() {

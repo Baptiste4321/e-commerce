@@ -39,11 +39,16 @@ CREATE TABLE Produit (
                          Nom VARCHAR(255),
                          Description TEXT,
                          Prix DECIMAL(10, 2),
-                         Stock_disponible INT,
                          promotion Varchar(3),
                          sexe VARCHAR(255),
                          Taille VARCHAR(255),
                          nb_image INT
+);
+CREATE TABLE Taille_produit (
+                         ID_taille_produit INT PRIMARY KEY,
+                         Taille VARCHAR(10),
+                         Stock_disponible INT,
+                         FOREIGN KEY (ID_produit) REFERENCES Utilisateur(Mail)
 );
 
 -- Table Panier
