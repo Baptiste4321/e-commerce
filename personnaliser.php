@@ -8,6 +8,7 @@
     <title>Navbar</title>
     <link rel="stylesheet" href="css/description.css">
     <link rel="stylesheet" href="css/nav-bar.css">
+    <link rel="stylesheet" href="css/t-shirt.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
