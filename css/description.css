@@ -93,6 +93,9 @@ main {
 
 /* Pour les écrans plus petits que 900px */
 @media screen and (max-width: 900px) {
+    .product-main {
+        place-items: center;
+    }
     .product-image2 {
         width: 39vh; /* Largeur fixe en pixels */
         height: 45vh;
@@ -106,7 +109,7 @@ main {
     }
 
     .product-details {
-        width: auto; /* largeur de l'écran - largeur de l'image */
+        width: 90%;
         place-items: center;
     }
 
