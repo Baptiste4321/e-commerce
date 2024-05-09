@@ -12,14 +12,23 @@
 }
 
 .product-image2 {
-    flex: 1;
     width: 30vw;
-    height: 80vh;
-    background-image: url('assets/t-shirt.png'); /* Image de t-shirt */
-    background-size: 100% auto; /* Rend l'image responsive */
-    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    height:80vh ;
+    background-image: url('../assets/t-shirt.png'); /* Image de t-shirt */
+    background-size: cover;
     position: relative;
-    display: flex;
+    margin: 20px auto;
+}
+#uploadedImage {
+    max-width: 15vw;
+    max-height: 40vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#fileInput {
+    margin-top: 20px;
 }
 
 .product-details {
