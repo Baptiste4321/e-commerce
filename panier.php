@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-        
+        $imagePath = "image/image/" . $row["ID_produit"] . ".jpg";
         
       
 
@@ -179,7 +179,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="liste_article">
                     <div class="article">
                         <div class="image">
-                            <img src="image/image/8.jpg" class="dans_le_block_noir" alt="">
+                            <img src="<?php echo $imagePath; ?>" class="dans_le_block_noir" alt="">
 
                         </div>
                         <div class="info_article">
