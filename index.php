@@ -165,19 +165,14 @@
                     echo "<a href='$redirection'><img class='img_carrousell' src='image/image/$i.jpg' alt='Image $i'></a>";
                     echo '</div>';
                     echo '<div class="text-element-carroussel">';
-                    echo "<a href='$redirection'><p><b>Description produit</b></p></a>";
-                    echo '<p>Prix : 39,97$</p>';
+                    echo '<a  href='. $redirection .'>' . $produit['Nom'] . '</a>';
+                    echo '<p>Prix : €' . number_format($produit['Prix'], 2) . '</p>';
                     echo '</div>';
                     echo '</button>';
                 }
                 ?>
             </div>
             <button id="ap-carroussel" class="boutton-defilement material-symbols-rounded">chevron_right</button>
-            <div class="scrollbar-carroussel">
-                <div class="scrollbar-container">
-                    <div class="scrollbar-thumb"></div>
-                </div>
-            </div>
         </div>
     </section>
     <section id="PourVous">
@@ -225,18 +220,13 @@
                     echo '</div>';
                     echo '<div class="text-element-carroussel">';
                     echo '<a  href='. $redirection .'>' . $produit['Nom'] . '</a>';
-                    echo '<p>Prix : $' . number_format($produit['Prix'], 2) . '</p>';
+                    echo '<p>Prix : €' . number_format($produit['Prix'], 2) . '</p>';
                     echo '</div>';
                     echo '</button>';
                 }
                 ?>
             </div>
             <button id="ap-carroussel" class="boutton-defilement material-symbols-rounded">chevron_right</button>
-            <div class="scrollbar-carroussel">
-                <div class="scrollbar-container">
-                    <div class="scrollbar-thumb"></div>
-                </div>
-            </div>
         </div>
     </section>
 </main>

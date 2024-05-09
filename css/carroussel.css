@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    height: 120vh;
     max-width: 1200px;
     width: 95%;
 }
@@ -67,7 +67,8 @@
 }
 
 .carroussel .liste-img .element-carroussel{
-    width: 237px;
+    width: 35vh;
+    height: 50vh;
     object-fit: cover;
 }
 
@@ -128,6 +129,10 @@
 }
 
 @media screen and (max-width: 900px) {
+
+    #LePlusAcheté #PourVous #Promotion h2{
+        font-size: 2rem;
+    }
     .carroussel .boutton-defilement{
         display: none !important;
     }
@@ -138,12 +143,16 @@
     }
 
     .carroussel .liste-img .element-carroussel{
-        width: 280px;
-        height: 380px;
+        width: 35vh;
+        height: 50vh;
+        object-fit: cover;
     }
 
     .scrollbar-carroussel .scrollbar-thumb{
         width: 20%;
+    }
 
+    .text-element-carroussel{
+        font-size: 2vh;
     }
 }
