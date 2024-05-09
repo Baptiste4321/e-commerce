@@ -131,7 +131,7 @@
             include 'php/login.php';
 
             // Récupérer le mot de recherche depuis l'URL
-            $mot_recherche = 'femme';
+            $mot_recherche = 'homme';
 
             // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
             $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE sexe LIKE :mot_recherche OR Description LIKE :mot_recherche";
@@ -165,8 +165,8 @@
                     echo "<a href='$redirection'><img class='img_carrousell' src='image/image/$i.jpg' alt='Image $i'></a>";
                     echo '</div>';
                     echo '<div class="text-element-carroussel">';
-                    echo "<a href='$redirection'><p><b>Description produit</b></p></a>";
-                    echo '<p>Prix : 39,97$</p>';
+                    echo '<a  href='. $redirection .'>' . $produit['Nom'] . '</a>';
+                    echo '<p>Prix : $' . number_format($produit['Prix'], 2) . '</p>';
                     echo '</div>';
                     echo '</button>';
                 }

@@ -77,8 +77,8 @@
     height: 45vh;
 }
 
-.text-element-carroussel {
-
+.text-element-carroussel a {
+    color: black;
 }
 
 /*Barre de défilement*/
