@@ -7,8 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupération des données du formulaire
     $Prenom = $_POST['Prenom'];
     $Mail = $_POST['Mail'];
-    $Hash_mdp = $_POST['Hash_mdp'];
-    $Hash_mdp_confirm = $_POST['Hash_mdp_confirm'];
+    $mot_de_passe = $_POST['mot_de_passe'];
+    $mdp_confirm = $_POST['mdp_confirm'];
     $Type_utilisateur = 'client';
 
     // Vérification si le Mail est déjà utilisé
@@ -21,12 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Mail déjà utilisé
         header('Location: ../connexion.php?error_message2=Vous%20avez%20deja%20un%20compte.&reg-log=checked');
         exit();
-    } elseif ($Hash_mdp !== $Hash_mdp_confirm) {
+    } elseif ($mot_de_passe !== $mdp_confirm) {
         // Mots de passe non identiques
         header('Location: ../connexion.php?error_message2=Les%20mots%20de%20passe%20ne%20correspondent%20pas.&reg-log=checked');
         exit();
     } else {
         // Insertion des données dans la base de données
+        $Hash_mdp = password_hash($mot_de_passe, PASSWORD_DEFAULT);
         $query = "INSERT INTO Utilisateur (Prenom, Mail, Hash_mdp, Type_utilisateur) VALUES (:Prenom, :Mail, :Hash_mdp, :Type_utilisateur)";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':Prenom', $Prenom, PDO::PARAM_STR);

@@ -4,16 +4,17 @@ include('login.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $Mail = $_POST['Mail'];
-    $Hash_mdp = $_POST['Hash_mdp'];
+    $mot_de_passe = $_POST['mdp'];
 
-    // Vérifiez les informations d'identification dans la base de données
-    $query = "SELECT * FROM Utilisateur WHERE Mail = :Mail AND Hash_mdp = :Hash_mdp";
+    // Récupérer le mot de passe haché de l'utilisateur depuis la base de données
+    $query = "SELECT * FROM Utilisateur WHERE Mail = :Mail";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':Mail', $Mail, PDO::PARAM_STR);
-    $stmt->bindParam(':Hash_mdp', $Hash_mdp, PDO::PARAM_STR);
     $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    // Vérifier si l'utilisateur existe et si le mot de passe est correct
+    if ($user && password_verify($mot_de_passe, $user['Hash_mdp'])) {
         $_SESSION['Prenom'] = $user['Prenom'];
         $_SESSION['Mail'] = $user['Mail'];
         $_SESSION['Type_utilisateur'] = $user['Type_utilisateur'];

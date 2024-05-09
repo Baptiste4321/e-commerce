@@ -44,7 +44,7 @@
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input id="Hash_mdp" type="password" name="Hash_mdp" class="form-style" placeholder="Mot de passe"> <!-- Ajout de l'attribut name -->
+                                                <input id="mdp" type="password" name="mdp" class="form-style" placeholder="Mot de passe"> <!-- Ajout de l'attribut name -->
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <button type="submit" class="btn mt-4">Connecter</button>
@@ -78,11 +78,11 @@
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input id="Hash_mdp" name="Hash_mdp" type="password" class="form-style" placeholder="Mot de passe">
+                                                <input id="mot_de_passe" name="mot_de_passe" type="password" class="form-style" placeholder="Mot de passe">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input id="Hash_mdp_confirm" name="Hash_mdp_confirm" type="password" class="form-style" placeholder="Entrer a nouveau">
+                                                <input id="mdp_confirm" name="mdp_confirm" type="password" class="form-style" placeholder="Entrer a nouveau">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <button type="submit" class="btn mt-4">Enregistrer</button>
