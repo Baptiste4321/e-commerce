@@ -9,6 +9,8 @@
 .product-image img {
     height: 80vh;
     width: auto;
+    position: relative;
+    margin: 20px;
 }
 
 .product-image2 {
@@ -99,6 +101,14 @@ main {
     .product-image2 {
         width: 39vh; /* Largeur fixe en pixels */
         height: 45vh;
+        background-image: url('../assets/t-shirt.png'); /* Image de t-shirt */
+        background-size: cover;
+        position: relative;
+        margin: 20px;
+    }
+    .product-image img{
+        width: 39vh; /* Largeur fixe en pixels */
+        height: auto;
         background-image: url('../assets/t-shirt.png'); /* Image de t-shirt */
         background-size: cover;
         position: relative;
