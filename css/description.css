@@ -12,23 +12,12 @@
 }
 
 .product-image2 {
-    width: 30vw;
-    height:80vh ;
+    width: 45vh; /* Largeur fixe en pixels */
+    height: 50vh;
     background-image: url('../assets/t-shirt.png'); /* Image de t-shirt */
     background-size: cover;
     position: relative;
-    margin: 20px auto;
-}
-#uploadedImage {
-    max-width: 15vw;
-    max-height: 40vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-#fileInput {
-    margin-top: 20px;
+    margin: 20px;
 }
 
 .product-details {
@@ -81,18 +70,33 @@
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
-    position: absolute;
-    top: 90vh;
-
 }
 
 .product-details button:hover {
     background-color: #0056b3;
 }
+
 main {
-    max-width: 90%;
+    max-width: 100%;
     margin-top: 50px;
-    margin-left: 150px;
-    margin-right: 150px;
     padding: 20px;
+}
+
+/* Pour les écrans plus petits que 900px */
+@media screen and (max-width: 900px) {
+    .product-main {
+        flex-direction: column; /* Change la direction du flux en colonne */
+    }
+
+    .product-details {
+        width: calc(100% - 240px); /* largeur de l'écran - largeur de l'image */
+        margin-left: 20px; /* Ajoute une marge sur le côté gauche */
+        margin-right: 20px; /* Ajoute une marge sur le côté droit */
+    }
+
+    .product-details button {
+        width: 100%; /* Remplit la largeur */
+        position: static; /* Réinitialise la position */
+        margin-top: 20px; /* Ajoute une marge en haut */
+    }
 }
