@@ -108,7 +108,7 @@ $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         echo '<div class="image-container">';
         echo '<a href='. $redirection .'><img src="image/image/' . $produit['ID_produit'] . '.jpg" alt="' . $produit['Nom'] . '"></a>';
-        echo '<div>Prix : $' . number_format($produit['Prix'], 2) . '</div>';
+        echo '<div>Prix : €' . number_format($produit['Prix'], 2) . '</div>';
         echo '<a href='. $redirection .'>' . $produit['Nom'] . '</a>';
         echo '</div>';
     }
