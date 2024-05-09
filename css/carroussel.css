@@ -85,28 +85,28 @@
 /*Barre de défilement*/
 
 .carroussel .scrollbar-carroussel{
-    height: 24px;
-    width: 100%;
+    height: 0;
+    width: 0;
     display: flex;
     align-items: center;
 }
 
 .scrollbar-carroussel .scrollbar-container{
-    height: 2px;
-    width: 100%;
+    height: 0;
+    width: 0;
     background: #ccc;
     position : relative;
     border-radius: 4px;
 }
 
 .scrollbar-carroussel:hover .scrollbar-container{
-    height: 4px;
+    height: 0;
 }
 
 .scrollbar-carroussel .scrollbar-thumb{
     position: absolute;
-    height: 100%;
-    width: 50%;
+    height: 0;
+    width: 0;
     background: #000;
     border-radius: inherit;
     cursor: grab;
@@ -114,7 +114,7 @@
 
 .scrollbar-carroussel .scrollbar-thumb:active{
     cursor: grabbing;
-    height: 8px;
+    height: 0;
     top: -2px;
 }
 
