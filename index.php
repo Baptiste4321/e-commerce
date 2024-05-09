@@ -173,6 +173,11 @@
                 ?>
             </div>
             <button id="ap-carroussel" class="boutton-defilement material-symbols-rounded">chevron_right</button>
+            <div class="scrollbar-carroussel">
+                <div class="scrollbar-container">
+                    <div class="scrollbar-thumb"></div>
+                </div>
+            </div>
         </div>
     </section>
     <section id="PourVous">
@@ -227,6 +232,11 @@
                 ?>
             </div>
             <button id="ap-carroussel" class="boutton-defilement material-symbols-rounded">chevron_right</button>
+            <div class="scrollbar-carroussel">
+                <div class="scrollbar-container">
+                    <div class="scrollbar-thumb"></div>
+                </div>
+            </div>
         </div>
     </section>
 </main>
