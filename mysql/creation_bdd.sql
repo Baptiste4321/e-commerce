@@ -56,7 +56,7 @@ CREATE TABLE Panier (
 
 -- Table Produit_dans_panier
 CREATE TABLE Produit_dans_panier (
-                                     ID_produit_dans_panier INT PRIMARY KEY,
+                                     ID_produit_dans_panier INT AUTO_INCREMENT PRIMARY KEY,
                                      ID_panier INT,
                                      ID_produit INT,
                                      Quantite INT,

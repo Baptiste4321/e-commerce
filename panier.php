@@ -234,7 +234,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <tr class="td_descritpion">
                                     <td class="td_descritpion">
                                         <form action="#" method="post">
-                                            <input type="hidden" value="<?php $row["ID_produit_dans_panier"]; ?>" name="suprtache">
+                                            <input type="hidden" value="<?php echo $row["ID_produit_dans_panier"]; ?>" name="suprtache">
                                             <button type="submit"><img src="assets/icon/delete.png" alt=""></button>
                                             <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a></td>
                                         </form>
