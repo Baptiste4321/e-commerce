@@ -11,9 +11,9 @@
                                 <a href="recherche.php?mot_recherche=<?= urlencode('homme') ?>">Homme</a>
                                 <div class="menu-deroulant-1">
                                     <ul>
-                                        <li><a href="#">Pantalons</a></li>
-                                        <li><a href="#">T-shirts</a></li>
-                                        <li><a href="#">Chaussures</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('homme pantalon') ?>">Pantalons</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('homme t-shirt') ?>">T-shirts</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('homme chaussure') ?>">Chaussures</a></li>
 
                                     </ul>
                                 </div>
