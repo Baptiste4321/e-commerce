@@ -8,7 +8,7 @@
                     <div class="menu-deroulant">
                         <ul>
                             <li>
-                                <a href="#">Homme</a>
+                                <a href="recherche.php?mot_recherche=<?= urlencode('homme') ?>">Homme</a>
                                 <div class="menu-deroulant-1">
                                     <ul>
                                         <li><a href="#">Pantalons</a></li>
