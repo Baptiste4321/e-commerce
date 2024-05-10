@@ -21,10 +21,10 @@ include "includes/header.php"
 ?>
 
 <main>
-    <div class="container">
+    <div class="container-hist">
         <h1>Vos articles</h1>
         <br><br><br><br><br><br>
-        <div class="button-group">
+        <div class="button-hist">
             <a href="ajouter.php"><i class="fas fa-add"></i> Ajouter des articles</a>
         </div>
         <br><br><br><br><br><br><br>

@@ -57,4 +57,42 @@
             .button-group {
                 grid-template-columns: repeat(1, 1fr);  /* 3 colonnes de taille égale */
             }
+            .button-hist {
+                grid-template-columns: repeat(1, 1fr);  /* 3 colonnes de taille égale */
+            }
         }
+
+        /*PL*/
+
+        .container-hist {
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            margin-top: 50px;
+        }
+
+        /* Styles pour le bouton de soumission */
+        .button-hist {
+            padding: 10px 15px;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        .button-hist a{
+            text-decoration: none;
+            color: black;
+        }
+
+        .button-hist:hover {
+            background-color: #f0f0f0;
+        }
+
