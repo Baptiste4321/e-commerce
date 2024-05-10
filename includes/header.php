@@ -19,7 +19,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="#">Femme</a>
+                                <a href="recherche.php?mot_recherche=<?= urlencode('femme') ?>">Femme</a>
                                 <div class="menu-deroulant-1">
                                     <ul>
                                         <li><a href="#">Pantalons</a></li>
