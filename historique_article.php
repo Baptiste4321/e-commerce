@@ -1,17 +1,4 @@
-<?php
-session_start();
-include('php/login.php');
-
-
-if (!isset($_SESSION['Mail'])) {
-    header('Location: connexion.php');
-    exit();
-}
-
-$Mail = $_SESSION['Mail'];
-$Prenom = $_SESSION['Prenom'];
-
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,16 +21,11 @@ include "includes/header.php"
 ?>
 
 <main>
-    <div class="container">
-        <h1>Bonjour <?php echo $Prenom?>,</h1>
+    <div class="container-hist">
+        <h1>Vos articles</h1>
         <br><br><br><br><br><br>
-        <div class="button-group">
-            <a href="panier.php"><i class="fas fa-shopping-cart"></i> Mon Panier</a>
-            <a href="favoris.php"><i class="fas fa-heart"></i> Mes Favoris</a>
-            <a href="commandes.php"><i class="fas fa-box"></i> Mes Commandes</a>
-            <a href="infos.php"><i class="fas fa-info"></i> Mes infos</a>
-            <a href="historique_article.php"><i class="fas fa-barcode"></i> Ajouter des articles</a>
-            <a href="contact.php"><i class="fas fa-envelope"></i> Nous Contacter</a>
+        <div class="button-hist">
+            <a href="ajouter.php"><i class="fas fa-add"></i> Ajouter des articles</a>
         </div>
         <br><br><br><br><br><br><br>
     </div>

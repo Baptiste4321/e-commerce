@@ -33,35 +33,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["ajouterproduit"])) {
         $ajoutproduit = $_POST["ajouterproduit"];
+        $Taille = $_SESSION["Type"];
+
+        echo $Taille;
         
         $quantite = $_POST["quantite"];
 
         echo $quantite;
 
         // Vérifier si le produit existe déjà dans le panier
-        $check_product_query = "SELECT Quantite FROM produit_dans_panier WHERE ID_produit = :ajoutproduit AND ID_panier = :panierid";
+        $check_product_query = "SELECT Quantite FROM produit_dans_panier WHERE ID_produit = :ajoutproduit AND Taille = :taille AND ID_panier = :panierid";
         $stmt = $pdo->prepare($check_product_query);
         $stmt->bindParam(':ajoutproduit', $ajoutproduit, PDO::PARAM_INT);
+        $stmt->bindParam(':taille', $Taille, PDO::PARAM_STR); // Supposons que $taille contienne la taille à vérifier
         $stmt->bindParam(':panierid', $panierid, PDO::PARAM_INT);
         $stmt->execute();
         $existing_product = $stmt->fetch(PDO::FETCH_ASSOC);
     
         if ($existing_product) {
             // Le produit existe déjà dans le panier, augmenter la quantité
-            $update_quantity_query = "UPDATE produit_dans_panier SET Quantite = Quantite + :quantite WHERE ID_produit = :ajoutproduit AND ID_panier = :panierid";
+            $update_quantity_query = "UPDATE produit_dans_panier SET Quantite = Quantite + :quantite WHERE ID_produit = :ajoutproduit AND ID_panier = :panierid AND Taille = :Taille";
             $stmt = $pdo->prepare($update_quantity_query);
             $stmt->bindParam(':ajoutproduit', $ajoutproduit, PDO::PARAM_INT);
             $stmt->bindParam(':panierid', $panierid, PDO::PARAM_INT);
             $stmt->bindParam(':quantite', $quantite, PDO::PARAM_INT);
+            $stmt->bindParam(':Taille', $Taille, PDO::PARAM_STR);
 
             $stmt->execute();
         } else {
             // Le produit n'existe pas dans le panier, l'ajouter avec une quantité de 1
-            $insert_product_query = "INSERT INTO produit_dans_panier (ID_produit, ID_panier, Quantite) VALUES (:ajoutproduit, :panierid, :quantite)";
+            $insert_product_query = "INSERT INTO produit_dans_panier (ID_produit, ID_panier, Quantite, Taille) VALUES (:ajoutproduit, :panierid, :quantite, :Taille)";
             $stmt = $pdo->prepare($insert_product_query);
             $stmt->bindParam(':ajoutproduit', $ajoutproduit, PDO::PARAM_INT);
             $stmt->bindParam(':panierid', $panierid, PDO::PARAM_INT);
             $stmt->bindParam(':quantite', $quantite, PDO::PARAM_INT);
+            $stmt->bindParam(':Taille', $Taille, PDO::PARAM_STR);
 
             $stmt->execute();
         }
@@ -196,6 +202,8 @@ if(isset($_GET['id'])) {
        
        if ($_SERVER["REQUEST_METHOD"] =="POST" && isset($_POST["taille"])) {
            $Taille = $_POST["taille"];
+           
+
            $id = $_GET['id'];
 
            
@@ -219,6 +227,8 @@ if(isset($_GET['id'])) {
            
            echo $qt["Stock_disponible"];
            echo var_dump($Taille);
+
+           $_SESSION["Type"] = $Taille;
               
 
               
@@ -244,7 +254,8 @@ if(isset($_GET['id'])) {
                 <li><?php echo $caracteristique; ?></li>
             <?php endforeach; ?>
         </ul>
-        
+
+                
             <button type="submit" name="ajouterproduit" value="<?php echo $_GET['id']; ?>">Ajouter au panier</button>
         </form>
        
