@@ -38,9 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Exécution de la requête d'insertion
         if ($stmt->execute()) {
             // Redirection vers la page utilisateur après inscription réussie
-            $_SESSION['Prenom'] = $Prenom;
-            $_SESSION['Mail'] = $Mail;
-            $_SESSION['Type_utilisateur'] = $Type_utilisateur;
+            include "../includes/SESSION.php";
             header('Location: ../'.$Type_utilisateur.'.php');
             exit();
         } else {

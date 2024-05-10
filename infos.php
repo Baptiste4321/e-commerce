@@ -1,19 +1,9 @@
 <?php
 session_start();
 include 'php/login.php';
-
 $Mail = $_SESSION['Mail'];
+include 'includes/SESSION.php';
 $Prenom = $_SESSION['Prenom'];
-$query = "SELECT Nom, Hash_mdp, Date_de_naissance FROM Utilisateur WHERE Mail = :Mail";
-$stmt = $pdo->prepare($query);
-$stmt->bindParam(':Mail', $Mail, PDO::PARAM_STR);
-$stmt->execute();
-$userData = $stmt->fetch(PDO::FETCH_ASSOC);
-
-$_SESSION['Nom'] = $userData['Nom'];
-$_SESSION['Hash_mdp'] = $userData['Hash_mdp'];
-$_SESSION['Date_de_naissance'] = $userData['Date_de_naissance'];
-
 $Nom = $_SESSION['Nom'];
 $Hash_mdp = $_SESSION['Hash_mdp'];
 $Date_de_naissance = $_SESSION['Date_de_naissance'];

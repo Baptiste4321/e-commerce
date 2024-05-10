@@ -15,9 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Vérifier si l'utilisateur existe et si le mot de passe est correct
     if ($user && password_verify($mot_de_passe, $user['Hash_mdp'])) {
-        $_SESSION['Prenom'] = $user['Prenom'];
-        $_SESSION['Mail'] = $user['Mail'];
-        $_SESSION['Type_utilisateur'] = $user['Type_utilisateur'];
+        $Mail = $user['Mail'];
+        include "../includes/SESSION.php";
         header('Location: ../'.$_SESSION['Type_utilisateur'].'.php');
         exit();
     } else {
