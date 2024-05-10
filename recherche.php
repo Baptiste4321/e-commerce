@@ -47,6 +47,7 @@ foreach ($mots as $mot) {
         $mot="enfant";
     }
 
+
     // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
     $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE Nom LIKE :mot_recherche OR Description LIKE :mot_recherche";
 

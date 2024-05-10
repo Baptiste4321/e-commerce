@@ -5,6 +5,7 @@
      session_start();
      include 'php/login.php';
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!isset($_SESSION['Mail'])) {
         header('Location: connexion.php');
         exit();
@@ -18,7 +19,7 @@
 
     $recupPid = "SELECT ID_panier FROM Panier WHERE Mail = '$Mail'";
     $stmt = $pdo->prepare($recupPid);
-   
+
     $stmt->execute();
 
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -27,7 +28,7 @@
 
     echo $panierid;
 
-    
+}
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
