@@ -23,24 +23,18 @@ CREATE TABLE Utilisateur(
     Mail VARCHAR(50) NOT NULL,
     Hash_mdp VARCHAR(255) NOT NULL,
     Type_utilisateur VARCHAR(50) NOT NULL,
-    Date_de_naissance DATE NOT NULL,
     Nom VARCHAR(50) NOT NULL,
     Prenom VARCHAR(50) NOT NULL,
-    CONSTRAINT Utilisateur_PK PRIMARY KEY (Mail)
-)ENGINE=InnoDB;
-
--- Créer la table Domicile
-CREATE TABLE Domicile(
+    Date_de_naissance DATE NOT NULL,
     Pays VARCHAR(30),
-    Code_postale INT(5),
+    Code_postal INT(5),
     Ville VARCHAR(30),
     Rue VARCHAR(30),
     Num_rue int(3),
     Info_sup VARCHAR(200),
-    Mail VARCHAR(50),
-    PRIMARY KEY (Mail),
-    FOREIGN KEY (Mail) REFERENCES Utilisateur(Mail)
-);
+    CONSTRAINT Utilisateur_PK PRIMARY KEY (Mail)
+)ENGINE=InnoDB;
+
 
 -- Créer la table Produit
 CREATE TABLE Produit (

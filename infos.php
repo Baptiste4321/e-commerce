@@ -12,7 +12,7 @@ $Ville = $_SESSION['Ville'];
 $Code_postal = $_SESSION['Code_postal'];
 $Rue = $_SESSION['Rue'];
 $Num_rue = $_SESSION['Num_rue'];
-$Info = $_SESSION['Info'];
+$Info_sup = $_SESSION['Info_sup'];
 
 ?>
 
@@ -64,7 +64,7 @@ include "includes/header.php"
             <input type="number" id="numero_rue" name="numero_rue" value="<?php echo $Num_rue?>" required>
 
             <label for="numero_rue">Info complémentaire :</label>
-            <input type="number" id="numero_rue" name="numero_rue" value="<?php echo $Info?>" required>
+            <input type="number" id="numero_rue" name="numero_rue" value="<?php echo $Info_sup?>" required>
 
             <label for="mot_de_passe">Mot de passe :</label>
             <input type="password" id="mot_de_passe" name="mot_de_passe" value="" >

@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         // Insertion des données dans la base de données
         $Hash_mdp = password_hash($mot_de_passe, PASSWORD_DEFAULT);
-        $query = "INSERT INTO Utilisateur (Prenom, Mail, Hash_mdp, Type_utilisateur) VALUES (:Prenom, :Mail, :Hash_mdp, :Type_utilisateur)";
+        $query = "INSERT INTO Utilisateur (Prenom, Mail, Hash_mdp, Type_utilisateur) VALUES (:Prenom, :Mail, :Hash_mdp, :Type_utilisateur); ";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':Prenom', $Prenom, PDO::PARAM_STR);
         $stmt->bindParam(':Mail', $Mail, PDO::PARAM_STR);
