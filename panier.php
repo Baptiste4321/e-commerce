@@ -88,121 +88,55 @@ include "includes/header.php"
 
   
             <?php 
-   
+$produit_dans_panier_query = "SELECT p.Nom, p.Prix, pdp.Quantite, p.ID_produit, pdp.ID_produit_dans_panier, pa.ID_panier,p.Description 
+FROM Produit p 
+JOIN Produit_dans_panier pdp ON p.ID_produit = pdp.ID_produit 
+JOIN Panier pa ON pdp.ID_panier = pa.ID_panier 
+JOIN Utilisateur u ON pa.Mail = u.Mail 
+WHERE u.Mail = :Mail";
 
-    
+$stmt = $pdo->prepare($produit_dans_panier_query);
+$stmt->bindParam(':Mail', $Mail);
+$stmt->execute();
+$totalPrix = 0;
 
-    $produit_dans_panier_query = "SELECT p.Nom, p.Prix, pdp.Quantite, p.ID_produit, pdp.ID_produit_dans_panier, pa.ID_panier,p.Description 
-    FROM Produit 
-    p JOIN Produit_dans_panier pdp 
-    ON p.ID_produit = pdp.ID_produit 
-    JOIN Panier pa ON pdp.ID_panier = pa.ID_panier 
-    JOIN Utilisateur u ON pa.Mail = u.Mail 
-    WHERE u.Mail = :Mail"; 
+$panier = array(); // Créer un tableau pour stocker les produits du panier
 
-    $stmt = $pdo->prepare($produit_dans_panier_query);
-    $stmt->bindParam(':Mail', $Mail);
-    $stmt->execute();
-    $totalPrix = 0;
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $imagePath = "image/image/" . $row["ID_produit"] . ".jpg";
+    $totalPrix += $row["Prix"];
 
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    // Vérifier si le produit existe déjà dans le panier
+    if (array_key_exists($row["ID_produit"], $panier)) {
+        // Si oui, augmenter la quantité du produit existant
+        $panier[$row["ID_produit"]]["Quantite"] += $row["Quantite"];
+    } else {
+        // Sinon, ajouter le produit au panier
+        $panier[$row["ID_produit"]] = $row;
 
-        $imagePath = "image/image/" . $row["ID_produit"] . ".jpg";
-       
+    }
+}
 
-        
-       
+// Afficher les produits du panier
+foreach ($panier as $produit) {
+    ?>
+    <!-- Produit -->
+    <form action="#" method="post">
+        <?php echo $produit["ID_produit"] ?>
+        <br>
+        <?php echo $produit["ID_produit_dans_panier"] ?>
+        <br>
+        Quantité: <?php echo $produit["Quantite"] ?>
+        <br>
+        <input type="hidden" value="<?php echo $produit["ID_produit_dans_panier"]; ?>" name="suprtache">
+        <button type="submit"><img src="assets/icon/delete.png" alt=""></button>
+        <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a>
+    </form>
+    <!-- Fin du produit -->
+    <?php
+}
 
-        $totalPrix += $row["Prix"];
-
-        
-
-        ?>            
-        <!-- Première article -->
-        <div class="liste_article">
-                    <div class="article">
-                        <div class="image">
-                            <img src="<?php echo $imagePath; ?>" class="dans_le_block_noir" alt="">
-
-                        </div>
-                        <div class="info_article">
-                            <table class="table">
-                                <tr class="td_descritpion">
-                                    <td ><?php echo $row["Nom"]; ?></td>
-                                    <td ><?php echo $row["Prix"]; ?>€</td>
-                                </tr>
-                                <tr class="td_descritpion">
-                                    <td class="sous_texte"><p><?php echo $row["Description"]; ?></p></td>
-
-                                </tr>
-
-                                <tr class="td_descritpion">
-                                    <td class="sous_texte">
-                                        <label for="taille">Taille :</label>
-
-                                        <select name="" id="taille">
-                                            <option value="">XS</option>
-                                            <option value="">S</option>
-                                            <option value="">M</option>
-                                            <option value="">L</option>
-                                            <option value="">XL</option>
-                                            <option value="">XXL</option>
-
-
-                                        </select>
-                                        <label for="quantite">Quantité : </label>
-                                        <select name="" id="quantite">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-
-
-                                        </select>
-
-                                    </td>
-                                </tr>
-                                <tr class="td_descritpion">
-                                    <td>
-
-
-                                    </td>
-                                </tr>
-                                <tr class="td_descritpion">
-                                    <td class="td_descritpion">
-                                        <form action="#" method="post">
-                                            <input type="hidden" value="<?php echo $row["ID_produit_dans_panier"]; ?>" name="suprtache">
-                                            <button type="submit"><img src="assets/icon/delete.png" alt=""></button>
-                                            <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a></td>
-                                        </form>
-                                       
-                                    <td>                    
-                                        <input type="checkbox" id="checkbox1" name="checkbox1">
-                                    </td>
-                                </tr>
-
-                            </table>
-
-                        </div>
-
-
-
-                    </div>
-
-
-                </div>
-        <!-- fin du premier article -->
-
-        
-<?php }
 $_SESSION["totalPrix"] = $totalPrix;
-
 ?>
 
 

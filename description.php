@@ -124,6 +124,13 @@ if(isset($_GET['id'])) {
             <option value="medium">Medium</option>
             <option value="large">Large</option>
         </select>
+
+        <label for="size">Taille :</label>
+        <select id="size">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+        </select>
         <h2>Caractéristiques :</h2>
         <ul>
             <?php foreach($caracteristiques as $caracteristique) : ?>
