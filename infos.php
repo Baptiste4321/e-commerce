@@ -57,14 +57,14 @@ include "includes/header.php"
             <label for="ville">Ville :</label>
             <input type="text" id="ville" name="ville" value="<?php echo $Ville?>" required>
 
-            <label for="adresse">Nom de rue :</label>
-            <input type="text" id="adresse" name="adresse" value="<?php echo $Rue?>" required>
+            <label for="rue">Nom de rue :</label>
+            <input type="text" id="rue" name="rue" value="<?php echo $Rue?>" required>
 
-            <label for="numero_rue">Numéro de rue :</label>
-            <input type="number" id="numero_rue" name="numero_rue" value="<?php echo $Num_rue?>" required>
+            <label for="num_rue">Numéro de rue :</label>
+            <input type="number" id="num_rue" name="num_rue" value="<?php echo $Num_rue?>" required>
 
-            <label for="numero_rue">Info complémentaire :</label>
-            <input type="number" id="numero_rue" name="numero_rue" value="<?php echo $Info_sup?>" required>
+            <label for="info_sup">Info complémentaire :</label>
+            <input type="text" id="info_sup" name="info_sup" value="<?php echo $Info_sup?>" required>
 
             <label for="mot_de_passe">Mot de passe :</label>
             <input type="password" id="mot_de_passe" name="mot_de_passe" value="" >
