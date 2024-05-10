@@ -34,8 +34,17 @@ foreach ($mots as $mot) {
     if($mot=="famme" or $mot=="feme" or $mot=="fame" or $mot=="phamme" or $mot=="woman"){
         $mot="femme";
     }
-    if($mot=="tshirt" or $mot=="tishirt" or $mot=="tishert" or $mot=="t-shert" or $mot=="tichert" or $mot=="ticheurt" or $mot=="t-chirt" or $mot=="tishort" or $mot=="t-short"){
+    if($mot=="tshirt" or $mot=="tishirt" or $mot=="tishert" or $mot=="t-shert" or $mot=="ticherte" or $mot=="ticheurt" or $mot=="t-chirt" or $mot=="tishort" or $mot=="t-short"){
         $mot="t-shirt";
+    }
+    if($mot=="chossure" or $mot=="chausure" or $mot=="chaucure" or $mot=="shosure" or $mot=="chassure" or $mot=="shoe" or $mot=="shoes"){
+        $mot="chaussure";
+    }
+    if($mot=="Home" or $mot=="omme" or $mot=="ome" or $mot=="aume" or $mot=="haume" or $mot=="haumme" or $mot=="man"){
+        $mot="Homme";
+    }
+    if($mot=="anfant" or $mot=="anfent" or $mot=="enphant" or $mot=="enphent" or $mot=="enffant" or $mot=="child" or $mot=="children"){
+        $mot="enfant";
     }
 
     // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
