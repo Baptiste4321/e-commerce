@@ -7,6 +7,12 @@ $Prenom = $_SESSION['Prenom'];
 $Nom = $_SESSION['Nom'];
 $Hash_mdp = $_SESSION['Hash_mdp'];
 $Date_de_naissance = $_SESSION['Date_de_naissance'];
+$Pays = $_SESSION['Pays'];
+$Ville = $_SESSION['Ville'];
+$Code_postal = $_SESSION['Code_postal'];
+$Rue = $_SESSION['Rue'];
+$Num_rue = $_SESSION['Num_rue'];
+$Info = $_SESSION['Info'];
 
 ?>
 
@@ -43,19 +49,22 @@ include "includes/header.php"
             <input type="date" id="naissance" name="naissance" value="<?php echo $Date_de_naissance?>" required>
 
             <label for="pays">Pays :</label>
-            <input type="text" id="pays" name="pays" value="France" required>
-
-            <label for="numero_rue">Numéro de rue :</label>
-            <input type="number" id="numero_rue" name="numero_rue" value="12" required>
-
-            <label for="adresse">Nom de rue :</label>
-            <input type="text" id="adresse" name="adresse" value="Rue d'E-commerce" required>
-
-            <label for="ville">Ville :</label>
-            <input type="text" id="ville" name="ville" value="Paris" required>
+            <input type="text" id="pays" name="pays" value="<?php echo $Pays?>" required>
 
             <label for="code_postal">Code postal :</label>
-            <input type="number" id="code_postal" name="code_postal" value="75012" required>
+            <input type="number" id="code_postal" name="code_postal" value="<?php echo $Code_postal?>" required>
+
+            <label for="ville">Ville :</label>
+            <input type="text" id="ville" name="ville" value="<?php echo $Ville?>" required>
+
+            <label for="adresse">Nom de rue :</label>
+            <input type="text" id="adresse" name="adresse" value="<?php echo $Rue?>" required>
+
+            <label for="numero_rue">Numéro de rue :</label>
+            <input type="number" id="numero_rue" name="numero_rue" value="<?php echo $Num_rue?>" required>
+
+            <label for="numero_rue">Info complémentaire :</label>
+            <input type="number" id="numero_rue" name="numero_rue" value="<?php echo $Info?>" required>
 
             <label for="mot_de_passe">Mot de passe :</label>
             <input type="password" id="mot_de_passe" name="mot_de_passe" value="" >
