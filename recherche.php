@@ -28,6 +28,16 @@ $resultats = [];
 $resultat_temp = []; // Initialiser les tableau pour stocker les résultats
 
 foreach ($mots as $mot) {
+    if($mot=="pontalon" or $mot=="patalon" or $mot=="ponttalon" or $mot=="pontallon" or $mot=="panttalon" or $mot=="pantallon" or $mot=="pentalon" or $mot=="trousers"){
+        $mot="pantalon";
+    }
+    if($mot=="famme" or $mot=="feme" or $mot=="fame" or $mot=="phamme" or $mot=="woman"){
+        $mot="femme";
+    }
+    if($mot=="tshirt" or $mot=="tishirt" or $mot=="tishert" or $mot=="t-shert" or $mot=="tichert" or $mot=="ticheurt" or $mot=="t-chirt" or $mot=="tishort" or $mot=="t-short"){
+        $mot="t-shirt";
+    }
+
     // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
     $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE Nom LIKE :mot_recherche OR Description LIKE :mot_recherche";
 
