@@ -78,40 +78,35 @@ CREATE TABLE Produit_dans_panier (
     ID_panier INT,
     ID_produit INT,
     Quantite INT,
-    Mail VARCHAR(50),
+    Taille VARCHAR (20),
+    
     FOREIGN KEY (ID_panier) REFERENCES Panier(ID_panier),
-    FOREIGN KEY (ID_produit) REFERENCES Produit(ID_produit),
-    FOREIGN KEY (Mail) REFERENCES Utilisateur(Mail)
-);
-
--- Créer la table Commande
-CREATE TABLE Commande (
-    ID_commande INT AUTO_INCREMENT PRIMARY KEY,
-    Mail VARCHAR(50),
-    Date_commande DATETIME,
-    Statut VARCHAR(50),
-    FOREIGN KEY (Mail) REFERENCES Utilisateur(Mail)
-);
-
--- Créer la table Ligne_de_commande
-CREATE TABLE Ligne_de_commande (
-    ID_ligne_commande INT AUTO_INCREMENT PRIMARY KEY,
-    ID_commande INT,
-    ID_produit INT,
-    Quantite INT,
-    Prix_unitaire DECIMAL(10, 2),
-    FOREIGN KEY (ID_commande) REFERENCES Commande(ID_commande),
     FOREIGN KEY (ID_produit) REFERENCES Produit(ID_produit)
+    
 );
+
+
 
 -- Créer la table Facture
 CREATE TABLE Facture (
     ID_facture INT AUTO_INCREMENT PRIMARY KEY,
-    ID_commande INT,
+    Mail VARCHAR(50) NOT NULL,
     Date_facturation DATETIME,
-    Total DECIMAL(10, 2),
-    FOREIGN KEY (ID_commande) REFERENCES Commande(ID_commande)
+    Prixtotal DECIMAL,
+    FOREIGN KEY (Mail) REFERENCES Utilisateur(Mail)
 );
+
+CREATE TABLE Contenu_Facture (
+    ID_Contenu_Facture INT AUTO_INCREMENT PRIMARY KEY,
+    ID_facture INT,
+    ID_produit  INT,
+    Taille VARCHAR(50),
+    Quantité INT,
+    FOREIGN KEY (ID_facture) REFERENCES Facture(ID_facture),
+    FOREIGN KEY (ID_produit ) REFERENCES Produit(ID_produit)
+);
+
+
 
 
 -- Créer le déclencheur pour créer un panier pour chaque nouvel utilisateur

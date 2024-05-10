@@ -1,4 +1,7 @@
-       
+ 
+
+
+
 <?php
      session_start();
      include 'php/login.php';
@@ -16,12 +19,40 @@
 
 ?>
  
+ <?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["commander"])) {
+    $date = date("Y-m-d"); 
+    echo $date. "<br>";
+    $Mail = $_SESSION['Mail'];
+    echo $Mail. "<br>";
+    $PrixTotal = $_SESSION["totalPrix"];
+    echo $PrixTotal. "<br>";
+
+
+    
+    $commande = "  INSERT INTO facture (Mail, Date_facturation, Prixtotal) VALUES (:Mail, :Date, :Prixtotal)"; 
+
+    $stmt = $pdo->prepare($commande);
+    $stmt->bindParam(':Mail', $Mail, PDO::PARAM_STR);
+    $stmt->bindParam(':Date', $date, PDO::PARAM_STR);
+    $stmt->bindParam(':Prixtotal', $PrixTotal, PDO::PARAM_STR);
+    
+    $stmt->execute();
+    header('Location: panier.php');
+    exit();
+
+
+    
+}
+
+?>
 
 
  
  
  <?php 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["suprtache"])) {
 
     $byeproduit = $_POST["suprtache"];
     echo $byeproduit;
@@ -92,7 +123,7 @@ include "includes/header.php"
 
     
 
-   $produit_dans_panier_query = "SELECT p.Nom, p.Prix, pdp.Quantite, p.ID_produit, pdp.ID_produit_dans_panier, pa.ID_panier,p.Description 
+   $produit_dans_panier_query = "SELECT p.Nom, p.Prix, pdp.Quantite, p.ID_produit, pdp.ID_produit_dans_panier, pa.ID_panier,p.Description,pdp.Taille
    FROM Produit 
    p JOIN Produit_dans_panier pdp 
    ON p.ID_produit = pdp.ID_produit 
@@ -108,8 +139,7 @@ include "includes/header.php"
    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
        $imagePath = "image/image/" . $row["ID_produit"] . ".jpg";
-      
-       echo $row["Quantite"];
+ 
 
        
       
@@ -142,6 +172,8 @@ include "includes/header.php"
                                         <label for="taille">Taille :</label>
 
                                         <select name="" id="taille">
+                                            <option value="<?php   echo $row["Taille"]; ?>" selected><?php   echo $row["Taille"]; ?></option>
+
                                             <option value="">XS</option>
                                             <option value="">S</option>
                                             <option value="">M</option>
@@ -153,6 +185,8 @@ include "includes/header.php"
                                         </select>
                                         <label for="quantite">Quantité : </label>
                                         <select name="" id="quantite">
+                                            <option value="<?php   echo $row["Quantite"]; ?>" selected><?php   echo $row["Quantite"]; ?></option>
+
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -227,7 +261,11 @@ $_SESSION["totalPrix"] = $totalPrix;
                         <tr><p class="Total">Total : <?php echo $_SESSION["totalPrix"]; ?></p></tr>
                     </td>
                     <td>
-                        <tr><a href="transaction.html" class="button-28" role="button">commander</a>
+<!--                         <tr><a href="transaction.html" class="button-28" role="button">commander</a>   -->
+                            <form action="#" method="post"> 
+                                <td><button class="button-28" type="submit" name="commander" value="1">commander</button></td>
+                            </form>
+
                         </tr>
                     </td>
 
