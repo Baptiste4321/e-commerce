@@ -22,9 +22,9 @@
                                 <a href="recherche.php?mot_recherche=<?= urlencode('femme') ?>">Femme</a>
                                 <div class="menu-deroulant-1">
                                     <ul>
-                                        <li><a href="#">Pantalons</a></li>
-                                        <li><a href="#">T-shirts</a></li>
-                                        <li><a href="#">Chaussures</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('femme pantalon') ?>">Pantalons</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('femme t-shirt') ?>">T-shirts</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('femme chaussure') ?>">Chaussures</a></li>
                                     </ul>
                                 </div>
                             </li>
