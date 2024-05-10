@@ -14,6 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mot_de_passe = $_POST['mot_de_passe'];
     $mdp_confirm = $_POST['mdp_confirm'];
     $Mail = $_SESSION['Mail'];
+    $Pays = $_POST['pays'];
+    $Code_postal = $_POST['code_postal'];
+    $Ville = $_POST['ville'];
+    $Rue = $_POST['rue'];
+    $Num_rue = $_POST['num_rue'];
+    $Info_sup = $_POST['info_sup'];
 
     // Vérification si les mots de passe correspondent
     if ($mot_de_passe !== $mdp_confirm) {
@@ -31,21 +37,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Insertion des données dans la base de données
-    $query = "UPDATE Utilisateur SET Prenom = :Prenom, Nom = :Nom, Date_de_naissance = :Date_de_naissance, Hash_mdp = :Hash_mdp WHERE Mail = :Mail";
+    $query = "UPDATE Utilisateur SET Prenom = :Prenom, Nom = :Nom, Date_de_naissance = :Date_de_naissance, Hash_mdp = :Hash_mdp, Pays = :Pays, Code_postal = :Code_postal, Ville = :Ville, Rue = :Rue, Num_rue = :Num_rue, Info_sup = :Info_sup WHERE Mail = :Mail";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':Prenom', $Prenom, PDO::PARAM_STR);
     $stmt->bindParam(':Nom', $Nom, PDO::PARAM_STR);
     $stmt->bindParam(':Date_de_naissance', $Date_de_naissance, PDO::PARAM_STR);
     $stmt->bindParam(':Hash_mdp', $Hash_mdp, PDO::PARAM_STR);
     $stmt->bindParam(':Mail', $Mail, PDO::PARAM_STR);
+    $stmt->bindParam(':Pays', $Pays, PDO::PARAM_STR);
+    $stmt->bindParam(':Code_postal', $Code_postal, PDO::PARAM_STR);
+    $stmt->bindParam(':Ville', $Ville, PDO::PARAM_STR);
+    $stmt->bindParam(':Rue', $Rue, PDO::PARAM_STR);
+    $stmt->bindParam(':Num_rue', $Num_rue, PDO::PARAM_STR);
+    $stmt->bindParam(':Info_sup', $Info_sup, PDO::PARAM_STR);
 
     // Exécution de la requête de mise à jour
     if ($stmt->execute()) {
         // Redirection vers la page utilisateur après mise à jour réussie
-        $_SESSION['Prenom'] = $Prenom;
-        $_SESSION['Hash_mdp'] = $Hash_mdp;
-        $_SESSION['Nom'] = $Nom;
-        $_SESSION['Date_de_naissance'] = $Date_de_naissance;
+        include "../includes/SESSION.php";
         header('Location: ../infos.php');
         exit();
     } else {
