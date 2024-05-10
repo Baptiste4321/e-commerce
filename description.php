@@ -31,23 +31,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $ajoutproduit = $_POST["ajouterproduit"];
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["ajouterproduit"])) {
+        $ajoutproduit = $_POST["ajouterproduit"];
+        
+        $quantite = $_POST["quantite"];
 
-    $produit_dans_panier_query = "INSERT INTO `produit_dans_panier`(`ID_produit`,`ID_panier`,`Quantite`) VALUES(:ajoutproduit,:panierid,1);"; 
+        echo $quantite;
 
-    $stmt = $pdo->prepare($produit_dans_panier_query);
-    $stmt->bindParam(':ajoutproduit', $ajoutproduit, PDO::PARAM_INT);
-    $stmt->bindParam(':panierid', $panierid, PDO::PARAM_INT);
-    $stmt->execute();
-    header("Refresh: 2");
+        // Vérifier si le produit existe déjà dans le panier
+        $check_product_query = "SELECT Quantite FROM produit_dans_panier WHERE ID_produit = :ajoutproduit AND ID_panier = :panierid";
+        $stmt = $pdo->prepare($check_product_query);
+        $stmt->bindParam(':ajoutproduit', $ajoutproduit, PDO::PARAM_INT);
+        $stmt->bindParam(':panierid', $panierid, PDO::PARAM_INT);
+        $stmt->execute();
+        $existing_product = $stmt->fetch(PDO::FETCH_ASSOC);
     
+        if ($existing_product) {
+            // Le produit existe déjà dans le panier, augmenter la quantité
+            $update_quantity_query = "UPDATE produit_dans_panier SET Quantite = Quantite + :quantite WHERE ID_produit = :ajoutproduit AND ID_panier = :panierid";
+            $stmt = $pdo->prepare($update_quantity_query);
+            $stmt->bindParam(':ajoutproduit', $ajoutproduit, PDO::PARAM_INT);
+            $stmt->bindParam(':panierid', $panierid, PDO::PARAM_INT);
+            $stmt->bindParam(':quantite', $quantite, PDO::PARAM_INT);
+
+            $stmt->execute();
+        } else {
+            // Le produit n'existe pas dans le panier, l'ajouter avec une quantité de 1
+            $insert_product_query = "INSERT INTO produit_dans_panier (ID_produit, ID_panier, Quantite) VALUES (:ajoutproduit, :panierid, :quantite)";
+            $stmt = $pdo->prepare($insert_product_query);
+            $stmt->bindParam(':ajoutproduit', $ajoutproduit, PDO::PARAM_INT);
+            $stmt->bindParam(':panierid', $panierid, PDO::PARAM_INT);
+            $stmt->bindParam(':quantite', $quantite, PDO::PARAM_INT);
+
+            $stmt->execute();
+        }
+    
+        header("Refresh: 2");
+    }
+    ?>
 
 
-}
-
-
-?>
 
 
 
@@ -105,6 +128,12 @@ if(isset($_GET['id'])) {
     header('Location: erreur.php');
     exit();
 }
+
+  
+
+ 
+   
+
 ?>
 
 
@@ -119,18 +148,95 @@ if(isset($_GET['id'])) {
     <div class="product-details">
         <h1><?php echo $nom_produit; ?></h1>
         <p>Prix : $<?php echo $prix_produit; ?></p>
-        <label for="size">Taille :</label>
-        <select id="size">
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-        </select>
+       
 
+
+        <form action="#" method="post" id="monFormulaire"> 
         <label for="size">Taille :</label>
-        <select id="size">
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
+        <select id="monSelect" name="taille" >
+            <option value="0" selected>Choisir</option>
+        <?php
+            
+            $recupinfoproduit = "SELECT t.Taille
+            FROM Produit p
+            JOIN Taille_produit t ON p.ID_produit = t.ID_produit
+            WHERE p.ID_produit =:id_produit;";
+            $action = $pdo->prepare($recupinfoproduit);
+            $action->bindParam(':id_produit', $id_produit, PDO::PARAM_INT);
+            
+            $action->execute();
+            $taille = $action->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+
+
+
+            $nbrtaille = count($taille);
+
+                for ($i = 0; $i < $nbrtaille ; $i++) {
+                    echo "<option value=\"{$taille[$i]['Taille']}\">{$taille[$i]['Taille']}</option>";            }
+                ?>
+            
+        </select>
+        </form>
+     
+
+
+        <form action="#" method="post"> 
+        
+        <label for="size">Nombre :</label>
+        
+                
+   
+        <select id="quantite" name="quantite">
+            
+
+        <?php
+       
+       if ($_SERVER["REQUEST_METHOD"] =="POST" && isset($_POST["taille"])) {
+           $Taille = $_POST["taille"];
+           $id = $_GET['id'];
+
+           
+       
+       
+           $mabite = "SELECT t.Stock_disponible
+           FROM Produit p
+           JOIN Taille_produit t ON p.ID_produit = t.ID_produit
+           WHERE p.ID_produit = :id_produit AND t.Taille = :Taille";
+           $go = $pdo->prepare($mabite);
+           $go->bindParam(':id_produit', $id_produit, PDO::PARAM_INT);
+
+           $go->bindParam(':Taille', $Taille, PDO::PARAM_STR);
+
+          
+       
+           $go->execute();
+           $qt = $go->fetch(PDO::FETCH_ASSOC);
+       
+           
+           
+           echo $qt["Stock_disponible"];
+           echo var_dump($Taille);
+              
+
+              
+               
+           }
+           
+           for ($i = 1; $i <= $qt["Stock_disponible"] ; $i++) {
+               echo "<option value=\"$i\">$i</option>";            }
+           ?>
+
+       
+        
+                            
+            
+            
+            
+  
+             
         </select>
         <h2>Caractéristiques :</h2>
         <ul>
@@ -138,15 +244,46 @@ if(isset($_GET['id'])) {
                 <li><?php echo $caracteristique; ?></li>
             <?php endforeach; ?>
         </ul>
-        <form action="#" method="post"> 
+        
             <button type="submit" name="ajouterproduit" value="<?php echo $_GET['id']; ?>">Ajouter au panier</button>
         </form>
+       
     </div>
 </main>
 
 <?php
 include "includes/footer.php"
 ?>
+
+<script>
+// Fonction pour sauvegarder l'état de l'option sélectionnée dans le stockage local
+function sauvegarderEtatSelect() {
+    var select = document.getElementById('monSelect');
+    var selectedValue = select.value;
+    localStorage.setItem('selectedValue', selectedValue);
+    }
+
+    // Fonction pour restaurer l'état de l'option sélectionnée depuis le stockage local
+    function restaurerEtatSelect() {
+    var selectedValue = localStorage.getItem('selectedValue');
+    if (selectedValue) {
+        var select = document.getElementById('monSelect');
+        select.value = selectedValue;
+    }
+    }
+
+    // Appel de la fonction pour restaurer l'état de l'option sélectionnée lorsque la page est chargée
+    document.addEventListener('DOMContentLoaded', restaurerEtatSelect);
+
+    // Ajout d'un écouteur d'événements pour sauvegarder l'état de l'option sélectionnée avant la soumission du formulaire
+    document.getElementById('monSelect').addEventListener('change', sauvegarderEtatSelect);
+
+
+
+    document.getElementById('monSelect').addEventListener('change', function() {
+    document.getElementById('monFormulaire').submit();
+    });
+</script>
 
 </body>
 <script src="/javascript/nav-bar.js"></script>
