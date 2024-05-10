@@ -1,4 +1,25 @@
-<?php session_start(); ?>
+<?php
+session_start();
+include 'php/login.php';
+
+$Mail = $_SESSION['Mail'];
+$Prenom = $_SESSION['Prenom'];
+$query = "SELECT Nom, Hash_mdp, Date_de_naissance FROM Utilisateur WHERE Mail = :Mail";
+$stmt = $pdo->prepare($query);
+$stmt->bindParam(':Mail', $Mail, PDO::PARAM_STR);
+$stmt->execute();
+$userData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$_SESSION['Nom'] = $userData['Nom'];
+$_SESSION['Hash_mdp'] = $userData['Hash_mdp'];
+$_SESSION['Date_de_naissance'] = $userData['Date_de_naissance'];
+
+$Nom = $_SESSION['Nom'];
+$Hash_mdp = $_SESSION['Hash_mdp'];
+$Date_de_naissance = $_SESSION['Date_de_naissance'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -21,15 +42,15 @@ include "includes/header.php"
 <main>
     <div class="container">
         <h1>Mes Infos</h1>
-        <form action="script.php" method="post">
+        <form action="php/modif_info.php" method="post">
             <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" value="Billel" required>
+            <input type="text" id="Prenom" name="Prenom" value="<?php echo $Prenom?>" required>
 
             <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" value="Mezaour" required>
+            <input type="text" id="Nom" name="Nom" value="<?php echo $Nom?>" required>
 
             <label for="naissance">Date de naissance :</label>
-            <input type="date" id="naissance" name="naissance" value="" required>
+            <input type="date" id="naissance" name="naissance" value="<?php echo $Date_de_naissance?>" required>
 
             <label for="pays">Pays :</label>
             <input type="text" id="pays" name="pays" value="France" required>
@@ -46,10 +67,13 @@ include "includes/header.php"
             <label for="code_postal">Code postal :</label>
             <input type="number" id="code_postal" name="code_postal" value="75012" required>
 
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" value="billel.mezaour@gmail.com" required>
+            <label for="mot_de_passe">Mot de passe :</label>
+            <input type="password" id="mot_de_passe" name="mot_de_passe" value="" >
 
-            <label for="num-carte">Numéro de carte :</label>
+            <label for="mdp_confirm">Confirmer le mot de passe :</label>
+            <input type="password" id="mdp_confirm" name="mdp_confirm" value="" >
+
+            <!--<label for="num-carte">Numéro de carte :</label>
             <input type="text" id="num-carte" name="num-carte" placeholder="XXXX-XXXX-XXXX-XXXX" required pattern="\d{4}-\d{4}-\d{4}-\d{4}" title="Le format doit être XXXX-XXXX-XXXX-XXXX">
 
             <label for="titulaire-carte">Titulaire de la carte :</label>
@@ -59,8 +83,7 @@ include "includes/header.php"
             <input type="month" id="date-expiration" name="date-expiration">
 
             <label for="cvv">CVV :</label>
-            <input type="text" id="cvv" name="cvv" placeholder="XXX" required pattern="\d{3}" title="Le CVV doit comporter 3 chiffres">
-
+            <input type="text" id="cvv" name="cvv" placeholder="XXX" required pattern="\d{3}" title="Le CVV doit comporter 3 chiffres">-->
             <button type="submit">Mettre à jour</button>
         </form>
     </div>
