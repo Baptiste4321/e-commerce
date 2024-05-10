@@ -31,11 +31,12 @@ CREATE TABLE Utilisateur(
 
 -- Créer la table Domicile
 CREATE TABLE Domicile(
-    Pays VARCHAR(50),
-    Nbr_rue VARCHAR(50),
-    Rue VARCHAR(50),
-    Ville VARCHAR(50),
-    Code_postale INT,
+    Pays VARCHAR(30),
+    Code_postale INT(5),
+    Ville VARCHAR(30),
+    Rue VARCHAR(30),
+    Num_rue int(3),
+    Info_sup VARCHAR(200),
     Mail VARCHAR(50),
     PRIMARY KEY (Mail),
     FOREIGN KEY (Mail) REFERENCES Utilisateur(Mail)
