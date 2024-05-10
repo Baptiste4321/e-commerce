@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,25 +19,57 @@ include "includes/header.php"
 // Inclure le fichier login.php pour établir la connexion à la base de données
 include 'php/login.php';
 
-// Récupérer le mot de recherche depuis l'URL
-$mot_recherche = isset($_GET['mot_recherche']) ? $_GET['mot_recherche'] : '';
+// Récup le mot recherché depuis l'URL
+$chaine = isset($_GET['mot_recherche']) ? $_GET['mot_recherche'] : '';
+//separer les mots
+$mots = explode(" ", $chaine);
 
-// Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
-$sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE Nom LIKE :mot_recherche OR Description LIKE :mot_recherche";
+$resultats = [];
+$resultat_temp = []; // Initialiser les tableau pour stocker les résultats
 
-// Préparer la requête SQL
-$stmt = $pdo->prepare($sql);
+foreach ($mots as $mot) {
+    // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
+    $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE Nom LIKE :mot_recherche OR Description LIKE :mot_recherche";
 
-// Lié le paramètre de recherche
-$mot_recherche_param = "%$mot_recherche%";
-$stmt->bindParam(':mot_recherche', $mot_recherche_param, PDO::PARAM_STR);
+    // Préparer la requête SQL
+    $stmt = $pdo->prepare($sql);
 
-// Exécuter la requête
-$stmt->execute();
+    // Lier le paramètre de recherche
+    $mot_recherche_param = "%$mot%";
+    $stmt->bindParam(':mot_recherche', $mot_recherche_param, PDO::PARAM_STR);
 
-// Récupérer les résultats de la requête
-$resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Exécuter la requête
+    $stmt->execute();
+
+    // Récupérer les résultats de la requête
+    $nouveaux_resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Fusionner les résultats de la recherche dans le tableau $resultat_temp
+    $resultat_temp = array_merge($resultat_temp, $nouveaux_resultats);
+}
+
+// Compter le nombre d'occurrences de chaque élément
+$occurrences = array_count_values(array_column($resultat_temp, 'ID_produit'));
+
+// Trier le tableau par ordre décroissant en fonction du nombre d'occurrences
+arsort($occurrences);
+
+// Créer un tableau pour stocker les résultats triés
+$resultats = [];
+
+// Réorganiser les résultats en fonction du nombre d'occurrences
+foreach ($occurrences as $id_produit => $occurrence) {
+    foreach ($resultat_temp as $resultat) {
+        if ($resultat['ID_produit'] == $id_produit) {
+            $resultats[] = $resultat;
+        }
+    }
+}
+
+// Supprimer les doublons
+$resultats = array_unique($resultats, SORT_REGULAR);
 ?>
+
 
 <!-- Intégration du code PHP généré dans le HTML -->
 
