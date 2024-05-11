@@ -39,10 +39,9 @@ include "includes/header.php"
         <br><br><br><br><br><br>
         <div class="button-group">
             <a href="panier.php"><i class="fas fa-shopping-cart"></i> Mon Panier</a>
-            <a href="favoris.php"><i class="fas fa-heart"></i> Mes Favoris</a>
             <a href="commandes.php"><i class="fas fa-box"></i> Mes Commandes</a>
             <a href="infos.php"><i class="fas fa-info"></i> Mes infos</a>
-            <a href="article_en_vente.php"><i class="fas fa-barcode"></i> Ajouter des articles</a>
+            <a href="article_en_vente.php"><i class="fas fa-barcode"></i> Mes articles</a>
             <a href="contact.php"><i class="fas fa-envelope"></i> Nous Contacter</a>
             <a href="php/sup_compte.php"><i class="fas fa-remove"></i> Supprimer son compte</a>
         </div>
