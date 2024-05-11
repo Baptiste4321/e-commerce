@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Exécution de la requête d'insertion dans la table "taille_produit"
         if ($stmt_taille->execute()) {
             // Redirection vers la page utilisateur après insertion réussie
-            header('Location: ../article.php');
+            header('Location: ../article_en_vente.php');
             exit();
         } else {
             // En cas d'erreur lors de l'insertion dans la table "taille_produit"
