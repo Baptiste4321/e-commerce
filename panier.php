@@ -294,9 +294,13 @@ include "includes/header.php"
 
                                 <tr class="td_descritpion">
                                     <td class="sous_texte">
-                                        <label for="taille">Taille :</label>
-                                        <form action="#" method="post" id="monFormulaire"> 
+                                        <label for="taille">Taille : <?php echo $row["Taille"]?></label>
 
+                                        <label for="taille">Quantité : <?php echo $row["Quantite"]?></label>
+
+                                        <!-- <form action="#" method="post" id="monFormulaire"> 
+
+                                        
                                         <select id="monSelect" name="taille" >
                                                     <option value="<?php echo $row["Taille"]?>" selected><?php echo $row["Taille"]?></option>
                                                 <?php
@@ -322,10 +326,9 @@ include "includes/header.php"
                                                             echo "<option value=\"{$taille[$i]['Taille']}\">{$taille[$i]['Taille']}</option>";            }
                                                         ?>
                                                     
-                                                </select>
-                                                </form>
-                                    </td>
-                                    <td>
+                                                </select> -->
+                                               <!--  </form>
+                                   
                                                 <select id="quantite" name="quantite">
                                                 <option value="<?php echo $row["Quantite"]?>" selected><?php echo $row["Quantite"]?></option>
 
@@ -372,7 +375,7 @@ include "includes/header.php"
                                                             echo "<option value=\"$i\">$i</option>";            }
                                                         ?>
                                                             
-                                                        </select>
+                                                        </select> -->
 
                                     </td>
                                 </tr>
