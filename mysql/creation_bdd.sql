@@ -92,11 +92,13 @@ CREATE TABLE Facture (
 );
 
 CREATE TABLE Contenu_Facture (
-    ID_Contenu_Facture INT AUTO_INCREMENT PRIMARY KEY,
+    ID_contenu_facture INT AUTO_INCREMENT PRIMARY KEY,
     ID_facture INT,
     ID_produit  INT,
     Taille VARCHAR(50),
     Quantité INT,
+
+    
     FOREIGN KEY (ID_facture) REFERENCES Facture(ID_facture),
     FOREIGN KEY (ID_produit ) REFERENCES Produit(ID_produit)
 );
@@ -127,4 +129,5 @@ BEGIN
 END;
 //
 
-DELIMITER ;
+
+

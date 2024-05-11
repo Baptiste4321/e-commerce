@@ -1,0 +1,16 @@
+.liste_article{
+
+   
+   
+    width: 60vw;
+    
+}
+.fond{
+    margin: 50px;
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    place-content: center;
+  
+    
+}
+

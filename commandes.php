@@ -1,4 +1,30 @@
-<?php session_start(); ?>
+ 
+
+
+
+<?php
+     session_start();
+     include 'php/login.php';
+
+    if (!isset($_SESSION['Mail'])) {
+        header('Location: connexion.php');
+        exit();
+    }
+
+    $Mail = $_SESSION['Mail'];
+    $Prenom = $_SESSION['Prenom'];
+
+    
+
+
+?>
+ 
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +35,9 @@
     <link rel="stylesheet" href="css/panier.css">
     <link rel="stylesheet" href="css/nav-bar.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="css/carroussel.css">
+    <link rel="stylesheet" href="css/commandes.css">
 
 
 
@@ -21,195 +49,114 @@
 include "includes/header.php"
 ?>
 
-
 <main>
-    <section id="contenu">
-        <div id="liste">
-            <div id="textpanier1">
-                <p style="font-size: 2.3rem;">Mes commandes</p>
-                <br>
-                <label for="checkbox1">
+<section class="fond"> 
+    <?php 
+        $Mail = $_SESSION['Mail'];
 
-                    <input type="checkbox" id="checkbox1" name="checkbox1">
-                    <label id="taille_pour_téléphone_car_trop_grand" for="checkbox1">Sélectionner Tous Les articles</label>
-                </label>
+        $montrercommander = "SELECT F.*, CF.*, P.Nom AS Nom_produit, P.Prix AS Prix_produit
+                            FROM Facture F
+                            INNER JOIN Contenu_Facture CF ON F.ID_facture = CF.ID_facture
+                            INNER JOIN Produit P ON CF.ID_produit = P.ID_produit
+                            WHERE F.Mail = :Mail"; 
 
-            </div>
-            <hr>
-            <p id="Séléction"></p>
+        $stmt = $pdo->prepare($montrercommander);
+        $stmt->bindParam(':Mail', $Mail);
+        $stmt->execute();
+    
+        // Initialisation de la variable pour stocker la valeur de ID_facture précédente
+        $previousID_facture = null;
 
-            <!--Première article-->
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // Vérifier si la valeur de ID_facture a changé
+            if ($previousID_facture !== $row["ID_facture"]) {
+                // Afficher ID_facture seulement si c'est différent de la précédente
+                echo "<hr style='width: 50%;'>";
+                echo "Id de la facture : ".$row["ID_facture"];
+                echo "<br>";
+                echo "Prix total : ".$row["Prixtotal"]."€";
+                echo "<br>";
+                echo "<hr style='width: 50%;'>";
+                
+                // Mettre à jour la valeur de ID_facture précédente
+                $previousID_facture = $row["ID_facture"];
+            }
+            
+            if (isset($row["ID_produit"])) {
+                $imagePath = "image/image/" . $row["ID_produit"] . ".jpg";
+    ?>
+
+            <!-- Article -->
+            
             <div class="liste_article">
                 <div class="article">
                     <div class="image">
-
-
+                        <img src="<?php echo $imagePath; ?>" class="dans_le_block_noir" alt="">
                     </div>
                     <div class="info_article">
                         <table class="table">
                             <tr class="td_descritpion">
-                                <td >t-shirt blanc</td>
-                                <td >100€</td>
+                                <td>Prix : <?php echo $row["Prix_produit"]?></td>
+                                
+                                
                             </tr>
                             <tr class="td_descritpion">
-                                <td class="sous_texte"><p>blanc</p></td>
-
-                            </tr>
-
-                            <tr class="td_descritpion">
-                                <td class="sous_texte">
-                                    <label for="taille">Taille :</label>
-
-                                    <select name="" id="taille">
-                                        <option value="">XS</option>
-                                        <option value="">S</option>
-                                        <option value="">M</option>
-                                        <option value="">L</option>
-                                        <option value="">XL</option>
-                                        <option value="">XXL</option>
-
-
-                                    </select>
-                                    <label for="quantite">Quantité : </label>
-                                    <select name="" id="quantite">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-
-
-                                    </select>
-
-                                </td>
+                                <td>produit : <?php echo $row["Nom_produit"]?></td>
+                                
+                                
                             </tr>
                             <tr class="td_descritpion">
-                                <td>
-
-
-                                </td>
+                                <td>Taille : <?php echo $row["Taille"]?></td>
+                                
+                                
                             </tr>
-                            <tr class="td_descritpion">
-                                <td class="td_descritpion"><a href=""><img src="assets/icon/delete.png" alt=""></a>
-                                    <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a>
-                                </td>
-                                <td>                    <input type="checkbox" id="checkbox1" name="checkbox1">
-                                </td>
-                            </tr>
+                            <tr>
+                                <td>Quantité : x<?php echo $row["Quantité"]?></td>
 
+                            </tr>
+                               
+                
                         </table>
-
                     </div>
-
-
-
                 </div>
-
-
             </div>
-            <!--ddeuxième article-->
+    <?php 
+            }
+        }
+    ?>
 
-            <div class="liste_article">
-                <div class="article">
-                    <div class="image">
+</section>
 
-
-                    </div>
-                    <div class="info_article">
-                        <table class="table">
-                            <tr class="td_descritpion">
-                                <td >t-shirt blanc</td>
-                                <td >100€</td>
-                            </tr>
-                            <tr class="td_descritpion">
-                                <td class="sous_texte"><p>blanc</p></td>
-
-                            </tr>
-
-                            <tr class="td_descritpion">
-                                <td class="sous_texte">
-                                    <label for="taille">Taille :</label>
-
-                                    <select name="" id="taille">
-                                        <option value="">XS</option>
-                                        <option value="">S</option>
-                                        <option value="">M</option>
-                                        <option value="">L</option>
-                                        <option value="">XL</option>
-                                        <option value="">XXL</option>
-
-
-                                    </select>
-                                    <label for="quantite">Quantité : </label>
-                                    <select name="" id="quantite">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-
-
-                                    </select>
-
-                                </td>
-                            </tr>
-                            <tr class="td_descritpion">
-                                <td>
-
-
-                                </td>
-                            </tr>
-                            <tr class="td_descritpion">
-                                <td class="td_descritpion"><a href=""><img src="assets/icon/delete.png" alt=""></a>
-                                    <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a></td>
-                                <td>                    <input type="checkbox" id="checkbox1" name="checkbox1">
-                                </td>
-                            </tr>
-
-                        </table>
-
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-            <div class="test">
-
-            </div>
-        </div>
-
-
-
-    </section>
-    <section id="pub">
-
-
-    </section>
 </main>
+
+
+
+
+
+
+
+            
+        
+
+
+
 
 <?php
 include "includes/footer.php"
 ?>
+
 </body>
-
-<script src="/javascript/nav-bar.js"></script>
-
+<script src="javascript/nav-bar.js"></script>
+<script src="javascript/carroussel.js"></script>
 
 </html>
 
 
+
+
+
+
+
+
+
+<!-- 

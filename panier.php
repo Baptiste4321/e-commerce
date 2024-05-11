@@ -36,11 +36,70 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["commander"])) {
     $stmt = $pdo->prepare($commande);
     $stmt->bindParam(':Mail', $Mail, PDO::PARAM_STR);
     $stmt->bindParam(':Date', $date, PDO::PARAM_STR);
-    $stmt->bindParam(':Prixtotal', $PrixTotal, PDO::PARAM_STR);
-    
+    $stmt->bindParam(':Prixtotal', $PrixTotal, PDO::PARAM_INT);
+
     $stmt->execute();
+
+
+
+    $contenu_fac = "SELECT LAST_INSERT_ID() AS last_id";
+    $go = $pdo->prepare($contenu_fac);
+    $go->execute();
+    $resultat = $go->fetch(PDO::FETCH_ASSOC);
+    $IDfac = $resultat['last_id'];
+    echo $IDfac."REPOND FDP";
+
+
+
+
+
+    $ajoutfactureproduit = "SELECT ID_produit, Taille, Quantite  FROM Produit_dans_panier"; 
+
+   $action = $pdo->prepare($ajoutfactureproduit);
+   
+   $action->execute();
+  
+
+   while ($listeP = $action->fetch(PDO::FETCH_ASSOC)) {
+        echo $listeP['ID_produit'] ."<br>";
+        echo $listeP['Taille']."<br>";
+        echo $listeP['Quantite']."<br>";
+
+        $remplir = "INSERT INTO contenu_facture (ID_facture, ID_produit, Taille, Quantité) VALUES (:ID_facture, :ID_produit, :Taille, :Quantite)"; 
+
+        $action2 = $pdo->prepare($remplir); // Utilisation d'une nouvelle variable pour la deuxième préparation de requête
+        $action2->bindParam(':ID_facture', $IDfac, PDO::PARAM_INT);
+        $action2->bindParam(':ID_produit', $listeP['ID_produit'], PDO::PARAM_INT);
+        $action2->bindParam(':Taille', $listeP['Taille'], PDO::PARAM_STR);
+        $action2->bindParam(':Quantite', $listeP['Quantite'], PDO::PARAM_INT);
+        $action2->execute();
+
+
+   }
+
+
+
+   $vider = "DELETE FROM produit_dans_panier;"; 
+
+   $action3 = $pdo->prepare($vider); // Utilisation d'une nouvelle variable pour la deuxième préparation de requête
+ 
+   $action3->execute();
+
+
+
+    
+
+
     header('Location: panier.php');
-    exit();
+
+
+
+
+
+
+
+
+    exit(); 
 
 
     
@@ -140,7 +199,6 @@ include "includes/header.php"
 
        $imagePath = "image/image/" . $row["ID_produit"] . ".jpg";
  
-
        
       
 
