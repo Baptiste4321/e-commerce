@@ -89,8 +89,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Navbar</title>
     <link rel="stylesheet" href="css/description.css">
     <link rel="stylesheet" href="css/nav-bar.css">
-
+    <link rel="stylesheet" href="css/carroussel.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
 </head>
 <body>
 
@@ -148,8 +149,10 @@ if(isset($_GET['id'])) {
 
 
 <main class="product-main">
-    <div class="product-image">
+    <div class="product-image carroussel" >
+        <button id="av-carroussel" class="boutton-defilement material-symbols-rounded">chevron_left</button>
         <img id="add_img" src="<?php echo $imagePath; ?>" alt="<?php echo $nom_produit; ?>">
+        <button id="ap-carroussel" class="boutton-defilement material-symbols-rounded">chevron_right</button>
     </div>
     <div class="product-details">
         <h1><?php echo $nom_produit; ?></h1>

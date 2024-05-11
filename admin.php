@@ -42,7 +42,7 @@ include "includes/header.php"
             <a href="favoris.php"><i class="fas fa-heart"></i> Mes Favoris</a>
             <a href="commandes.php"><i class="fas fa-box"></i> Mes Commandes</a>
             <a href="infos.php"><i class="fas fa-info"></i> Mes infos</a>
-            <a href="historique_article.php"><i class="fas fa-barcode"></i> Ajouter des articles</a>
+            <a href="article.php"><i class="fas fa-barcode"></i> Ajouter des articles</a>
             <a href="contact.php"><i class="fas fa-envelope"></i> Nous Contacter</a>
             <a href="php/sup_compte.php"><i class="fas fa-remove"></i> Supprimer son compte</a>
         </div>
