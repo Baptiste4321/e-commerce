@@ -41,3 +41,7 @@ VALUES
     ('utilisateur8@example.com', 'hash8', 'client', '1997-08-08', 'Thomas', 'David'),
     ('utilisateur9@example.com', 'hash9', 'client', '1998-09-09', 'Jackson', 'Jessica'),
     ('utilisateur10@example.com', 'hash10', 'client', '1999-10-10', 'White', 'Chris');
+
+INSERT INTO Produit (Nom, Description, Prix, Promotion, Sexe, nb_image, Mail) VALUES
+                                                                                  ('T-shirt blanc', 'Un t-shirt blanc classique', 15.99, 'Non', 'Unisexe', '', 'baptiste.chesnot@gmail.com'),
+                                                                                  ('Jeans noir', 'Un jean noir tendance', 29.99, 'Oui', 'Homme', '', 'baptiste.chesnot@gmail.com');

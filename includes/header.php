@@ -69,7 +69,6 @@
                     {
                         echo "
                         <li class=\"nav-li marge-li \"><a href=\"panier.php\"><img class='icone' src=\"assets/icon/panier.png\" id=\"panier\" alt=\"\"></a></li>
-                        <li class=\"nav-li marge-li \"><a href=\"favoris.php\"><img class='icone' src=\"assets/icon/coeur.png\" id=\"coeur\" alt=\"\"></a></li>
                         <li class=\"nav-li marge-li \"><a href=\"utilisateur.php\"><img class='icone' src=\"assets/icon/user.png\" id=\"user\" alt=\"\"></a></li>
                         <li class=\"nav-li marge-li \"><a href=\"php/logout.php\"><img class='icone' src=\"assets/icon/logout.png\" id=\"user\" alt=\"\"></a></li>
                         "
