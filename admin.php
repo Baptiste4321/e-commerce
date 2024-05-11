@@ -44,6 +44,7 @@ include "includes/header.php"
             <a href="infos.php"><i class="fas fa-info"></i> Mes infos</a>
             <a href="historique_article.php"><i class="fas fa-barcode"></i> Ajouter des articles</a>
             <a href="contact.php"><i class="fas fa-envelope"></i> Nous Contacter</a>
+            <a href="php/sup_compte.php"><i class="fas fa-remove"></i> Supprimer son compte</a>
         </div>
         <br><br><br><br><br><br><br>
     </div>

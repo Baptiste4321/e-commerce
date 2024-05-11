@@ -22,7 +22,7 @@ include "includes/header.php"
 <main>
     <div class="container">
         <h1>Ajouter un article</h1>
-        <form action="votre-script.php" method="post" enctype="multipart/form-data">
+        <form action="php/ajout.php" method="post" enctype="multipart/form-data">
             <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" placeholder="Nom de l'article" required>
 
@@ -39,7 +39,7 @@ include "includes/header.php"
             <input type="number" id="tarif-livraison" name="tarif-livraison" placeholder="Tarif de livraison" required min="0" step="0.01">
 
             <label for="image">Image :</label>
-            <input type="file" id="image" name="image" accept="image/*" required>
+            <input type="file" id="image" name="image[]" accept="image/*" multiple required>
 
             <button type="submit">Ajouter l'article</button>
         </form>
