@@ -132,6 +132,16 @@ $valeurlieu = $action5->fetch(PDO::FETCH_ASSOC);
                 $action2->execute();
 
 
+                $moinsdeproduit = "UPDATE Taille_produit
+                SET Stock_disponible = Stock_disponible - :quantite
+                WHERE ID_produit = :ID_produit;"; 
+
+                $action7 = $pdo->prepare($moinsdeproduit);
+                $action7->bindParam(':quantite', $listeP['Quantite'], PDO::PARAM_INT);
+                $action7->bindParam(':ID_produit', $listeP['ID_produit'], PDO::PARAM_INT);
+                $action7->execute();
+
+
         }
 
 
@@ -143,11 +153,16 @@ $valeurlieu = $action5->fetch(PDO::FETCH_ASSOC);
         $action3->execute();
 
 
+           
+
 
             
 
 
-            header('Location: panier.php');
+        
+        
+        
+        header('Location: panier.php');
 
 
 
@@ -264,7 +279,7 @@ include "includes/header.php"
    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
        $imagePath = "image/image/" . $row["ID_produit"] . "/0.jpg";
- 
+    
        
       
 
@@ -286,10 +301,10 @@ include "includes/header.php"
                                     <td ><?php echo $row["Nom"]; ?></td>
                                     <td ><?php echo $row["Prix"]; ?>€</td>
                                 </tr>
-                                <tr class="td_descritpion">
+                                <!-- <tr class="td_descritpion">
                                     <td class="sous_texte"><p><?php echo $row["Description"]; ?></p></td>
 
-                                </tr>
+                                </tr> -->
 
                                 <tr class="td_descritpion">
                                     <td class="sous_texte">
@@ -388,8 +403,8 @@ include "includes/header.php"
                                     <td class="td_descritpion">
                                         <form action="#" method="post">
                                             <input type="hidden" value="<?php echo $row["ID_produit_dans_panier"]; ?>" name="suprtache">
-                                            <button type="submit"><img src="assets/icon/delete.png" alt=""></button>
-                                            <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a></td>
+                                            <button class="boutonsupr"  type="submit"><img src="assets/icon/delete.png" alt=""></button>
+                                            </td>
                                         </form>
                                        
                                    
