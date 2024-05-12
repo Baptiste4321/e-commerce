@@ -263,7 +263,7 @@ include "includes/header.php"
 
    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-       $imagePath = "image/image/" . $row["ID_produit"] . ".jpg";
+       $imagePath = "image/image/" . $row["ID_produit"] . "/0.jpg";
  
        
       
