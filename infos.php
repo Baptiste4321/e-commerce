@@ -64,7 +64,7 @@ include "includes/header.php"
             <input type="number" id="num_rue" name="num_rue" value="<?php echo $Num_rue?>" required>
 
             <label for="info_sup">Info complémentaire :</label>
-            <input type="text" id="info_sup" name="info_sup" value="<?php echo $Info_sup?>" required>
+            <input type="text" id="info_sup" name="info_sup" value="<?php echo $Info_sup?>">
 
             <label for="mot_de_passe">Mot de passe :</label>
             <input type="password" id="mot_de_passe" name="mot_de_passe" value="" >

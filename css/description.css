@@ -7,8 +7,9 @@
 }
 
 .product-image img {
-    height: 80vh;
-    width: auto;
+    max-width: 35vw;
+    max-height: 73vh;
+
     position: relative;
     margin: 20px;
 }
@@ -107,6 +108,8 @@ main {
         margin: 20px;
     }
     .product-image img{
+        max-width: none;
+        max-height: none;
         width: 39vh; /* Largeur fixe en pixels */
         height: auto;
         background-image: url('../assets/t-shirt.png'); /* Image de t-shirt */

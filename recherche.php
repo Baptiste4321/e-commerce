@@ -24,6 +24,15 @@ $chaine = isset($_GET['mot_recherche']) ? $_GET['mot_recherche'] : '';
 //separer les mots
 $mots = explode(" ", $chaine);
 
+// Mots à supprimer
+$mots_a_supprimer = array("de", "pour", "un", "une", "les", "la", "le", "dans", "l", "a", "au", "en");
+
+// Supprimer les mots spécifiés
+$mots = array_diff($mots, $mots_a_supprimer);
+
+// Si vous voulez réindexer les éléments du tableau après la suppression des mots
+$mots = array_values($mots);
+
 $resultats = [];
 $resultat_temp = []; // Initialiser les tableau pour stocker les résultats
 
@@ -43,13 +52,13 @@ foreach ($mots as $mot) {
     if($mot=="Home" or $mot=="omme" or $mot=="ome" or $mot=="aume" or $mot=="haume" or $mot=="haumme" or $mot=="man"){
         $mot="Homme";
     }
-    if($mot=="anfant" or $mot=="anfent" or $mot=="enphant" or $mot=="enphent" or $mot=="enffant" or $mot=="child" or $mot=="children"){
+    if($mot=="anfant" or $mot=="anfent" or $mot=="enphant" or $mot=="enphent" or $mot=="enffant" or $mot=="child" or $mot=="children" or $mot=="garcon" or $mot=="fille"){
         $mot="enfant";
     }
 
 
     // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
-    $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE Nom LIKE :mot_recherche OR Description LIKE :mot_recherche";
+    $sql = "SELECT ID_produit, Nom, Description, Prix, Mail, Sexe FROM Produit WHERE Nom LIKE :mot_recherche OR Description LIKE :mot_recherche OR Mail LIKE :mot_recherche OR Sexe LIKE :mot_recherche";
 
     // Préparer la requête SQL
     $stmt = $pdo->prepare($sql);

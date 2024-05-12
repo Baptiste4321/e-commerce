@@ -26,18 +26,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $panierid = $row["ID_panier"];
 
     
+ 
+  
 }
 
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["ajouterproduit"])) {
-        $ajoutproduit = $_POST["ajouterproduit"];
-        $Taille = $_SESSION["Type"];
-
-        echo $Taille;
-        
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["ajouterproduit"] )) {
+        error_reporting(0);
         $quantite = $_POST["quantite"];
+        if ($quantite>0) {
+           
+        
 
-        echo $quantite;
+        $Taille = $_SESSION["Type"];
+       
+
+        $ajoutproduit = $_POST["ajouterproduit"];
 
         // Vérifier si le produit existe déjà dans le panier
         $check_product_query = "SELECT Quantite FROM produit_dans_panier WHERE ID_produit = :ajoutproduit AND Taille = :taille AND ID_panier = :panierid";
@@ -71,7 +75,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     
         header("Refresh: 2");
+        }
+        else {
+            ?>
+            <script>
+                alert("Il n'y a plus de stock de ce produit");
+            </script>
+
+            <?php
+
+        }
     }
+    
     ?>
 
 
@@ -122,7 +137,7 @@ if(isset($_GET['id'])) {
         $caracteristiques = explode(',', $produit['Description']); // Si les caractéristiques sont stockées sous forme de chaîne séparée par des virgules
 
         // Définition du chemin de l'image
-        $imagePath = "image/image/" . $id_produit . ".jpg";
+        $imagePath = "image/image/" . $id_produit . "/0.jpg";
     } else {
         // Redirection vers une page d'erreur si le produit n'existe pas
         header('Location: erreur.php');

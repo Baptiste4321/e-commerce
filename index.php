@@ -23,9 +23,9 @@ include "includes/header.php"
     <section id="banderole">
         <div id="block-image">
 
-            <img class="slideimage fade mySlides" src="image/Photoacceuil5.jpg" alt="">
-            <img class="slideimage fade mySlides" src="image/Photoacceuil4.jpg" alt="">
-            <img class="slideimage fade mySlides" src="image/Photoacceuil2.jpg" alt="">
+            <img class="slideimage fade mySlides" src="image/image/0/1.jpg" alt="">
+            <img class="slideimage fade mySlides" src="image/image/0/2.jpg" alt="">
+            <img class="slideimage fade mySlides" src="image/image/0/3.jpg" alt="">
         </div>
         <div id="Slogan">
             Style et confort, à portée de clic avec StoreHack !

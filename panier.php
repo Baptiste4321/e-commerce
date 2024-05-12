@@ -128,6 +128,16 @@ $valeurlieu = $action5->fetch(PDO::FETCH_ASSOC);
                 $action2->execute();
 
 
+                $moinsdeproduit = "UPDATE Taille_produit
+                SET Stock_disponible = Stock_disponible - :quantite
+                WHERE ID_produit = :ID_produit;"; 
+
+                $action7 = $pdo->prepare($moinsdeproduit);
+                $action7->bindParam(':quantite', $listeP['Quantite'], PDO::PARAM_INT);
+                $action7->bindParam(':ID_produit', $listeP['ID_produit'], PDO::PARAM_INT);
+                $action7->execute();
+
+
         }
 
 
@@ -139,11 +149,16 @@ $valeurlieu = $action5->fetch(PDO::FETCH_ASSOC);
         $action3->execute();
 
 
+           
+
 
             
 
 
-            header('Location: panier.php');
+        
+        
+        
+        header('Location: panier.php');
 
 
 
@@ -181,7 +196,6 @@ $valeurlieu = $action5->fetch(PDO::FETCH_ASSOC);
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["suprtache"])) {
 
     $byeproduit = $_POST["suprtache"];
-    echo $byeproduit;
 
     $produit_dans_panier_query = "DELETE FROM `produit_dans_panier` WHERE `ID_produit_dans_panier`=:byeproduit"; 
 
@@ -260,8 +274,8 @@ include "includes/header.php"
 
    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-       $imagePath = "image/image/" . $row["ID_produit"] . ".jpg";
- 
+       $imagePath = "image/image/" . $row["ID_produit"] . "/0.jpg";
+    
        
       
 
@@ -274,7 +288,7 @@ include "includes/header.php"
         <div class="liste_article">
                     <div class="article">
                         <div class="image">
-                            <img src="<?php echo $imagePath; ?>" class="dans_le_block_noir" alt="">
+                        <a href="description.php?id=<?php echo $row['ID_produit'];?>"><img src="<?php echo $imagePath; ?>" class="dans_le_block_noir" alt=""></a>
 
                         </div>
                         <div class="info_article">
@@ -283,10 +297,10 @@ include "includes/header.php"
                                     <td ><?php echo $row["Nom"]; ?></td>
                                     <td ><?php echo $row["Prix"]; ?>€</td>
                                 </tr>
-                                <tr class="td_descritpion">
+                                <!-- <tr class="td_descritpion">
                                     <td class="sous_texte"><p><?php echo $row["Description"]; ?></p></td>
 
-                                </tr>
+                                </tr> -->
 
                                 <tr class="td_descritpion">
                                     <td class="sous_texte">
@@ -385,8 +399,8 @@ include "includes/header.php"
                                     <td class="td_descritpion">
                                         <form action="#" method="post">
                                             <input type="hidden" value="<?php echo $row["ID_produit_dans_panier"]; ?>" name="suprtache">
-                                            <button type="submit"><img src="assets/icon/delete.png" alt=""></button>
-                                            <a href=""><img src="assets/icon/coeur sur toi.png" alt=""></a></td>
+                                            <button class="boutonsupr"  type="submit"><img src="assets/icon/delete.png" alt=""></button>
+                                            </td>
                                         </form>
                                        
                                    
@@ -502,7 +516,7 @@ $_SESSION["totalPrix"] = $totalPrix;
                     $i = $produit['ID_produit'];
                     echo '<button class="element-carroussel">';
                     echo '<div class="img-element-carroussel">';
-                    echo "<a href='$redirection'><img class='img_carrousell' src='image/image/$i.jpg' alt='Image $i'></a>";
+                    echo "<a href='$redirection'><img class='img_carrousell' src='image/image/$i/0.jpg' alt='Image $i'></a>";
                     echo '</div>';
                     echo '<div class="text-element-carroussel">';
                     echo '<a  href='. $redirection .'>' . $produit['Nom'] . '</a>';
@@ -520,6 +534,7 @@ $_SESSION["totalPrix"] = $totalPrix;
             </div>
         </div>
     </section>
+    
 </main>
 
 <?php

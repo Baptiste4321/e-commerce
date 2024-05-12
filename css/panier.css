@@ -353,3 +353,16 @@ select {
         height: 100%;
 
     }
+
+    .boutonsupr{
+        border: none;
+        background-color: white;
+    }
+    .boutonsupr:hover{
+        
+        transition: 0.2s;
+        background-color: rgb(228, 222, 222);
+        
+    }
+
+    
