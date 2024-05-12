@@ -90,3 +90,25 @@
             background-color: #f0f0f0;
         }
 
+        #content-hist{
+            background-color: rgb(255, 255, 255);
+            min-height: 60vh;
+            display: flex;
+            justify-content: center; /* Center items horizontally */
+            align-items: flex-start; /* Align items to the start (top) of the container */
+            padding: 50px;
+        }
+
+        #liste-hist{
+            background-color: rgb(255, 255, 255);
+
+            min-height: 60vh;
+            width: 60vw;
+            margin-right: 20px; /* Add some space between the two divs */
+            font-family: 'Tauri', sans-serif;
+        }
+
+        #text-hist{
+            width: 100%;
+            padding: 20px;
+        }

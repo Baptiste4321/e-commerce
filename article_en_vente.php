@@ -47,7 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["supprimer_produit"])) 
     <link rel="stylesheet" href="css/nav-bar.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
-    <link rel="stylesheet" href="css/carroussel.css">
     <link rel="stylesheet" href="css/utilisateur.css">
 </head>
 <body>
@@ -57,9 +56,9 @@ include "includes/header.php";
 ?>
 
 <main>
-    <section id="contenu">
-        <div id="liste">
-            <div id="textpanier1">
+    <section id="content-hist">
+        <div id="liste-hist">
+            <div id="text-hist">
                 <p style="font-size: 2.3rem;">Vos articles</p>
                 <hr>
             </div>
