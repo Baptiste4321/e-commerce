@@ -14,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Mail = $_SESSION['Mail'];
     $Prenom = $_SESSION['Prenom'];
 
-    echo $Prenom;
 
 
     $recupPid = "SELECT ID_panier FROM Panier WHERE Mail = '$Mail'";
@@ -26,8 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $panierid = $row["ID_panier"];
 
-    echo $panierid;
-
+    
 }
 
 
@@ -212,11 +210,11 @@ if(isset($_GET['id'])) {
            
        
        
-           $mabite = "SELECT t.Stock_disponible
+           $stockdispo = "SELECT t.Stock_disponible
            FROM Produit p
            JOIN Taille_produit t ON p.ID_produit = t.ID_produit
            WHERE p.ID_produit = :id_produit AND t.Taille = :Taille";
-           $go = $pdo->prepare($mabite);
+           $go = $pdo->prepare($stockdispo);
            $go->bindParam(':id_produit', $id_produit, PDO::PARAM_INT);
 
            $go->bindParam(':Taille', $Taille, PDO::PARAM_STR);
@@ -241,15 +239,7 @@ if(isset($_GET['id'])) {
            for ($i = 1; $i <= $qt["Stock_disponible"] ; $i++) {
                echo "<option value=\"$i\">$i</option>";            }
            ?>
-
-       
-        
-                            
             
-            
-            
-  
-             
         </select>
         <h2>Caractéristiques :</h2>
         <ul>
