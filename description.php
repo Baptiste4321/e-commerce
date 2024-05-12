@@ -122,7 +122,7 @@ if(isset($_GET['id'])) {
         $caracteristiques = explode(',', $produit['Description']); // Si les caractéristiques sont stockées sous forme de chaîne séparée par des virgules
 
         // Définition du chemin de l'image
-        $imagePath = "image/image/" . $id_produit . ".jpg";
+        $imagePath = "image/image/" . $id_produit . "/0.jpg";
     } else {
         // Redirection vers une page d'erreur si le produit n'existe pas
         header('Location: erreur.php');

@@ -10,7 +10,7 @@
 </head>
 <header>
     <a href="index.php">
-        <img class="logo" src="assets/aigle2.png" >
+        <img class="logo" src="assets/logo_aigle.png" >
     </a>
 </header>
 <body>

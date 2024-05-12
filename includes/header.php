@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar">
         <!--<a href="#" class="logo"><img src="/assets/aigle.png" id="logo"></a>-->
-        <a href="index.php" class="logo"><img src="assets/aigle2.png" id="logo" alt=""></a>
+        <a href="index.php" class="logo"><img src="assets/logo_aigle.png" id="logo" alt=""></a>
         <div class="nav-links">
             <ul class="standard-ul ma-liste">
                 <li class="deroulant nav-li marge-li"><a href="#" id="cat">Catégories</a>
