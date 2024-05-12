@@ -277,7 +277,7 @@ include "includes/header.php"
         <div class="liste_article">
                     <div class="article">
                         <div class="image">
-                            <img src="<?php echo $imagePath; ?>" class="dans_le_block_noir" alt="">
+                        <a href="description.php?id=<?php echo $row['ID_produit'];?>"><img src="<?php echo $imagePath; ?>" class="dans_le_block_noir" alt=""></a>
 
                         </div>
                         <div class="info_article">
@@ -505,7 +505,7 @@ $_SESSION["totalPrix"] = $totalPrix;
                     $i = $produit['ID_produit'];
                     echo '<button class="element-carroussel">';
                     echo '<div class="img-element-carroussel">';
-                    echo "<a href='$redirection'><img class='img_carrousell' src='image/image/$i.jpg' alt='Image $i'></a>";
+                    echo "<a href='$redirection'><img class='img_carrousell' src='image/image/$i/0.jpg' alt='Image $i'></a>";
                     echo '</div>';
                     echo '<div class="text-element-carroussel">';
                     echo '<a  href='. $redirection .'>' . $produit['Nom'] . '</a>';
@@ -523,6 +523,7 @@ $_SESSION["totalPrix"] = $totalPrix;
             </div>
         </div>
     </section>
+    
 </main>
 
 <?php
