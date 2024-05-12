@@ -24,6 +24,15 @@ $chaine = isset($_GET['mot_recherche']) ? $_GET['mot_recherche'] : '';
 //separer les mots
 $mots = explode(" ", $chaine);
 
+// Mots à supprimer
+$mots_a_supprimer = array("de", "pour", "un", "une", "les", "la", "le", "dans", "l", "a", "au", "en");
+
+// Supprimer les mots spécifiés
+$mots = array_diff($mots, $mots_a_supprimer);
+
+// Si vous voulez réindexer les éléments du tableau après la suppression des mots
+$mots = array_values($mots);
+
 $resultats = [];
 $resultat_temp = []; // Initialiser les tableau pour stocker les résultats
 
