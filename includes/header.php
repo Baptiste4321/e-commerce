@@ -11,11 +11,11 @@
                                 <a href="recherche.php?mot_recherche=<?= urlencode('homme') ?>">Homme</a>
                                 <div class="menu-deroulant-1">
                                     <ul>
-                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('homme veste') ?>">Veste</a></li>
-                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('homme pull') ?>">Pull</a></li>
-                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('homme t-shirt') ?>">T-shirt</a></li>
-                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('homme pantalon') ?>">Pantalon</a></li>
-                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('homme chaussure') ?>">Chaussure</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('homme unisex veste') ?>">Veste</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('homme unisex pull') ?>">Pull</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('homme unisex t-shirt') ?>">T-shirt</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('homme unisex pantalon') ?>">Pantalon</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('homme unisex chaussure') ?>">Chaussure</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -23,11 +23,11 @@
                                 <a href="recherche.php?mot_recherche=<?= urlencode('femme') ?>">Femme</a>
                                 <div class="menu-deroulant-1">
                                     <ul>
-                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('femme pull') ?>">Pull</a></li>
-                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('femme t-shirt') ?>">T-shirt</a></li>
-                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('femme robe') ?>">Robe</a></li>
-                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('femme pantalon') ?>">Pantalon</a></li>
-                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('femme chaussure') ?>">Chaussure</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('femme unisex pull') ?>">Pull</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('femme unisex t-shirt') ?>">T-shirt</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('femme unisex robe') ?>">Robe</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('femme unisex pantalon') ?>">Pantalon</a></li>
+                                        <li><a href="recherche.php?mot_recherche=<?= urlencode('femme unisex chaussure') ?>">Chaussure</a></li>
                                     </ul>
                                 </div>
                             </li>

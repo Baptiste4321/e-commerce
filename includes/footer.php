@@ -25,17 +25,17 @@
                 <tr>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Trouver un Magasin</a></td>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Statut de la commande</a></td>
-                    <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Homme</a></td>
+                    <td class="aled tdpournavbarre"><a class="liensfooter" href="recherche.php?mot_recherche=<?= urlencode('homme unisex') ?>">Homme</a></td>
                 </tr>
                 <tr>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Réduction Pour les étudians</a></td>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Nous Contacter</a></td>
-                    <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Femme</a></td>
+                    <td class="aled tdpournavbarre"><a class="liensfooter" href="recherche.php?mot_recherche=<?= urlencode('femme unisex') ?>">Femme</a></td>
                 </tr>
                 <tr>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Commentaire</a></td>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">avis</a></td>
-                    <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Enfant</a></td>
+                    <td class="aled tdpournavbarre"><a class="liensfooter" href="recherche.php?mot_recherche=<?= urlencode('enfant') ?>">Enfant</a></td>
                 </tr>
                 <tr>
                     <td class="aled tdpournavbarre"><a class="liensfooter" href=" ">Code Promo</a></td>
