@@ -52,13 +52,13 @@ foreach ($mots as $mot) {
     if($mot=="Home" or $mot=="omme" or $mot=="ome" or $mot=="aume" or $mot=="haume" or $mot=="haumme" or $mot=="man"){
         $mot="Homme";
     }
-    if($mot=="anfant" or $mot=="anfent" or $mot=="enphant" or $mot=="enphent" or $mot=="enffant" or $mot=="child" or $mot=="children"){
+    if($mot=="anfant" or $mot=="anfent" or $mot=="enphant" or $mot=="enphent" or $mot=="enffant" or $mot=="child" or $mot=="children" or $mot=="garcon" or $mot=="fille"){
         $mot="enfant";
     }
 
 
     // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
-    $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE Nom LIKE :mot_recherche OR Description LIKE :mot_recherche";
+    $sql = "SELECT ID_produit, Nom, Description, Prix, Mail, Sexe FROM Produit WHERE Nom LIKE :mot_recherche OR Description LIKE :mot_recherche OR Mail LIKE :mot_recherche OR Sexe LIKE :mot_recherche";
 
     // Préparer la requête SQL
     $stmt = $pdo->prepare($sql);
