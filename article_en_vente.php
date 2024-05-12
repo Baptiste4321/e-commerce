@@ -1,43 +1,126 @@
-<?php session_start(); ?>
+<?php
+session_start();
+include 'php/login.php';
+
+if (!isset($_SESSION['Mail'])) {
+    header('Location: connexion.php');
+    exit();
+}
+
+$Mail = $_SESSION['Mail'];
+$Prenom = $_SESSION['Prenom'];
+
+// Vérifie si l'utilisateur est admin
+if ($_SESSION['Type_utilisateur'] !== 'admin') {
+    header('Location: connexion.php');
+    exit();
+}
+
+?>
+
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["supprimer_produit"])) {
+    $id_produit = $_POST["supprimer_produit"];
+
+    $produit_dans_panier_query = "DELETE FROM Taille_produit WHERE ID_produit = :id_produit;
+                                  DELETE FROM Produit WHERE ID_produit = :id_produit;";
+
+    $stmt = $pdo->prepare($produit_dans_panier_query);
+    $stmt->bindParam(':id_produit', $id_produit);
+    $stmt->execute();
+    header('Location: article_en_vente.php');
+    exit();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar</title>
-    <link rel="stylesheet" href="css/style1.css">
+    <title>Historique Admin</title>
+    <link rel="stylesheet" href="css/panier.css">
     <link rel="stylesheet" href="css/nav-bar.css">
-    <link rel="stylesheet" href="css/carroussel.css">
-    <!--<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/carroussel.css">
     <link rel="stylesheet" href="css/utilisateur.css">
 </head>
 <body>
 
 <?php
-include "includes/header.php"
+include "includes/header.php";
 ?>
 
 <main>
-    <div class="container-hist">
-        <h1>Vos articles</h1>
-        <br><br><br><br><br><br>
-        <div class="button-hist">
-            <a href="ajouter.php"><i class="fas fa-add"></i> Ajouter des articles</a>
+    <section id="contenu">
+        <div id="liste">
+            <div id="textpanier1">
+                <p style="font-size: 2.3rem;">Vos articles</p>
+                <hr>
+            </div>
+            <p id="Séléction"></p>
+
+            <?php
+            $produits_admin_query = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE Mail = :Mail";
+
+            $stmt = $pdo->prepare($produits_admin_query);
+            $stmt->bindParam(':Mail', $Mail);
+            $stmt->execute();
+
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $imagePath = "image/image/" . $row["ID_produit"] . ".jpg";
+                ?>
+
+                <!-- Affichage des produits ajoutés par l'admin -->
+                <div class="liste_article">
+                    <div class="article">
+                        <div class="image">
+                            <img src="<?php echo $imagePath; ?>" class="dans_le_block_noir" alt="">
+
+                        </div>
+                        <div class="info_article">
+                            <table class="table">
+                                <tr class="td_descritpion">
+                                    <td><?php echo $row["Nom"]; ?></td>
+                                    <td><?php echo $row["Prix"]; ?>€</td>
+                                </tr>
+                                <tr class="td_descritpion">
+                                    <td class="sous_texte"><?php echo $row["Description"]; ?></td>
+                                </tr>
+                                <tr class="td_descritpion">
+                                    <td>
+                                        <!-- Formulaire pour supprimer un produit -->
+                                        <form action="#" method="post">
+                                            <input type="hidden" value="<?php echo $row["ID_produit"]; ?>" name="supprimer_produit">
+                                            <button type="submit"><img src="assets/icon/delete.png" alt=""></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <?php
+            }
+            ?>
         </div>
-        <br><br><br><br><br><br><br>
+    </section>
+    <div class="button-hist">
+        <a href="ajouter.php"><i class="fas fa-add"></i> Ajouter des articles</a>
     </div>
+
 </main>
 
 <?php
-include "includes/footer.php"
+include "includes/footer.php";
 ?>
-
+<script src="javascript/nav-bar.js"></script>
+<script src="javascript/carroussel.js"></script>
 </body>
-<script src="javascript/nav-bar.js" ></script>
-<script src="javascript/script1.js" ></script>
-<script src="javascript/recherche.js" ></script>
-<script src="javascript/carroussel.js" defer></script>
 </html>

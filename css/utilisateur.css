@@ -64,17 +64,11 @@
 
         /*PL*/
 
-        .container-hist {
-            width: 60%;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 5px;
-            margin-top: 50px;
-        }
 
         /* Styles pour le bouton de soumission */
         .button-hist {
+            width: 60%;
+            margin: 0 0 5% 20%;
             padding: 10px 15px;
             background-color: white;
             color: black;
