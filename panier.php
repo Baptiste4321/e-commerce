@@ -185,7 +185,6 @@ $valeurlieu = $action5->fetch(PDO::FETCH_ASSOC);
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["suprtache"])) {
 
     $byeproduit = $_POST["suprtache"];
-    echo $byeproduit;
 
     $produit_dans_panier_query = "DELETE FROM `produit_dans_panier` WHERE `ID_produit_dans_panier`=:byeproduit"; 
 
