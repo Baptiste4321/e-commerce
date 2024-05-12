@@ -7,8 +7,9 @@
 }
 
 .product-image img {
-    height: 80vh;
-    width: auto;
+    max-width: 35vw;
+    max-height: 73vh;
+
     position: relative;
     margin: 20px;
 }
