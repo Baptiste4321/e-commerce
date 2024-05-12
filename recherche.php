@@ -103,7 +103,7 @@ $resultats = array_unique($resultats, SORT_REGULAR);
             $redirection= "personnaliser.php?id=" . $produit['ID_produit'];
         }
         echo '<div class="image-container">';
-        echo '<a href='. $redirection .'><img src="image/image/' . $produit['ID_produit'] . '.jpg" alt="' . $produit['Nom'] . '"></a>';
+        echo '<a href='. $redirection .'><img src="image/image/' . $produit['ID_produit'] . '/0.jpg" alt="' . $produit['Nom'] . '"></a>';
         echo '<div>Prix : €' . number_format($produit['Prix'], 2) . '</div>';
         echo '<a href='. $redirection .'>' . $produit['Nom'] . '</a>';
         echo '</div>';
