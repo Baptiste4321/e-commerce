@@ -105,7 +105,7 @@ include "includes/header.php"
                     $i = $produit['ID_produit'];
                     echo '<button class="element-carroussel">';
                     echo '<div class="img-element-carroussel">';
-                    echo "<a href='$redirection'><img class='img_carrousell' src='image/image/$i.jpg' alt='Image $i'></a>";
+                    echo "<a href='$redirection'><img class='img_carrousell' src='image/image/$i/0.jpg' alt='Image $i'></a>";
                     echo '</div>';
                     echo '<div class="text-element-carroussel">';
                     echo '<a  href='. $redirection .'>' . $produit['Nom'] . '</a>';
@@ -164,7 +164,7 @@ include "includes/header.php"
                     $i = $produit['ID_produit'];
                     echo '<button class="element-carroussel">';
                     echo '<div class="img-element-carroussel">';
-                    echo "<a href='$redirection'><img class='img_carrousell' src='image/image/$i.jpg' alt='Image $i'></a>";
+                    echo "<a href='$redirection'><img class='img_carrousell' src='image/image/$i/0.jpg' alt='Image $i'></a>";
                     echo '</div>';
                     echo '<div class="text-element-carroussel">';
                     echo '<a  href='. $redirection .'>' . $produit['Nom'] . '</a>';
