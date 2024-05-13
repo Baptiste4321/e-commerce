@@ -1,8 +1,6 @@
-INSERT into Utilisateur (Mail, Hash_mdp, Type_utilisateur, Date_de_naissance, Nom, Prenom)
-VALUES ('client@example.com', 'smdfgsdfg', "client", '2000-01-01', 'Michelle', 'trou');
-
-INSERT into Utilisateur (Mail, Hash_mdp, Type_utilisateur, Date_de_naissance, Nom, Prenom)
-VALUES ('admin@example.com', 'dddz', "admin", '2000-01-01', 'Bernard', 'Malin');
+INSERT into Utilisateur (Mail, Hash_mdp, Type_utilisateur, Date_de_naissance, Nom, Prenom)VALUES
+    ('admin@example.com', '$2y$10$lfjwOv8BeD98hu0dXJWjE.snDCTgotxd.gTjBWJyNXOFCcZnk3h5u', "admin", '2000-01-01', 'admin', 'admin')
+    ('baptiste.chesnot@gmail.com', '$2y$10$lfjwOv8BeD98hu0dXJWjE.snDCTgotxd.gTjBWJyNXOFCcZnk3h5u', "client", '2003-03-03', 'Baptiste', 'Chesnot');
 
 
 
@@ -44,22 +42,3 @@ VALUES ('admin@example.com', 'dddz', "admin", '2000-01-01', 'Bernard', 'Malin');
   ('Robe blanche style nuisette pour femme', "Cette robe blanche au style nuisette pour femme est à la fois sexy et élégante. Son design épuré et fluide met en valeur votre silhouette, tandis que sa couleur blanche intemporelle lui confère une touche de sophistication. Parfaite pour une soirée spéciale ou une occasion formelle, cette robe est un choix sûr pour un look à la fois tendance et glamour.", 129.99, 'Oui', 'Femme', '2', 'admin@example.com'),
   ('Robe violette sexy pour femme', "Cette robe violette sexy pour femme est parfaite pour faire tourner les têtes lors de vos soirées spéciales. Son design audacieux et sensuel met en valeur votre silhouette, tandis que sa couleur violette vibrante lui confère une touche de glamour. Fabriquée dans un tissu stretch confortable, elle épouse vos courbes pour un look à la fois sexy et élégant. Que ce soit pour une soirée en amoureux ou une sortie entre amies, cette robe est un choix sûr pour un style irrésistible.", 149.99, 'Oui', 'Femme', '1', 'admin@example.com'),
   ('T-shirt sexy pour femme', "Ce t-shirt sexy pour femme est le parfait mélange entre confort et style. Fabriqué dans un tissu doux et extensible, il offre une coupe ajustée qui met en valeur votre silhouette. Son design audacieux et sensuel est parfait pour ajouter une touche de glamour à votre tenue, que ce soit avec un jean décontracté ou une jupe élégante. Disponible dans une variété de couleurs tendance, ce t-shirt est un choix sûr pour un look sexy et sophistiqué.", 49.99, 'Oui', 'Femme', '1', 'admin@example.com');
-  
-  
-
-INSERT INTO Utilisateur (Mail, Hash_mdp, Type_utilisateur, Date_de_naissance, Nom, Prenom) 
-VALUES
-    ('baptiste.chesnot@gmail.com', '1234', 'client', '1990-01-01', 'Chesnot', 'Baptiste'),
-    ('utilisateur2@example.com', 'hash2', 'client', '1991-02-02', 'Smith', 'Alice'),
-    ('utilisateur3@example.com', 'hash3', 'client', '1992-03-03', 'Johnson', 'Bob'),
-    ('utilisateur4@example.com', 'hash4', 'client', '1993-04-04', 'Brown', 'Emily'),
-    ('utilisateur5@example.com', 'hash5', 'client', '1994-05-05', 'Wilson', 'Mike'),
-    ('utilisateur6@example.com', 'hash6', 'client', '1995-06-06', 'Taylor', 'Sarah'),
-    ('utilisateur7@example.com', 'hash7', 'client', '1996-07-07', 'Anderson', 'Laura'),
-    ('utilisateur8@example.com', 'hash8', 'client', '1997-08-08', 'Thomas', 'David'),
-    ('utilisateur9@example.com', 'hash9', 'client', '1998-09-09', 'Jackson', 'Jessica'),
-    ('utilisateur10@example.com', 'hash10', 'client', '1999-10-10', 'White', 'Chris');
-
-INSERT INTO Produit (Nom, Description, Prix, Promotion, Sexe, nb_image, Mail) VALUES
-                                                                                  ('T-shirt blanc', 'Un t-shirt blanc classique', 15.99, 'Non', 'Unisexe', '', 'baptiste.chesnot@gmail.com'),
-                                                                                  ('Jeans noir', 'Un jean noir tendance', 29.99, 'Oui', 'Homme', '', 'baptiste.chesnot@gmail.com');
