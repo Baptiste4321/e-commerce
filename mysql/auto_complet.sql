@@ -1,5 +1,5 @@
 INSERT into Utilisateur (Mail, Hash_mdp, Type_utilisateur, Date_de_naissance, Nom, Prenom)VALUES
-    ('admin@example.com', '$2y$10$lfjwOv8BeD98hu0dXJWjE.snDCTgotxd.gTjBWJyNXOFCcZnk3h5u', "admin", '2000-01-01', 'admin', 'admin')
+    ('admin@example.com', '$2y$10$lfjwOv8BeD98hu0dXJWjE.snDCTgotxd.gTjBWJyNXOFCcZnk3h5u', "admin", '2000-01-01', 'admin', 'admin'),
     ('baptiste.chesnot@gmail.com', '$2y$10$lfjwOv8BeD98hu0dXJWjE.snDCTgotxd.gTjBWJyNXOFCcZnk3h5u', "client", '2003-03-03', 'Baptiste', 'Chesnot');
 
 
