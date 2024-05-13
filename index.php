@@ -74,7 +74,7 @@ include "includes/header.php"
             include 'php/login.php';
 
             // Récupérer le mot de recherche depuis l'URL
-            $mot_recherche = 'femme';
+            $mot_recherche = '';
 
             // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
             $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE sexe LIKE :mot_recherche OR Description LIKE :mot_recherche LIMIT 10";
@@ -124,7 +124,7 @@ include "includes/header.php"
         </div>
     </section>
     <section id="PourVous">
-        <h2>Pour vous</h2>
+        <h2>Robe</h2>
         <br>
         <div class='carroussel'>
             <button id="av-carroussel" class="boutton-defilement material-symbols-rounded">chevron_left</button>
@@ -133,7 +133,7 @@ include "includes/header.php"
             include 'php/login.php';
 
             // Récupérer le mot de recherche depuis l'URL
-            $mot_recherche = 'homme';
+            $mot_recherche = 'robe';
 
             // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
             $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE sexe LIKE :mot_recherche OR Description LIKE :mot_recherche";
