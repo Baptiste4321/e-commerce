@@ -138,6 +138,7 @@ if(isset($_GET['id'])) {
 
         // Définition du chemin de l'image
         $imagePath = "image/image/" . $id_produit . "/0.jpg";
+        $nb_images = $produit['nb_image'];
     } else {
         // Redirection vers une page d'erreur si le produit n'existe pas
         header('Location: erreur.php');
@@ -189,11 +190,6 @@ if(isset($_GET['id'])) {
             $action->execute();
             $taille = $action->fetchAll(PDO::FETCH_ASSOC);
 
-
-
-
-
-
             $nbrtaille = count($taille);
 
                 for ($i = 0; $i < $nbrtaille ; $i++) {
@@ -218,13 +214,7 @@ if(isset($_GET['id'])) {
        
        if ($_SERVER["REQUEST_METHOD"] =="POST" && isset($_POST["taille"])) {
            $Taille = $_POST["taille"];
-           
-
            $id = $_GET['id'];
-
-           
-       
-       
            $stockdispo = "SELECT t.Stock_disponible
            FROM Produit p
            JOIN Taille_produit t ON p.ID_produit = t.ID_produit

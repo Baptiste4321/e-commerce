@@ -17,7 +17,7 @@
 .product-image2 {
     width: 45vh; /* Largeur fixe en pixels */
     height: 50vh;
-    background-image: url('../assets/t-shirt.png'); /* Image de t-shirt */
+    background-image: url('../image/image/1/t-shirt.png'); /* Image de t-shirt */
     background-size: cover;
     position: relative;
     margin: 20px;
