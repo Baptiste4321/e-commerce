@@ -57,6 +57,11 @@ include "includes/header.php";
 
 <main>
     <section id="content-hist">
+        <a href="ajouter.php">
+            <div class="button-hist">
+                <p><i class="fas fa-add"></i> Ajouter des articles</p>
+            </div>
+        </a>
         <div id="liste-hist">
             <div id="text-hist">
                 <p style="font-size: 2.3rem;">Vos articles</p>
@@ -110,11 +115,6 @@ include "includes/header.php";
             ?>
         </div>
     </section>
-    <a href="ajouter.php">
-        <div class="button-hist">
-            <p><i class="fas fa-add"></i> Ajouter des articles</p>
-        </div>
-    </a>
 </main>
 
 <?php
