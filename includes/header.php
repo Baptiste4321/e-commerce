@@ -64,9 +64,8 @@
                     if ($_SESSION['Type_utilisateur'] === "admin")
                     {
                         echo "
-                        <li class=\"nav-li marge-li \"><a href=\"panier.php\"><img class='icone' src=\"assets/icon/panier.png\" id=\"panier\" alt=\"\"></a></li>
-                        <li class=\"nav-li marge-li \"><a href=\"article_en_vente.php\"><img class='icone' src=\"assets/icon/coeur.png\" id=\"coeur\" alt=\"\"></a></li>
-                        <li class=\"nav-li marge-li \"><a href=\"admin.php\"><img class='icone' src=\"assets/icon/user.png\" id=\"user\" alt=\"\"></a></li>
+                        <li class=\"nav-li marge-li \"><a href=\"article_en_vente.php\"><img class='icone' src=\"assets/icon/add.png\" id=\"coeur\" alt=\"\"></a></li>
+                        <li class=\"nav-li marge-li \"><a href=\"admin.php\"><img class='icone' src=\"assets/icon/admin.png\" id=\"user\" alt=\"\"></a></li>
                         <li class=\"nav-li marge-li \"><a href=\"php/logout.php\"><img class='icone' src=\"assets/icon/logout.png\" id=\"user\" alt=\"\"></a></li>
                         "
                     ;}
