@@ -45,7 +45,7 @@ include "includes/header.php"
         </form>
     </div>
 </main>
-
+<script src="javascript/nav-bar.js"></script>
 <?php
 include "includes/footer.php"
 ?>
