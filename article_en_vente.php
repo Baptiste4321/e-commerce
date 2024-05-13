@@ -110,10 +110,11 @@ include "includes/header.php";
             ?>
         </div>
     </section>
-    <div class="button-hist">
-        <a href="ajouter.php"><i class="fas fa-add"></i> Ajouter des articles</a>
-    </div>
-
+    <a href="ajouter.php">
+        <div class="button-hist">
+            <p><i class="fas fa-add"></i> Ajouter des articles</p>
+        </div>
+    </a>
 </main>
 
 <?php
