@@ -4,6 +4,23 @@ session_start();
 // Inclusion du fichier de connexion à la base de données
 include('login.php');
 
+// ajout de PL si beug supprimer
+
+if (!isset($_SESSION['Mail'])) {
+    header('Location: connexion.php');
+    exit();
+}
+
+$Mail = $_SESSION['Mail'];
+
+if ($_SESSION['Type_utilisateur'] !== 'admin') {
+    header('Location: connexion.php');
+    exit();
+}
+
+//Fin de l'ajout PL
+
+
 // Vérification si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupération des données du formulaire
@@ -14,11 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $images = $_FILES['image']; // Récupération des fichiers
 
     // Requête d'insertion dans la table "produit"
-    $query_produit = "INSERT INTO produit (Nom, Prix, Description) VALUES (:nom, :prix, :description)";
+    $query_produit = "INSERT INTO produit (Nom, Prix, Description, Mail) VALUES (:nom, :prix, :description, :Mail)";
     $stmt_produit = $pdo->prepare($query_produit);
     $stmt_produit->bindParam(':nom', $nom, PDO::PARAM_STR);
     $stmt_produit->bindParam(':prix', $prix, PDO::PARAM_STR);
     $stmt_produit->bindParam(':description', $description, PDO::PARAM_STR);
+    $stmt_produit->bindParam(':Mail', $Mail, PDO::PARAM_STR);
 
     // Exécution de la requête d'insertion dans la table "produit"
     if ($stmt_produit->execute()) {
