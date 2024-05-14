@@ -146,6 +146,7 @@ if(isset($_GET['id'])) {
         // Définition des informations du produit
         $nom_produit = $produit['Nom'];
         $prix_produit = $produit['Prix'];
+        $nb_image = $produit['nb_image'];
         $caracteristiques = explode(',', $produit['Description']); // Si les caractéristiques sont stockées sous forme de chaîne séparée par des virgules
 
         // Définition du chemin de l'image

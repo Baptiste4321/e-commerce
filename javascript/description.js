@@ -5,7 +5,7 @@ var imageElement = document.getElementById("add_img");
 var urlParams = new URLSearchParams(window.location.search);
 var idProduit = urlParams.get('id');
 var num_img = 0;
-var max_num_img = urlParams.get('nb_img');
+var max_num_img = 4;
 // Définition du chemin de l'image avec l'ID du produit
 var imagePath = "image/image/" + idProduit + "/" + num_img + ".jpg";
 
