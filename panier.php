@@ -67,7 +67,8 @@ $valeurlieu = $action5->fetch(PDO::FETCH_ASSOC);
             
 
         <?php
-                    header('Location: infos.php');
+            
+                    header('Location: panier.php');
 
     }
 
