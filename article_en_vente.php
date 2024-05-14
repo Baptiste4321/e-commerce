@@ -57,16 +57,15 @@ include "includes/header.php";
 
 <main>
     <section id="content-hist">
-        <a href="ajouter.php">
-            <div class="button-hist">
-                <p><i class="fas fa-add"></i> Ajouter des articles</p>
-            </div>
-        </a>
         <div id="liste-hist">
             <div id="text-hist">
                 <p style="font-size: 2.3rem;">Vos articles</p>
                 <hr>
             </div>
+            <a href="ajouter.php" class="button-hist">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 20 20"><path fill="black" d="M11 9h4v2h-4v4H9v-4H5V9h4V5h2zm-1 11a10 10 0 1 1 0-20a10 10 0 0 1 0 20m0-2a8 8 0 1 0 0-16a8 8 0 0 0 0 16"/></svg>
+            </a>
+
             <p id="Séléction"></p>
 
             <?php
@@ -77,7 +76,7 @@ include "includes/header.php";
             $stmt->execute();
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $imagePath = "image/image/" . $row["ID_produit"] . ".jpg";
+                $imagePath = "image/image/" . $row["ID_produit"] . "/0.jpg";
                 ?>
 
                 <!-- Affichage des produits ajoutés par l'admin -->
@@ -122,5 +121,7 @@ include "includes/footer.php";
 ?>
 <script src="javascript/nav-bar.js"></script>
 <script src="javascript/carroussel.js"></script>
+<script src="javascript/article_en_vente.js"></script>
+
 </body>
 </html>

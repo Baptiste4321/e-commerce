@@ -136,7 +136,7 @@ include "includes/header.php"
             $mot_recherche = 'homme';
 
             // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
-            $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE sexe LIKE :mot_recherche OR Description LIKE :mot_recherche";
+            $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE sexe LIKE :mot_recherche OR Description LIKE :mot_recherche LIMIT 10";
 
             // Préparer la requête SQL
             $stmt = $pdo->prepare($sql);
