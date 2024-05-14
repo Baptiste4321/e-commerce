@@ -58,7 +58,7 @@ foreach ($mots as $mot) {
 
 
     // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
-    $sql = "SELECT P.ID_produit, P.Nom, P.Description, P.Prix, P.Mail, P.Sexe, TP.Taille
+    $sql = "SELECT P.ID_produit, P.Nom, P.Description, P.Prix, P.Mail, P.Sexe
             FROM Produit AS P
             LEFT JOIN Taille_produit AS TP ON P.ID_produit = TP.ID_produit
             WHERE P.Nom LIKE :mot_recherche 
@@ -114,7 +114,7 @@ $resultats = array_unique($resultats, SORT_REGULAR);
     <?php
     // Parcourir les résultats et générer le contenu HTML pour chaque produit
     foreach ($resultats as $produit) {
-        $redirection = "description.php?id=" . $produit['ID_produit'] . "&taille=" . $produit['Taille'];
+        $redirection = "description.php?id=" . $produit['ID_produit'] . "&taille=" ;
         
         if($produit['ID_produit'] == 1){
             $redirection= "personnaliser.php?id=" . $produit['ID_produit'];

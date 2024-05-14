@@ -32,6 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
 }
 
+ 
+
+
+
+
+
+
+
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["ajouterproduit"] )) {
         error_reporting(0);
@@ -143,8 +151,10 @@ if(isset($_GET['id'])) {
         // Définition du chemin de l'image
         $imagePath = "image/image/" . $id_produit . "/0.jpg";
     } else {
-        // Redirection vers une page d'erreur si le produit n'existe pas
         header('Location: erreur.php');
+
+        // Redirection vers une page d'erreur si le produit n'existe pas
+        
         exit();
     }
 } else {
@@ -194,14 +204,17 @@ if(isset($_GET['id'])) {
 
             // Récupérer la valeur sélectionnée
             $selectedTaille = isset($_GET['taille']) ? $_GET['taille'] : '';
+
         ?>
 
         <form action="#" method="GET">
             <input type="hidden" name="id" value="<?php echo $produit['ID_produit']; ?>">
             <select name="taille" onchange="this.form.submit()">
+                <option selected value="Choisir">Choisir</option>
                 
                 <?php
                     for ($i = 0; $i < $nbrtaille; $i++) {
+                        
                         $isSelected = ($taille[$i]['Taille'] == $selectedTaille) ? 'selected' : '';
                         echo "<option value=\"{$taille[$i]['Taille']}\" $isSelected>{$taille[$i]['Taille']}</option>";
                     }

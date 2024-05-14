@@ -83,8 +83,7 @@ include "includes/header.php"
             }
             
             if (isset($row["ID_produit"])) {
-                $imagePath = "image/image/" . $row["ID_produit"] . ".jpg";
-    ?>
+                $imagePath = "image/image/" . $row["ID_produit"] . "/0.jpg";?>
 
             <!-- Article -->
             
