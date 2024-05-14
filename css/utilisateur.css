@@ -67,13 +67,14 @@
 
         /* Styles pour le bouton de soumission */
         .button-hist {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
+            background: #ffffff;
+            box-shadow:  25px 25px 50px #8f8f8f,
+            -25px -25px 50px #ffffff;
             border-color: black;
-            background-color: white; /* Couleur blanche */
             display: flex;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
             justify-content: center;
             align-items: center;
             text-decoration: none;
@@ -91,9 +92,9 @@
         }
 
         .button-hist:hover {
-            background-color: grey;
-            transform: rotate(180deg);
-            transition: transform 0.3s;
+            background-color: #e0e0e0;
+            /*transform: rotate(180deg);
+            transition: transform 0.3s;*/
         }
 
 
