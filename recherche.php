@@ -58,7 +58,14 @@ foreach ($mots as $mot) {
 
 
     // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
-    $sql = "SELECT ID_produit, Nom, Description, Prix, Mail, Sexe FROM Produit WHERE Nom LIKE :mot_recherche OR Description LIKE :mot_recherche OR Mail LIKE :mot_recherche OR Sexe LIKE :mot_recherche";
+    $sql = "SELECT P.ID_produit, P.Nom, P.Description, P.Prix, P.Mail, P.Sexe, TP.Taille
+            FROM Produit AS P
+            LEFT JOIN Taille_produit AS TP ON P.ID_produit = TP.ID_produit
+            WHERE P.Nom LIKE :mot_recherche 
+                OR P.Description LIKE :mot_recherche 
+                OR P.Mail LIKE :mot_recherche 
+                OR P.Sexe LIKE :mot_recherche;
+            ";
 
     // Préparer la requête SQL
     $stmt = $pdo->prepare($sql);
@@ -107,7 +114,8 @@ $resultats = array_unique($resultats, SORT_REGULAR);
     <?php
     // Parcourir les résultats et générer le contenu HTML pour chaque produit
     foreach ($resultats as $produit) {
-        $redirection= "description.php?id=" . $produit['ID_produit'];
+        $redirection = "description.php?id=" . $produit['ID_produit'] . "&taille=" . $produit['Taille'];
+        
         if($produit['ID_produit'] == 1){
             $redirection= "personnaliser.php?id=" . $produit['ID_produit'];
         }

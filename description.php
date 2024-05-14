@@ -1,9 +1,11 @@
 <?php
 
-
+    
 
      session_start();
      include 'php/login.php';
+    
+ 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!isset($_SESSION['Mail'])) {
@@ -38,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            
         
 
-        $Taille = $_SESSION["Type"];
+        $Taille = $_GET["taille"];
        
 
         $ajoutproduit = $_POST["ajouterproduit"];
@@ -129,6 +131,8 @@ if(isset($_GET['id'])) {
     // Récupération des données du produit
     $produit = $stmt->fetch(PDO::FETCH_ASSOC);
 
+   
+
     // Vérification si le produit existe
     if($produit) {
         // Définition des informations du produit
@@ -138,7 +142,6 @@ if(isset($_GET['id'])) {
 
         // Définition du chemin de l'image
         $imagePath = "image/image/" . $id_produit . "/0.jpg";
-        $nb_images = $produit['nb_image'];
     } else {
         // Redirection vers une page d'erreur si le produit n'existe pas
         header('Location: erreur.php');
@@ -174,30 +177,39 @@ if(isset($_GET['id'])) {
        
 
 
-        <form action="#" method="post" id="monFormulaire"> 
+        <form action="#" method="get"> 
         <label for="size">Taille :</label>
-        <select id="monSelect" name="taille" >
-            <option value="0" selected>Choisir</option>
+        
         <?php
-            
             $recupinfoproduit = "SELECT t.Taille
-            FROM Produit p
-            JOIN Taille_produit t ON p.ID_produit = t.ID_produit
-            WHERE p.ID_produit =:id_produit;";
+                                FROM Produit p
+                                JOIN Taille_produit t ON p.ID_produit = t.ID_produit
+                                WHERE p.ID_produit =:id_produit";
             $action = $pdo->prepare($recupinfoproduit);
             $action->bindParam(':id_produit', $id_produit, PDO::PARAM_INT);
-            
+
             $action->execute();
             $taille = $action->fetchAll(PDO::FETCH_ASSOC);
-
             $nbrtaille = count($taille);
 
-                for ($i = 0; $i < $nbrtaille ; $i++) {
-                    echo "<option value=\"{$taille[$i]['Taille']}\">{$taille[$i]['Taille']}</option>";            }
-                ?>
-            
-        </select>
+            // Récupérer la valeur sélectionnée
+            $selectedTaille = isset($_GET['taille']) ? $_GET['taille'] : '';
+        ?>
+
+        <form action="#" method="GET">
+            <input type="hidden" name="id" value="<?php echo $produit['ID_produit']; ?>">
+            <select name="taille" onchange="this.form.submit()">
+                
+                <?php
+                    for ($i = 0; $i < $nbrtaille; $i++) {
+                        $isSelected = ($taille[$i]['Taille'] == $selectedTaille) ? 'selected' : '';
+                        echo "<option value=\"{$taille[$i]['Taille']}\" $isSelected>{$taille[$i]['Taille']}</option>";
+                    }
+                   
+                ?> 
+            </select>
         </form>
+
      
 
 
@@ -211,10 +223,15 @@ if(isset($_GET['id'])) {
             
 
         <?php
+
+            
+              
+
+            $id = $_GET['id'];
+
+            
        
-       if ($_SERVER["REQUEST_METHOD"] =="POST" && isset($_POST["taille"])) {
-           $Taille = $_POST["taille"];
-           $id = $_GET['id'];
+       
            $stockdispo = "SELECT t.Stock_disponible
            FROM Produit p
            JOIN Taille_produit t ON p.ID_produit = t.ID_produit
@@ -222,7 +239,7 @@ if(isset($_GET['id'])) {
            $go = $pdo->prepare($stockdispo);
            $go->bindParam(':id_produit', $id_produit, PDO::PARAM_INT);
 
-           $go->bindParam(':Taille', $Taille, PDO::PARAM_STR);
+           $go->bindParam(':Taille', $_GET["taille"], PDO::PARAM_STR);
 
           
        
@@ -232,14 +249,14 @@ if(isset($_GET['id'])) {
            
            
            echo $qt["Stock_disponible"];
-           echo var_dump($Taille);
+          
 
            $_SESSION["Type"] = $Taille;
               
 
               
                
-           }
+           
            
            for ($i = 1; $i <= $qt["Stock_disponible"] ; $i++) {
                echo "<option value=\"$i\">$i</option>";            }
@@ -264,33 +281,13 @@ if(isset($_GET['id'])) {
 include "includes/footer.php"
 ?>
 
+
 <script>
-// Fonction pour sauvegarder l'état de l'option sélectionnée dans le stockage local
-function sauvegarderEtatSelect() {
-    var select = document.getElementById('monSelect');
-    var selectedValue = select.value;
-    localStorage.setItem('selectedValue', selectedValue);
-    }
-
-    // Fonction pour restaurer l'état de l'option sélectionnée depuis le stockage local
-    function restaurerEtatSelect() {
-    var selectedValue = localStorage.getItem('selectedValue');
-    if (selectedValue) {
-        var select = document.getElementById('monSelect');
-        select.value = selectedValue;
-    }
-    }
-
-    // Appel de la fonction pour restaurer l'état de l'option sélectionnée lorsque la page est chargée
-    document.addEventListener('DOMContentLoaded', restaurerEtatSelect);
-
-    // Ajout d'un écouteur d'événements pour sauvegarder l'état de l'option sélectionnée avant la soumission du formulaire
-    document.getElementById('monSelect').addEventListener('change', sauvegarderEtatSelect);
-
-
-
-    document.getElementById('monSelect').addEventListener('change', function() {
-    document.getElementById('monFormulaire').submit();
+    document.getElementById('tailleSelect').addEventListener('change', function() {
+        var choisirOption = document.getElementById('choisirOption');
+        if (choisirOption) {
+            choisirOption.style.display = 'none';
+        }
     });
 </script>
 
@@ -298,5 +295,3 @@ function sauvegarderEtatSelect() {
 <script src="/javascript/nav-bar.js"></script>
 <script src="/javascript/description.js"></script>
 </html>
-
-
