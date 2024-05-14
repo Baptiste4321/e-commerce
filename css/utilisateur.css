@@ -82,6 +82,7 @@
             right: 6%; /* Distance de 20 pixels depuis la droite */
             z-index: 1;
             cursor: pointer;
+
         }
 
         .button-hist a{
@@ -91,6 +92,8 @@
 
         .button-hist:hover {
             background-color: grey;
+            transform: rotate(180deg);
+            transition: transform 0.3s;
         }
 
 
