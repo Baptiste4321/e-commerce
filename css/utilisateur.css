@@ -65,7 +65,6 @@
 
         /*PL*/
 
-
         /* Styles pour le bouton de soumission */
         .button-hist {
             width: 60px;
@@ -73,16 +72,13 @@
             border-radius: 50%;
             border-color: black;
             background-color: white; /* Couleur blanche */
-            color: black; /* Couleur du texte */
             display: flex;
-            font-size: 18px; /* Taille de police plus grande */
-            font-weight: bold; /* Police en gras */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
             justify-content: center;
             align-items: center;
             text-decoration: none;
             position: fixed; /* Position fixe pour rester visible lors du défilement */
-            bottom: 25%; /* Distance de 20 pixels depuis le bas */
+            bottom: 65%; /* Distance de 20 pixels depuis le bas */
             right: 6%; /* Distance de 20 pixels depuis la droite */
             z-index: 1;
             cursor: pointer;
