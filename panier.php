@@ -485,10 +485,23 @@ $_SESSION["totalPrix"] = $totalPrix;
             include 'php/login.php';
 
             // Récupérer le mot de recherche depuis l'URL
-            $mot_recherche = 'femme';
+            $mot_recherche = '';
 
             // Préparer la requête SQL pour récupérer les produits correspondant au mot de recherche
-            $sql = "SELECT ID_produit, Nom, Description, Prix FROM Produit WHERE sexe LIKE :mot_recherche OR Description LIKE :mot_recherche LIMIT 10";
+            $sql = "SELECT 
+                    P.ID_produit, 
+                    P.Nom, 
+                    P.Description, 
+                    P.Prix, 
+                    TP.Taille
+                    FROM 
+                        Produit P
+                    JOIN 
+                        Taille_produit TP ON P.ID_produit = TP.ID_produit
+                    WHERE 
+                        P.Sexe LIKE :mot_recherche OR 
+                        P.Description LIKE :mot_recherche 
+                    LIMIT 10";
 
             // Préparer la requête SQL
             $stmt = $pdo->prepare($sql);
@@ -509,7 +522,8 @@ $_SESSION["totalPrix"] = $totalPrix;
                 <?php
                 // Boucle PHP pour générer les éléments du carrousel
                 foreach ($resultats as $produit) {
-                    $redirection= "description.php?id=" . $produit['ID_produit'];
+                    $redirection = "description.php?id=" . $produit['ID_produit'] . "&taille=" . $produit['Taille'];
+
                     if($produit['ID_produit'] == 1){
                         $redirection= "personnaliser.php?id=" . $produit['ID_produit'];
                     }

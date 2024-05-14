@@ -1,15 +1,3 @@
-<?php
-session_start();
-include('php/login.php');
-
-if (!isset($_SESSION['Mail'])) {
-    header('Location: connexion.php');
-    exit();
-}
-
-$Mail = $_SESSION['Mail'];
-$Prenom = $_SESSION['Prenom'];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,10 +13,7 @@ $Prenom = $_SESSION['Prenom'];
     <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
-
-<?php
-include "includes/header.php"
-?>
+<?php include "includes/header.php" ?>
 
 <main>
     <div class="container">
@@ -40,10 +25,7 @@ include "includes/header.php"
     </div>
 </main>
 
-<?php
-include "includes/footer.php"
-?>
-
+<?php include "includes/footer.php" ?>
 </body>
 <script src="javascript/nav-bar.js"></script>
 <script src="javascript/script1.js"></script>
