@@ -128,6 +128,3 @@ BEGIN
     INSERT INTO Taille_produit (ID_produit, Taille, Stock_disponible) VALUES (NEW.ID_produit, 'L', 10);
 END;
 //
-
-
-
